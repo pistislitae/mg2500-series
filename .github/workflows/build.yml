@@ -54,11 +54,18 @@ jobs:
           else
             echo "::error::ci-build-log.txt kosong/tidak ada di workspace"
           fi
+          # PENTING: safe.directory harus di-set LEBIH DULU. Job ini jalan sebagai
+          # root di container Fedora sementara workspace milik uid runner, jadi tanpa
+          # whitelist ini `git config user.*` di bawah gagal ("fatal: not in a git
+          # directory") dan commit lalu mati dengan "unable to auto-detect email
+          # address". Identitas juga ditulis --global agar tidak bergantung urutan.
+          git config --global --add safe.directory '*' || true
           # Identitas commit = pemilik repo, bukan bot, supaya daftar kontributor
           # GitHub menampilkan akun asli (pistislitae) dan bukan github-actions[bot].
+          git config --global user.name "pistislitae"
+          git config --global user.email "56380429+pistislitae@users.noreply.github.com"
           git config user.name "pistislitae"
           git config user.email "56380429+pistislitae@users.noreply.github.com"
-          git config --global --add safe.directory '*' || true
           # ci-build-log.txt ada di .gitignore (agar log lokal tak ikut ter-commit),
           # jadi di CI harus dipaksa dengan -f supaya benar-benar tersimpan ke repo.
           git add -f ci-build-log.txt
@@ -66,6 +73,7 @@ jobs:
             echo "::notice::log build tidak berubah, tidak ada commit baru"
           else
             git commit -m "ci: log build [skip ci]"
+            echo "::notice::commit log: $(git log -1 --format='%h %an <%ae> %s')"
           fi
           OUT1=$(git pull --rebase --autostash origin "$GITHUB_REF_NAME" 2>&1); echo "::notice::pull: ${OUT1:0:3000}"
           # Refspec penuh (HEAD:refs/heads/…) supaya push tetap benar meski HEAD

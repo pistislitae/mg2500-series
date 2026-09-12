@@ -176,11 +176,13 @@ jobs:
       - name: Commit hasil audit
         run: |
           cd "$GITHUB_WORKSPACE"
-          # Identitas commit = pemilik repo, bukan bot, supaya daftar kontributor
-          # GitHub menampilkan akun asli (pistislitae) dan bukan github-actions[bot].
+          # safe.directory dulu (lihat catatan di build.yml), lalu identitas pemilik
+          # repo — bukan bot — supaya kontributor GitHub menampilkan akun asli.
+          git config --global --add safe.directory '*' || true
+          git config --global user.name "pistislitae"
+          git config --global user.email "56380429+pistislitae@users.noreply.github.com"
           git config user.name "pistislitae"
           git config user.email "56380429+pistislitae@users.noreply.github.com"
-          git config --global --add safe.directory '*' || true
           git add docs/audit
           if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
           git commit -m "audit(dmg): ekstraksi penuh + audit mcpd-mac-mg2500-16_91_1_0-ea21_3.dmg [skip ci]"
