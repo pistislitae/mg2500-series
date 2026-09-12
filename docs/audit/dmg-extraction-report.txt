@@ -19,18 +19,18 @@ Compressed: 16127583
 Size:       56147456
 Compressed: 16153715
 total 54840
-drwxr-xr-x 2 runner runner     4096 Sep 12 04:44 .
-drwxr-xr-x 3 runner runner     4096 Sep 12 04:44 ..
+drwxr-xr-x 2 runner runner     4096 Sep 12 10:23 .
+drwxr-xr-x 3 runner runner     4096 Sep 12 10:23 ..
 -rw-r--r-- 1 runner runner 56147456 Apr 30 10:12 Payload~
 ## ekstrak Payload (pbzx/cpio/gz -> cpio)
 Payload~: ASCII cpio archive (pre-SVR4 or odc)
 == pkgs/pkg1 ==
 total 54848
-drwxr-xr-x 3 runner runner     4096 Sep 12 04:44 .
-drwxr-xr-x 3 runner runner     4096 Sep 12 04:44 ..
-drwxr-xr-x 4 runner runner     4096 Sep 12 04:44 Library
+drwxr-xr-x 3 runner runner     4096 Sep 12 10:23 .
+drwxr-xr-x 3 runner runner     4096 Sep 12 10:23 ..
+drwxr-xr-x 4 runner runner     4096 Sep 12 10:23 Library
 -rw-r--r-- 1 runner runner 56147456 Apr 30 10:12 Payload~
--rw-r--r-- 1 runner runner       14 Sep 12 04:44 pbzx.err
+-rw-r--r-- 1 runner runner       14 Sep 12 10:23 pbzx.err
 ## cari pkg bersarang (lapis 2)
 ## hasil akhir
 pkgs
