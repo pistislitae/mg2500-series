@@ -1,0 +1,196 @@
+name: audit-dmg
+
+# Unduh DMG driver Mac Canon MG2500, ekstrak, dan commit hasil audit (teks)
+# kembali ke branch ini agar bisa direview tanpa perlu unduh ulang.
+on:
+  push:
+    branches:
+      - "arena/**"
+      - main
+    paths:
+      - ".github/workflows/audit-dmg.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: audit-dmg
+  cancel-in-progress: true
+
+env:
+  DMG_URL: "https://gdlp01.c-wss.com/gds/6/0100011526/06/mcpd-mac-mg2500-16_91_1_0-ea21_3.dmg"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          token: ${{ github.token }}
+          fetch-depth: 0
+
+      - name: Install extraction tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq p7zip-full 7zip xar cpio file binutils || true
+          7z i | head -40 || true
+          7zz i | head -40 || true
+
+      - name: Download DMG
+        run: |
+          mkdir -p /tmp/audit && cd /tmp/audit
+          curl -fL --retry 3 -o mg2500-mac.dmg "$DMG_URL"
+          ls -la
+          sha256sum mg2500-mac.dmg | tee SHA256SUM.dmg
+
+      - name: Extract DMG (UDIF -> FS image contents)
+        continue-on-error: true
+        run: |
+          cd /tmp/audit
+          (7zz x -y -odmg_root mg2500-mac.dmg 2>&1 || 7z x -y -odmg_root mg2500-mac.dmg 2>&1) | tail -5
+          echo "== extracted root =="; find dmg_root -maxdepth 3 | head -60
+          # Jika 7z menghasilkan image mentah (hfs/apfs), coba ekstrak lagi
+          for img in $(find dmg_root -type f -size +10M 2>/dev/null); do
+            echo "== try nested: $img"
+            7zz x -y -o"nest_$(basename "$img")" "$img" 2>&1 | tail -3 || true
+          done
+          find . -maxdepth 4 | head -100
+
+      - name: Locate and extract .pkg payloads
+        continue-on-error: true
+        run: |
+          cd /tmp/audit
+          mkdir -p pkgs
+          find . -path ./pkgs -prune -o -type f \( -name '*.pkg' -o -name '*.mpkg' \) -print > pkglist.txt
+          cat pkglist.txt
+          i=0
+          while read -r p; do
+            i=$((i+1))
+            d="pkgs/pkg$i"
+            mkdir -p "$d"
+            (xar -xf "$p" -C "$d" 2>&1 || 7zz x -y -o"$d" "$p" 2>&1 || 7z x -y -o"$d" "$p" 2>&1) | tail -2
+          done < pkglist.txt
+          # Payload/Scripts: gzip cpio (atau pbzx)
+          find pkgs -type f \( -name Payload -o -name Scripts -o -name '*.cpio.gz' \) | while read -r pl; do
+            dir="$(dirname "$pl")"
+            (cd "$dir" && {
+              if head -c4 "$pl" | grep -q pbzx; then
+                python3 /tmp/audit/pbzx.py "$pl" > Payload.cpio.xz 2>/dev/null && xz -dc Payload.cpio.xz | cpio -idmu --no-absolute-filenames 2>/dev/null
+              else
+                zcat "$pl" 2>/dev/null | cpio -idmu --no-absolute-filenames 2>/dev/null || cat "$pl" | cpio -idmu --no-absolute-filenames 2>/dev/null
+              fi
+            } ) || true
+          done
+          echo "== payload contents =="
+          find pkgs -maxdepth 6 -type d | head -80
+
+      - name: Embed pbzx fallback extractor
+        run: |
+          cat > /tmp/audit/pbzx.py <<'EOF'
+          #!/usr/bin/env python3
+          # Minimal pbzx (pkg compressed payload) stream extractor
+          import sys, struct, subprocess
+          data = open(sys.argv[1], 'rb').read()
+          assert data[:4] == b'pbzx', 'not a pbzx file'
+          pos, out = 4, sys.stdout.buffer
+          while pos + 16 <= len(data):
+            magic = data[pos:pos+4]
+            if magic != b'pmzx':
+              # some pbzx have per-chunk xz without magic marker; break on garbage
+              out.write(subprocess.run(['xz','-dc'], input=data[pos:], capture_output=True).stdout)
+              break
+            length = struct.unpack('>Q', data[pos+4:pos+12])[0]
+            chunk = data[pos+12:pos+12+length]
+            out.write(subprocess.run(['xz','-dc'], input=chunk, capture_output=True).stdout)
+            pos += 12 + length
+          EOF
+          echo done
+
+      - name: Inventory (full file list with sizes)
+        run: |
+          cd /tmp/audit
+          OUT="$GITHUB_WORKSPACE/docs/audit/dmg"
+          mkdir -p "$OUT"
+          find /tmp/audit -type f -not -path '/tmp/audit/mg2500-mac.dmg' -printf '%10s  %p\n' | sort -k2 > "$OUT/filelist.txt"
+          wc -l "$OUT/filelist.txt"
+
+      - name: Dump plists (Info.plist / capability tables)
+        continue-on-error: true
+        run: |
+          cd /tmp/audit
+          OUT="$GITHUB_WORKSPACE/docs/audit/dmg/plists"
+          mkdir -p "$OUT"
+          python3 - <<'EOF'
+          import os, plistlib, hashlib, re
+          out_root = os.environ.get('PLIST_OUT', 'plists_out')
+          seen = {}
+          for root, _, files in os.walk('/tmp/audit'):
+            for fn in files:
+              p = os.path.join(root, fn)
+              if fn.endswith('.plist') or fn in ('Info.plist','version.plist') or re.search(r'(cap|profile|setting).*\.(plist|xml|dat|dict)$', fn, re.I):
+                try:
+                  data = open(p,'rb').read()
+                  pl = plistlib.loads(data)
+                  txt = plistlib.dumps(pl, fmt=plistlib.FMT_XML).decode()
+                  key = hashlib.sha1(p.encode()).hexdigest()[:10]
+                  dst = os.path.join(out_root, f"{fn.replace('/','_')}.{key}.txt")
+                  with open(dst,'w') as f:
+                    f.write(f"# source: {p}\n\n{txt}")
+                  seen[p]=len(txt)
+                except Exception as e:
+                  pass
+          print(f"converted {len(seen)} plists")
+          EOF
+
+      - name: Grep capability markers (media types, quality, realtone, raster)
+        run: |
+          cd /tmp/audit
+          OUT="$GITHUB_WORKSPACE/docs/audit/dmg"
+          for pat in realtone 'real.?tone' glossygold mediatype cnquality raster cupsfilter halftone dither 'icc' colormatch; do
+            echo "##### PATTERN: $pat" >> "$OUT/grep-hits.txt"
+            grep -rila --binary-files=text "$pat" . --exclude=mg2500-mac.dmg --exclude=pbzx.py 2>/dev/null | head -40 >> "$OUT/grep-hits.txt" || true
+            echo >> "$OUT/grep-hits.txt"
+          done
+          # Isi PPD mac bila ada
+          find /tmp/audit -type f \( -name '*.ppd' -o -name '*.ppd.gz' \) -exec sh -c 'echo "##### {}"; (zcat -f "{}" 2>/dev/null | head -400)' \; > "$OUT/ppds.txt" 2>/dev/null || true
+
+      - name: Strings of key binaries (filters/raster engines)
+        continue-on-error: true
+        run: |
+          cd /tmp/audit
+          OUT="$GITHUB_WORKSPACE/docs/audit/dmg"
+          find /tmp/audit -type f \( -perm -u+x -o -name '*.so' -o -name '*.dylib' \) -not -path '*/pkgs/*' > binlist.txt || true
+          for b in $(head -60 binlist.txt); do
+            t=$(file -b "$b" | head -c 60)
+            case "$t" in
+              *Mach-O*|*ELF*|*current\ ar*)
+                key=$(echo "$b" | sed 's#/tmp/audit/##; s#[/ ]#_#g' | cut -c1-80)
+                strings -n 8 "$b" | head -3000 > "$OUT/strings__${key}.txt" ;;
+            esac
+          done
+          du -sh "$OUT"
+
+      - name: Write raw summary
+        run: |
+          OUT="$GITHUB_WORKSPACE/docs/audit/dmg"
+          {
+            echo "# Raw audit output — mcpd-mac-mg2500-16_91_1_0-ea21_3.dmg"
+            echo "- Tanggal audit: $(date -u '+%Y-%m-%d %H:%M UTC')"
+            echo "- SHA256 DMG: $(cat /tmp/audit/SHA256SUM.dmg | cut -d' ' -f1)"
+            echo "- Jumlah file terekstrak: $(wc -l < "$OUT/filelist.txt")"
+            echo
+            echo "File: filelist.txt (daftar file + ukuran), plists/ (capability table & Info.plist), grep-hits.txt (marker), ppds.txt (PPD mac bila ada), strings__*.txt (teks binary)."
+          } > "$OUT/SUMMARY.md"
+          cat "$OUT/SUMMARY.md"
+
+      - name: Commit audit results
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          git config user.name "arena-ai-coding-agent[bot]"
+          git config user.email "arena-ai-coding-agent[bot]@users.noreply.github.com"
+          git add docs/audit
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "audit(dmg): hasil ekstraksi & audit mcpd-mac-mg2500-16_91_1_0-ea21_3.dmg [skip ci]"
+          git push origin HEAD
