@@ -1,0 +1,30 @@
+##### PATTERN: realtone
+
+##### PATTERN: real.?tone
+
+##### PATTERN: glossygold
+
+##### PATTERN: mediatype
+./pkgs/pkg1/Payload~
+
+##### PATTERN: cnquality
+
+##### PATTERN: raster
+./pkgs/pkg1/Payload~
+
+##### PATTERN: cupsfilter
+./pkgs/pkg1/Payload~
+
+##### PATTERN: halftone
+./pkgs/pkg1/Payload~
+
+##### PATTERN: dither
+./pkgs/pkg1/Payload~
+
+##### PATTERN: icc
+./pkgs/pkg1/Payload~
+./dmg_root/PrinterDriver_MG2500 series/PrinterDriver_MG2500 series_169101.pkg
+
+##### PATTERN: colormatch
+./pkgs/pkg1/Payload~
+
