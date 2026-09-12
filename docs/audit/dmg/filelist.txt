@@ -1,5 +1,2 @@
-        81  /tmp/audit/SHA256SUM.dmg
-  16153715  /tmp/audit/dmg_root/PrinterDriver_MG2500 series/PrinterDriver_MG2500 series_169101.pkg
-       673  /tmp/audit/pbzx.py
-        78  /tmp/audit/pkglist.txt
-  56147456  /tmp/audit/pkgs/pkg1/Payload~
+  16153715  dmg_root/PrinterDriver_MG2500 series/PrinterDriver_MG2500 series_169101.pkg
+  56147456  pkgs/pkg1/Payload~
