@@ -25,6 +25,7 @@ cleanup_fail() {
     git config user.email "arena-ai-coding-agent[bot]@users.noreply.github.com"
     git add ci-build-log.txt || return
     git commit -m "ci: log kegagalan build [skip ci]" || return
+    git pull --rebase origin "${GITHUB_REF_NAME:-arena/01a093b1-mg2500-series}" 2>/dev/null || true
     git push origin HEAD 2>/dev/null || \
       git push "https://x-access-token:${GITHUB_TOKEN:-}@github.com/${GITHUB_REPOSITORY:-pistislitae/mg2500-series}.git" HEAD || true
   fi
