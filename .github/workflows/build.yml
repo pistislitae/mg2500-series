@@ -39,16 +39,22 @@ jobs:
         if: always()
         shell: bash
         run: |
-          set -x
-          cd "$GITHUB_WORKSPACE"
-          LOG=/tmp/mg2500-build/build-full.log
-          [ -f "$LOG" ] && cp "$LOG" ci-build-log.txt
+          set +e
+          set +x
+          cd "$GITHUB_WORKSPACE" || true
+          if [ ! -s ci-build-log.txt ]; then
+            echo "::error::ci-build-log.txt kosong/tidak ada di workspace"
+            ls -la /tmp/mg2500-build 2>&1 | while IFS= read -r line; do echo "::error::${line:0:3800}"; done
+          fi
           git config user.name "arena-ai-coding-agent[bot]"
           git config user.email "arena-ai-coding-agent[bot]@users.noreply.github.com"
-          git add ci-build-log.txt || true
-          git commit -m "ci: log build [skip ci]" || true
-          git pull --rebase origin "$GITHUB_REF_NAME" || true
-          git push origin HEAD || git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD || true
+          git add ci-build-log.txt
+          git commit -m "ci: log build [skip ci]"
+          git pull --rebase --autostash origin "$GITHUB_REF_NAME"
+          git push origin HEAD
+          git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD
+          echo "::notice::save-log selesai"
+          exit 0
 
       - name: Annotasi log kegagalan
         if: failure()
