@@ -1,0 +1,712 @@
+## pkgs/pkg1/Library/Printers/Canon/BJPrinter/Plugins/CIJUtility/CIJUtilityCommand.bundle/Contents/MacOS/CIJUtilityCommand
+## Mach-O universal binary with 2 architectures: [x86_64:\012- Mach-O 64-bit x86_64 bundle, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL>] [\012- arm64:\012- Mach-O 64-bit arm64 bundle, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL>]
+__stub_helper
+__objc_methlist
+__objc_methname
+__cstring
+__objc_classname__TEXT
+__objc_methtype
+__unwind_info
+__DATA_CONST
+__DATA_CONST
+__cfstring
+__DATA_CONST
+__objc_classlist__DATA_CONST
+__objc_protolist__DATA_CONST
+__objc_imageinfo__DATA_CONST
+__la_symbol_ptr
+__objc_const
+__objc_selrefs
+__objc_classrefs__DATA
+__objc_superrefs__DATA
+__objc_ivar
+__objc_data
+__LINKEDIT
+/System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa
+/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+/usr/lib/libobjc.A.dylib
+/usr/lib/libSystem.B.dylib
+/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVATSI
+[A\A^A_]
+AWAVATSI
+[A\A^A_]
+AWAVATSI
+[A\A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVAUATSH
+x[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVATSI
+[A\A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVATSI
+[A\A^A_]
+AWAVATSI
+[A\A^A_]
+AWAVAUATSH
+8[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVAUATSH
+([A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+BJLSTART
+CONTROLMODE=COMMON
+stringWithCapacity:
+numberWithShort:
+stringValue
+appendString:
+bundleWithIdentifier:
+pathForResource:ofType:
+dataWithContentsOfFile:
+setString:
+initWithBytes:length:
+cijCommandGetObjectForKey:
+initWithCapacity:
+objectForKey:
+rangeOfString:
+initWithContentsOfFile:
+intValue
+objectAtIndex:
+componentsSeparatedByString:
+rangeOfString:options:
+stringWithCString:encoding:
+compare:options:
+insertString:atIndex:
+initWithModelID:
+loadInformation
+releaseInformation
+createCommandEmulation
+createCommandBJLModeStart
+createCommandBJLModeEnd
+createCommandBJLControlMode
+createCommandCleaning:
+createCommandDeepCleaning:
+createCommandSystemCleaning:
+createCommandRollerCleaning:
+createCommandPlatenCleaning:
+createCommandSheetCleaning:
+createCommandAgitation:
+createCommandNozzleCheck:
+createCommandHeadAlignment:
+createCommandHeadAlignmentCheck:
+createCommandPthPattern:
+createCommandLFPattern:
+createCommandSetHeadAlignment:
+createCommandSetSilentMode:
+createCommandSetAutoPowerOff:
+createCommandSetAutoPowerOffBattery:
+createCommandSetAutoPowerOn:
+createCommandSetScanDelayMode:
+createCommandSetPageDelayMode:
+createCommandSetSmearDelayMode:
+createCommandSetDryLevel:
+createCommandSetPaperGap:
+createCommandSetMediaDetection:
+createCommandSetEdgeDetection:
+createCommandSetAgitation:
+createCommandSetPaperSizeDetection:
+createCommandSetPreventPaperJam:
+createCommandSetMediaSense:
+createCommandSetPreventDoubleFeed:
+createCommandSetForcePWDetection:
+createCommandSetForcePMDetection:
+createCommandSetPlainPaperFeeder:
+createCommandResetInkCounter:
+createCommandSetInkDetection:
+createCommandPowerOff:
+isFeederAvailableForNozzleCheck
+isFeederAvailableForHeadAlignment
+isFeederAvailableForHeadAlignment:
+isFeederAvailableForHeadAlignmentCheck
+isFeederAvailableForPthPattern
+isFeederAvailableForLFPattern
+isCartridgeAvailableForNozzleCheck
+isCartridgeAvailableForHeadAlignment
+isCartridgeAvailableForHeadAlignmentCheck
+isCartridgeAvailableForPthPattern
+isCartridgeAvailableForLFPattern
+modelInfo
+commonInfo
+CIJCommandInfo
+jp.co.canon.ij.print.utility.command
+CIJUtilityCleaning
+CIJUtilityCleaningGroupType
+CIJUtilityCleaning_All
+CIJUtilityDeepCleaning
+CIJUtilitySystemCleaning
+CIJUtilityRollerCleaning
+CIJUtilityFeederType
+CIJUtilityFeeder_General
+CIJUtilityPlatenCleaning
+CIJUtilitySheetCleaning
+CIJUtilityAgitation
+CIJUtilityNozzleCheck
+CIJUtilityCartridgeType
+CIJUtilityHeadAlignment
+CIJUtilityHeadAlignmentType
+CIJUtilityHeadAlignmentPage
+CIJUtilityHeadAlignmentCheck
+CIJUtilityPthPattern
+CIJUtilityLFPattern
+CIJUtilitySetHeadAlignment
+SETREGISTRATION=
+SETBANDREGI=
+CIJUtilitySetSilentMode
+CIJUtilitySetSilentSetting
+CIJUtilitySettingOn
+CIJUtilitySettingOff
+CIJUtilitySettingTime
+CIJUtilitySilentStartTime
+CIJUtilitySilentEndTime
+CIJUtilitySetAutoPowerOff
+CIJUtilitySetAutoPowerOffBattery
+CIJUtilitySetAutoPowerOn
+CIJUtilitySetScanDelayMode
+CIJUtilitySetPageDelayMode
+CIJUtilitySetSmearDelayMode
+CIJUtilitySetDryLevel
+CIJUtilitySetPaperGap
+CIJUtilitySetMediaDetection
+CIJUtilitySetEdgeDetection
+CIJUtilitySetAutoAgitation
+CIJUtilitySetPaperSizeDetection
+CIJUtilitySetPreventPaperJam
+CIJUtilitySetMediaSense
+CIJUtilitySetPlainPaperFeeder
+CIJUtilityResetInkCounter
+CIJUtilityResetInkCounter_No
+CIJUtilitySetInkDetection
+CIJUtilitySetPreventDoubleFeed
+CIJUtilitySetPaperWidthDetectionPC
+CIJUtilitySetMismatchDetectionOffPC
+CIJUtilityPowerOff
+CIJUtilityFeeder_Bin1
+CIJUtilityFeeder_Bin2
+IJUtilityCommand
+CIJUtilityPrinterCommand
+@20@0:8s16
+@24@0:8@16
+c24@0:8@16
+@"NSData"16@0:8
+@"NSString"24@0:8@"NSDictionary"16
+@24@0:8@"NSDictionary"16
+c24@0:8@"NSDictionary"16
+@"NSDictionary"
+VARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARA`5Ap p
+p SASASDTB`NFp
+@_OBJC_CLASS_$_NSBundle
+@_OBJC_CLASS_$_NSMutableString
+@_OBJC_CLASS_$_NSNumber
+@_OBJC_CLASS_$_NSString
+@_OBJC_CLASS_$_NSObject
+@_OBJC_METACLASS_$_NSObject
+@__objc_empty_cache
+@_objc_msgSend
+@_objc_release
+@dyld_stub_binder
+@_OBJC_CLASS_$_NSData
+@_OBJC_CLASS_$_NSDictionary
+@___CFConstantStringClassReference
+@_CFPropertyListCreateWithData
+@___sprintf_chk
+@_objc_alloc
+@_objc_msgSendSuper2
+@_objc_opt_class
+@_objc_opt_isKindOfClass
+CIJMode_
+EMULATION
+9Control
+IVAR_$_IJUtilityCommand.
+CLASS_$_IJUtilityCommand
+METACLASS_$_IJUtilityCommand
+commonInfo
+_CIJMode_BJLEND
+_CIJMode_BJLSTART
+_CIJMode_Control
+_CIJMode_EMULATION
+_OBJC_CLASS_$_IJUtilityCommand
+_OBJC_IVAR_$_IJUtilityCommand.commonInfo
+_OBJC_IVAR_$_IJUtilityCommand.modelID
+_OBJC_IVAR_$_IJUtilityCommand.modelInfo
+_OBJC_METACLASS_$_IJUtilityCommand
+_CFPropertyListCreateWithData
+_OBJC_CLASS_$_NSBundle
+_OBJC_CLASS_$_NSData
+_OBJC_CLASS_$_NSDictionary
+_OBJC_CLASS_$_NSMutableString
+_OBJC_CLASS_$_NSNumber
+_OBJC_CLASS_$_NSObject
+_OBJC_CLASS_$_NSString
+_OBJC_METACLASS_$_NSObject
+___CFConstantStringClassReference
+___sprintf_chk
+__objc_empty_cache
+_objc_alloc
+_objc_msgSend
+_objc_msgSendSuper2
+_objc_opt_class
+_objc_opt_isKindOfClass
+_objc_release
+dyld_stub_binder
+radr://5614542
+jp.co.canon.ij.print.utility.command
+XE2XNRRXZ5
+$jp.co.canon.ij.print.utility.command
+subject.OU
+XE2XNRRXZ5
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120201221215Z
+270201221215Z0y1-0+
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+)xEii`k_
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+200803051541Z
+250804051541Z0
+XE2XNRRXZ51:08
+1Developer ID Application: Canon Inc. (XE2XNRRXZ5)1
+XE2XNRRXZ51
+Canon Inc.1
+$http://ocsp.apple.com/ocsp03-devid080
+)http://www.apple.com/certificateauthority0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+20120416000000Z0
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210827013448Z0/
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<key>cdhashes</key>
+	<array>
+		<data>
+		sHd6rfuJGc0TQut18CclfW8h3PQ=
+		</data>
+	</array>
+</plist>
+20210827013449Z0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210818184003Z
+210929184002Z0B1
+Timestamp Signer RNO11
+Apple Inc.1
+http://www.apple.com/appleca0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+"http://crl.apple.com/timestamp.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120405120244Z
+270405120244Z0|100.
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210827013449Z0#
+__stub_helper
+__objc_methlist
+__objc_methname
+__cstring
+__objc_classname__TEXT
+__objc_methtype
+__unwind_info
+__DATA_CONST
+__DATA_CONST
+__cfstring
+__DATA_CONST
+__objc_classlist__DATA_CONST
+__objc_protolist__DATA_CONST
+__objc_imageinfo__DATA_CONST
+__la_symbol_ptr
+__objc_const
+__objc_selrefs
+__objc_classrefs__DATA
+__objc_superrefs__DATA
+__objc_ivar
+__objc_data
+__LINKEDIT
+/System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa
+/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+/usr/lib/libobjc.A.dylib
+/usr/lib/libSystem.B.dylib
+/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+BJLSTART
+CONTROLMODE=COMMON
+stringWithCapacity:
+numberWithShort:
+stringValue
+appendString:
+bundleWithIdentifier:
+pathForResource:ofType:
+dataWithContentsOfFile:
+setString:
+initWithBytes:length:
+cijCommandGetObjectForKey:
+initWithCapacity:
+objectForKey:
+rangeOfString:
+initWithContentsOfFile:
+intValue
+objectAtIndex:
+componentsSeparatedByString:
+rangeOfString:options:
+stringWithCString:encoding:
+compare:options:
+insertString:atIndex:
+initWithModelID:
+loadInformation
+releaseInformation
+createCommandEmulation
+createCommandBJLModeStart
+createCommandBJLModeEnd
+createCommandBJLControlMode
+createCommandCleaning:
+createCommandDeepCleaning:
+createCommandSystemCleaning:
+createCommandRollerCleaning:
+createCommandPlatenCleaning:
+createCommandSheetCleaning:
+createCommandAgitation:
+createCommandNozzleCheck:
+createCommandHeadAlignment:
+createCommandHeadAlignmentCheck:
+createCommandPthPattern:
+createCommandLFPattern:
+createCommandSetHeadAlignment:
+createCommandSetSilentMode:
+createCommandSetAutoPowerOff:
+createCommandSetAutoPowerOffBattery:
+createCommandSetAutoPowerOn:
+createCommandSetScanDelayMode:
+createCommandSetPageDelayMode:
+createCommandSetSmearDelayMode:
+createCommandSetDryLevel:
+createCommandSetPaperGap:
+createCommandSetMediaDetection:
+createCommandSetEdgeDetection:
+createCommandSetAgitation:
+createCommandSetPaperSizeDetection:
+createCommandSetPreventPaperJam:
+createCommandSetMediaSense:
+createCommandSetPreventDoubleFeed:
+createCommandSetForcePWDetection:
+createCommandSetForcePMDetection:
+createCommandSetPlainPaperFeeder:
+createCommandResetInkCounter:
+createCommandSetInkDetection:
+createCommandPowerOff:
+isFeederAvailableForNozzleCheck
+isFeederAvailableForHeadAlignment
+isFeederAvailableForHeadAlignment:
+isFeederAvailableForHeadAlignmentCheck
+isFeederAvailableForPthPattern
+isFeederAvailableForLFPattern
+isCartridgeAvailableForNozzleCheck
+isCartridgeAvailableForHeadAlignment
+isCartridgeAvailableForHeadAlignmentCheck
+isCartridgeAvailableForPthPattern
+isCartridgeAvailableForLFPattern
+modelInfo
+commonInfo
+CIJCommandInfo
+jp.co.canon.ij.print.utility.command
+CIJUtilityCleaning
+CIJUtilityCleaningGroupType
+CIJUtilityCleaning_All
+CIJUtilityDeepCleaning
+CIJUtilitySystemCleaning
+CIJUtilityRollerCleaning
+CIJUtilityFeederType
+CIJUtilityFeeder_General
+CIJUtilityPlatenCleaning
+CIJUtilitySheetCleaning
+CIJUtilityAgitation
+CIJUtilityNozzleCheck
+CIJUtilityCartridgeType
+CIJUtilityHeadAlignment
+CIJUtilityHeadAlignmentType
+CIJUtilityHeadAlignmentPage
+CIJUtilityHeadAlignmentCheck
+CIJUtilityPthPattern
+CIJUtilityLFPattern
+CIJUtilitySetHeadAlignment
+SETREGISTRATION=
+SETBANDREGI=
+CIJUtilitySetSilentMode
+CIJUtilitySetSilentSetting
+CIJUtilitySettingOn
+CIJUtilitySettingOff
+CIJUtilitySettingTime
+CIJUtilitySilentStartTime
+CIJUtilitySilentEndTime
+CIJUtilitySetAutoPowerOff
+CIJUtilitySetAutoPowerOffBattery
+CIJUtilitySetAutoPowerOn
+CIJUtilitySetScanDelayMode
+CIJUtilitySetPageDelayMode
+CIJUtilitySetSmearDelayMode
+CIJUtilitySetDryLevel
+CIJUtilitySetPaperGap
+CIJUtilitySetMediaDetection
+CIJUtilitySetEdgeDetection
+CIJUtilitySetAutoAgitation
+CIJUtilitySetPaperSizeDetection
+CIJUtilitySetPreventPaperJam
+CIJUtilitySetMediaSense
+CIJUtilitySetPlainPaperFeeder
+CIJUtilityResetInkCounter
+CIJUtilityResetInkCounter_No
+CIJUtilitySetInkDetection
+CIJUtilitySetPreventDoubleFeed
+CIJUtilitySetPaperWidthDetectionPC
+CIJUtilitySetMismatchDetectionOffPC
+CIJUtilityPowerOff
+CIJUtilityFeeder_Bin1
+CIJUtilityFeeder_Bin2
+IJUtilityCommand
+CIJUtilityPrinterCommand
+@20@0:8s16
+@24@0:8@16
+B24@0:8@16
+@"NSData"16@0:8
+@"NSString"24@0:8@"NSDictionary"16
+@24@0:8@"NSDictionary"16
+B24@0:8@"NSDictionary"16
+@"NSDictionary"
+XARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARARA`5Ap p
+p SASASDTB`NFp
+@_OBJC_CLASS_$_NSBundle
+@_OBJC_CLASS_$_NSMutableString
+@_OBJC_CLASS_$_NSNumber
+@_OBJC_CLASS_$_NSString
+@_OBJC_CLASS_$_NSObject
+@_OBJC_METACLASS_$_NSObject
+@__objc_empty_cache
+@dyld_stub_binder
+@_OBJC_CLASS_$_NSData
+@_OBJC_CLASS_$_NSDictionary
+@___CFConstantStringClassReference
+@_CFPropertyListCreateWithData
+@___sprintf_chk
+@_objc_alloc
+@_objc_msgSend
+@_objc_msgSendSuper2
+@_objc_opt_class
+@_objc_opt_isKindOfClass
+@_objc_release
+CIJMode_
+EMULATION
+9Control
+IVAR_$_IJUtilityCommand.
+CLASS_$_IJUtilityCommand
+METACLASS_$_IJUtilityCommand
+commonInfo
+_CIJMode_BJLEND
+_CIJMode_BJLSTART
+_CIJMode_Control
+_CIJMode_EMULATION
+_OBJC_CLASS_$_IJUtilityCommand
+_OBJC_IVAR_$_IJUtilityCommand.commonInfo
+_OBJC_IVAR_$_IJUtilityCommand.modelID
+_OBJC_IVAR_$_IJUtilityCommand.modelInfo
+_OBJC_METACLASS_$_IJUtilityCommand
+_CFPropertyListCreateWithData
+_OBJC_CLASS_$_NSBundle
+_OBJC_CLASS_$_NSData
+_OBJC_CLASS_$_NSDictionary
+_OBJC_CLASS_$_NSMutableString
+_OBJC_CLASS_$_NSNumber
+_OBJC_CLASS_$_NSObject
+_OBJC_CLASS_$_NSString
+_OBJC_METACLASS_$_NSObject
+___CFConstantStringClassReference
+___sprintf_chk
+__objc_empty_cache
+_objc_alloc
+_objc_msgSend
+_objc_msgSendSuper2
+_objc_opt_class
+_objc_opt_isKindOfClass
+_objc_release
+dyld_stub_binder
+radr://5614542
+jp.co.canon.ij.print.utility.command
+XE2XNRRXZ5
+$jp.co.canon.ij.print.utility.command
+subject.OU
+XE2XNRRXZ5
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120201221215Z
+270201221215Z0y1-0+
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+)xEii`k_
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+200803051541Z
+250804051541Z0
+XE2XNRRXZ51:08
+1Developer ID Application: Canon Inc. (XE2XNRRXZ5)1
+XE2XNRRXZ51
+Canon Inc.1
+$http://ocsp.apple.com/ocsp03-devid080
+)http://www.apple.com/certificateauthority0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+20120416000000Z0
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210827013449Z0/
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<key>cdhashes</key>
+	<array>
+		<data>
+		yMt/APNPB8yOjxyHCMWgBW5dF4k=
+		</data>
+	</array>
+</plist>
+20210827013449Z0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210818183501Z
+210929183500Z0B1
+Timestamp Signer RNO21
+Apple Inc.1
+http://www.apple.com/appleca0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+"http://crl.apple.com/timestamp.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120405120244Z
+270405120244Z0|100.
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210827013449Z0#

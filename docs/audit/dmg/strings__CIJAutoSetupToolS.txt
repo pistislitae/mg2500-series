@@ -1,0 +1,1875 @@
+## pkgs/pkg1/Library/Printers/Canon/BJPrinter/Utilities/CIJAutoSetupToolS.app/Contents/MacOS/CIJAutoSetupToolS
+## Mach-O universal binary with 2 architectures: [x86_64:\012- Mach-O 64-bit x86_64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|BINDS_TO_WEAK|PIE>] [\012- arm64:\012- Mach-O 64-bit arm64 executable, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|BINDS_TO_WEAK|PIE>]
+__PAGEZERO
+__stub_helper
+__cstring
+__gcc_except_tab__TEXT
+__objc_methname
+__unwind_info
+__DATA_CONST
+__DATA_CONST
+__mod_init_func
+__DATA_CONST
+__DATA_CONST
+__cfstring
+__DATA_CONST
+__objc_imageinfo__DATA_CONST
+__la_symbol_ptr
+__objc_selrefs
+__objc_classrefs__DATA
+__LINKEDIT
+/usr/lib/dyld
+/Library/Printers/Canon/BJPrinter/Frameworks/BJCommand2.framework/Versions/A/BJCommand2
+/Library/Printers/Canon/BJPrinter/Frameworks/CIJPrinterUtility.framework/Versions/A/CIJPrinterUtility
+/Library/Printers/Canon/BJPrinter/Frameworks/BJPDELocalizedString2.framework/Versions/A/BJPDELocalizedString2
+/Library/Printers/Canon/BJPrinter/Frameworks/BJStatus2.framework/Versions/A/BJStatus2
+/usr/lib/libcups.2.dylib
+/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices
+/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+/usr/lib/libobjc.A.dylib
+/usr/lib/libc++.1.dylib
+/usr/lib/libSystem.B.dylib
+/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+AWAVAUATSP
+[A\A]A^A_]
+AWAVAUATSH
+X[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPM
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+h[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSP
+[A\A]A^A_]
+AWAVATSI
+[A\A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVATSH
+0[A\A^A_]
+AWAVAUATSP
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+h[A\A]A^A_]
+AWAVATSI
+[A\A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+riousbprH3
+print://H3
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+([A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVATSI
+[A\A^A_]
+AWAVAUATSH
+t+fA;4Nt
+H[A\A]A^A_]
+AWAVAUATSH
+t+fA;4Nt
+H[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+([A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVATSH
+[A\A^A_]
+E(PAVASAR
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVATSI
+[A\A^A_]
+AWAVATSI
+[A\A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+H[A\A]A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVATSI
+[A\A^A_]
+[A\A^A_]
+[A\A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVAUATSH
+h[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVATSI
+[A\A^A_]
+AWAVAUATSH
+H[A\A]A^A_]
+SPATATAS
+AWAVATSH
+[A\A^A_]
+AWAVAUATSPD
+[A\A]A^A_]
+AWAVAUATSPE
+[A\A]A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVATSA
+[A\A^A_]
+AWAVAUATSPA
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVATSI
+[A\A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+: "text:K
+anchor='I
+help:anI
+'%20bookI
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVATSI
+[A\A^A_]
+[A\A^A_]
+AWAVAUATSH
+x[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVSPE1
+AWAVATSH
+[A\A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVAUATSPA
+[A\A]A^A_]
+AWAVATSI
+[A\A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSP
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+FileVersion
+APPrinterIconPath
+CNIJALMVer
+*%%  CUPS PPD file for Canon InkJet Printers.
+*%%  Copyright CANON INC. %s
+2007-2026
+*FileVersion: "%s"
+*cupsLanguages: "
+*ModelName: "Canon %s"
+*NickName: "Canon %s"
+*ShortNickName: "%s"
+*PCFileName: "CNIJ%d.ppd"
+*Product: "(Canon %s)"
+*cupsModelNumber: %d
+*cupsFilter: "application/vnd.cups-raster 0 
+/Library/Printers/Canon/BJPrinter/Filters/Raster2CanonIJ/Raster2CanonIJS.bundle/Contents/MacOS/Raster2CanonIJS"
+*cupsFilter: "application/vnd.cups-command 0 
+/Library/Printers/Canon/BJPrinter/Filters/Command2CanonIJ.bundle/Contents/MacOS/Command2CanonIJ"
+*APDialogExtension: %s
+"/Library/Printers/Canon/BJPrinter/PDEs/CanonIJPDE.bundle"
+*APPrinterIconPath: "%s"
+*APPrinterIconPath: "%sCIJ%s.icns"
+/Library/Printers/Canon/BJPrinter/Resources/CIJIcons/
+*APPrinterIconPath: %s
+"/Library/Printers/Canon/BJPrinter/Resources/CIJIcons/CanonIJPrinter.icns"
+*APPrinterUtilityPath: %s
+"/Library/Printers/Canon/BJPrinter/Utilities/CanonIJPrinterUtility.app"
+"/Library/Printers/Canon/BJPrinter/Utilities/BJPrinterUtility2.app"
+*APAutoSetupTool: %s
+"/Library/Printers/Canon/BJPrinter/Utilities/CIJAutoSetupToolS.app/Contents/MacOS/CIJAutoSetupToolS"
+*%s: %ld
+CNIJExtDDISwitch
+CNIJUTILForcePMDetection
+CNIJUtilPrefType
+CNIJDBProfileSpec
+*%s: "%s"
+CNIJNameTblPath
+CNIJTableID
+*%s: "%s"
+CNIJConvName
+*CNIJDeviceURI: "%s"
+*CNIJPrinterSerialNumber: "%s"
+Translation
+ColorModel
+Color Model
+RGB 16-bit
+CNIJProfileID
+ProfileID
+*CNIJProfileID %d/%s: ""
+cupsICCProfile
+RGB16.1.
+*cupsICCProfile RGB16.%d./%s: "%s"
+.canonicc/Contents/Resources
+*cupsICCProfile RGB16.%d./%s: "%s/%s"
+/Library/Printers/Canon/BJPrinter/Resources/ICCProfiles
+*OpenUI *Resolution/Output Resolution: PickOne
+*OrderDependency: 10 AnySetup *Resolution
+*DefaultResolution: %dx%ddpi
+Resolution
+Output Resolution
+*Resolution %dx%ddpi/%d x %d dpi: "<</HWResolution[%d %d]>>setpagedevice"
+%dx%ddpi
+%d x %d dpi
+*UIConstraints: *%s %d *Duplex
+CNIJMediaType
+*UIConstraints: *Duplex *%s %d
+CNIJiPhotoPreset
+APPrinterPreset
+*APPrinterPreset %s/%s: "
+	*CNIJMediaType %d
+	*CNIJPrintMode2 %d
+	*Resolution %d
+	*PrintQuality %d
+	com.apple.print.preset.graphicsType Photo"
+*APPrinterPreset %s/%s: "
+	*CNIJMediaType %d
+	*CNIJPrintMode2 %d
+	*Resolution %d
+	com.apple.print.preset.graphicsType Photo"
+*APPrinterPreset %s/%s: "
+	*CNIJMediaType %d
+	*CNIJPrintMode2 %d
+	*CNIJPrintQuality %d
+	com.apple.print.preset.graphicsType Photo"
+*APPrinterPreset %s/%s: "
+	*CNIJMediaType %d
+	*CNIJPrintMode2 %d
+	com.apple.print.preset.graphicsType Photo"
+*APPrinterPreset %s/%s: "
+	*CNIJMediaType %d
+	*CNIJPrintMode2 %d
+	*Resolution %d
+	*CNIJPrintQuality %d
+	com.apple.print.preset.graphicsType Photo"
+CNIJGeneralPreset
+*APPrinterPreset %s/%s: "
+	*CNIJMediaType %d
+	*CNIJPrintMode2 %d
+	com.apple.print.preset.graphicsType General"
+CNIJPrintMode
+Japanese
+Photo_on_Plain_Paper
+Photo_on_Photo_Paper_Plus_Glossy_II_N
+Photo_on_Photo_Paper_Plus_Glossy_2
+Photo_on_Matte_Photo_Paper
+Photo_on_Photo_Paper_Plus_Semi-gloss
+Photo_on_Glossy_Photo_Paper
+Photo_on_Photo_Paper_Pro2
+Photo_on_Photo_Paper_Pro_Platinum
+Photo_on_Photo_Paper_Pro_Luster
+Photo_on_Photo_Paper_Pro_Platinum_N
+Photo_on_Glossy_Photo_Paper_N
+Photo_on_Matte_Photo_Paper_N
+Photo_on_Photo_Paper_Plus_Glossy_II_A
+Photo_on_Glossy_Photo_Paper_A
+Photo_on_Photo_Paper_Pro_Crystal
+CIJ_General_0
+CIJ_General_1
+*PPD-Adobe: "4.3"
+*FormatVersion: "4.3"
+*LanguageVersion: English
+*LanguageEncoding: ISOLatin1
+*ColorDevice: True
+*DefaultColorSpace: RGB
+*Throughput: "1"
+*LandscapeOrientation: Minus90
+*PSVersion: "(3010.000) 705"
+*DefaultOutputOrder: Reverse
+*cupsManualCopies: True
+*cupsBackSide: Rotated
+*cupsEvenDuplex: true
+*cupsVersion: 1.3
+*Manufacturer: "Canon"
+*APDuplexRequiresFlippedMargin: true
+*APICADriver: True
+*cupsSNMPSupplies: False
+*cupsCommands: "PrintSelfTestPage ReportLevels"
+*cupsCommands: "PrintSelfTestPage"
+*CNIJDeviceURI: ""
+*OpenUI *ColorModel/Color Model: PickOne
+*OrderDependency: 10 AnySetup *ColorModel
+*DefaultColorModel: RGB16
+*ColorModel RGB16/RGB 16-bit: "<</cupsColorOrder 0/cupsColorSpace 1/cupsCompression 0/cupsBitsPerColor 16>>setpagedevice"
+*CloseUI: *ColorModel
+*APDefaultCustomColorMatchingProfile: sRGB
+*cupsICCQualifier2: CNIJProfileID
+*OpenUI *CNIJProfileID/ProfileID: PickOne
+*DefaultCNIJProfileID: 1
+*CloseUI: *CNIJProfileID
+*CloseUI: *Resolution
+*APPrinterPreset Photo_on_Photo_Paper/Photo on Photo Paper:"
+	*CNIJMediaType 42
+*APPrinterPreset Photo_on_Matte_Paper/Photo on Matte Paper:"
+	*CNIJMediaType 50
+	*CNIJPrintMode 3
+	*CNIJPrintMode 1
+*APPrinterPreset Photo_on_Matte_Paper/Photo on Matte Paper: "
+	*CNIJMediaType 28
+	*CNIJPrintMode2 1
+	com.apple.print.preset.media-front-coating matte"
+*APPrinterPreset Photo_on_Plain_Paper/Photo on Plain Paper: "
+	*CNIJMediaType 0
+	com.apple.print.preset.media-front-coating none"
+*APPrinterPreset Photo_on_Photo_Paper/Photo on Photo Paper: "
+	*CNIJMediaType 26
+	*CNIJPrintMode2 2
+	com.apple.print.preset.graphicsType Photo
+	com.apple.print.preset.quality mid
+	com.apple.print.preset.media-front-coating glossy"
+CNIJExtDDIStapleMarginSupport
+CNIJExtDDISupportAppType
+CNIJMediaSense
+CNIJClearInkMode
+CNIJMonochromeType
+CNIJAutoDuplexCheckBox
+CNIJColorAdjustMode
+ColorAdjustMode
+CNIJBlackAdjustment
+----ERROR-ERROR-ERROR-%s-(GetCmcmDefaultValue)---
+----ERROR-ERROR-ERROR-%s-(GetCmcmAvailableValues)---
+CNIJPrintQuality
+CNIJPDETitle
+*OpenUI *%s/%s: PickOne
+*Default%s: %d
+*%s %d/%s: ""
+CNIJGrayScale
+*%s %d/: ""
+*%s %d/%d: ""
+*CloseUI: *%s
+CNIJDuplex
+Duplex - Long Edge
+Duplex - Short Edge
+*Default%s: %s
+*%s %s/%s: "<</Duplex false>>setpagedevice"
+*%s %s/%s: "<</Duplex true/Tumble false>>setpagedevice"
+DuplexNoTumble
+*%s %s/%s: "<</Duplex true/Tumble true>>setpagedevice"
+DuplexTumble
+APCustomColorMatchingName
+*APCustomColorMatchingName name/%s: ""
+APSupportsCustomColorMatching
+PageSize
+CNIJEmergencyMode
+CNIJLongLifeMode
+CNIJCartridgeSelect
+Usage: %s device_uri, ppd_path
+dnssd://
+_riousbprint._tcp
+riousbprint://
+CNIJTableSwitchInfo
+CNIJDEVHRIInfo
+CNIJDEVCDRInfo
+CNIJDEVPDRInfo
+CNIJPrinterSerialNumber
+cupsLanguages
+_ipp._tcp
+_ipps._tcp
+_printer._tcp
+riousbprint
+bluetooth
+canonijnetwork
+canonijfirewire
+/dev/null
+ERROR:Canon AutoSetup Tool:Inappropriate device-uri for the driver
+CNIJCartridge
+CNIJMediaSupply
+CNIJPrintMode2
+CNIJDitherPattern
+CNIJGamma2
+CNIJBalanceC
+CNIJBalanceM
+CNIJBalanceY
+CNIJBalanceK
+CNIJDensity
+CNIJPZIllustretch
+CNIJPZIllustretchLevel
+CNIJPZMonotone
+CNIJMonotoneColor
+CNIJMSelectColor
+CNIJPZVividPosiProcess
+CNIJDCNoiseReductionLevel
+CNIJPZNoiseReduction
+CNIJAmountOfExtension
+CNIJGrayScaleCheckBox
+CNIJPQualitySlider
+CNIJHalfToneRadio
+CNIJMonotoneCheckBox
+CNIJDuplexPrinting
+CNIJDuplexPrintArea
+CNIJStapleSide
+CNIJStapleMargin
+CNIJIntent2
+CNIJMonochromeTone
+CNIJContrast
+CNIJPreviewSampleType
+CNIJColorPatternCheckBox
+CNIJClearCoatArea
+CNIJClearCustomMode
+CNIJClearPatternType
+CNIJClearPatternSize
+CNIJClearFormInvert
+CNIJClearFormApplyMode
+CNIJMediaSupplyMenuItem
+CNIJDebugLog
+CNIJProfileType
+CNIJPDEEnable
+CNIJRGB2GrayConvert
+CNIJBanner
+CNIJMarginType
+CNIJPaperGapCommand
+CNIJDiscTrayForm
+CNIJSGColorMode
+CNIJISaveMode
+CNIJMediaGroup
+CNIJDuplexSurface
+CNIJDataDirection
+CNIJSpecialMode
+CNIJManualSelectSupply
+CNIJModelID
+CNIJTableFormatType
+CNIJSmoothing
+CNIJUserCustomWidthRange
+CNIJUserCustomLengthRange
+CNIJESSK1BitFunc
+CNIJConnectionType
+CNIJPBMPath
+CNIJPrinterAddress
+CNIJCDRSupportInfoByFSI
+*OpenUI *CNIJColorAdjustMode/ColorAdjustMode: PickOne
+*DefaultCNIJColorAdjustMode: 1
+*CNIJColorAdjustMode 1/1: ""
+*CloseUI: *CNIJColorAdjustMode
+*OpenUI *CNIJColorAdjustMode/ColorAdjustMode: PickOne
+*DefaultCNIJColorAdjustMode: 0
+*CNIJColorAdjustMode 0/0: ""
+*CloseUI: *CNIJColorAdjustMode
+*OpenUI *CNIJDuplex/Duplex: PickOne
+*DefaultCNIJDuplex: 1
+*CNIJDuplex 1/None: "<</Duplex false>>setpagedevice"
+*CNIJDuplex 2/Duplex - Long Edge: "<</Duplex true/Tumble false>>setpagedevice"
+*CNIJDuplex 3/Duplex - Short Edge: "<</Duplex true/Tumble true>>setpagedevice"
+*CloseUI: *CNIJDuplex
+PageRegion
+ImageableArea
+PaperDimension
+*%s %s/%s: "<</PageSize[%.2f %.2f]/ImagingBBox null>>setpagedevice"
+*%s %s/%s: "<</PageSize[%.2f %.2f]/ImagingBBox null/cupsBorderlessScalingFactor %.10f>>setpagedevice"
+*Default%s: %s
+*%s %s/%s: "%.2f %.2f %.2f %.2f"
+*%s %s/%s: "%.2f %.2f"
+*ParamCustomPageSize Width: 1 points %.2f %.2f
+*ParamCustomPageSize Height: 2 points %.2f %.2f
+*MaxMediaWidth: "%.2f"
+*MaxMediaHeight: "%.2f"
+*HWMargins: %.2f %.2f %.2f %.2f
+cupsPageSizeCategory
+*%s %s/%s: "%s"
+*CustomPageSize True: ""
+*ParamCustomPageSize WidthOffset: 3 points 0 0
+*ParamCustomPageSize HeightOffset: 4 points 0 0
+*ParamCustomPageSize Orientation: 5 int 0 0
+*CenterRegistered: False
+Canon BJ Network
+BJNPIOMComputerName
+BJNPIOMUserName
+BJNPIOMDocumentName
+BJNPIOMSetDocumentInfo
+BJNPIOMSetNoQueuing
+Bluetooth
+USBIOMResetOnAbort
+BJNPIOMSetQuitFlag
+USBIOMSoftReset
+Canon BJ FireWire
+BJNPIOMGetStatusCFData
+USBIOMGetDeviceID
+BJNPIOMGetStatus
+BJNPIOMGetDocumentInfo
+USBBackendDrainOutput
+CIJQueuingMode
+com.apple.print.JobInfo.PMJobOwner
+/usr/libexec/cups/backend/
+PrinterDriver
+LogGetData
+LogUSBRead
+0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-._~
+*% Backend error messages -----------------
+*cupsIPPReason 
+*%s.cupsIPPReason 
+CanonIJStateReason
+CanonIJReasonText
+CanonIJHelpAnchor
+CanonIJHelpBookID
+help:anchor='
+'%20bookID=
+*cupsMarkerName %s/%s: ""
+*%s.cupsMarkerName %%s/%%s: ""
+CanonIJMarkerName
+CanonIJMarkerNameText
+LogUSBWrite
+/Library/Caches/Canon/BJPrinter/MagicWords/
+%04d%02d%02d%02d%02d%02d
+*%s.%s %s/%s: ""
+%s.%s %s/
+*%s%s: ""
+DeviceInfo.tbl
+colorAdjustMode
+monochromeAdjustMode
+amountOfExtension
+mediaSense
+extddiSupport
+extddiStapleSupport
+extddiSupportApp
+supplyHandling
+ancientCDR
+photoPreset
+generalPreset
+duplexUI
+commonICC
+notForcePMDetection
+10.0.0.0
+12TBJPrinterIO
+13TCIJIOBackend
+15TCIJIOBackendUT
+10TCIJIOBase
+12TCIJIOBuffer
+15TCIJIOGenericIO
+16TCIJIOReadBuffer
+12TCIJIORWBase
+16TCIJIORingBuffer
+18TCIJIOSimpleBuffer
+18TCIJIOStatusBuffer
+17TCIJIOWriteBuffer
+8TLogFile
+characterSetWithCharactersInString:
+stringByAddingPercentEncodingWithAllowedCharacters:
+mainBundle
+pathForResource:ofType:
+dataWithContentsOfFile:
+propertyListWithData:options:format:error:
+stringWithFormat:
+valueForKey:
+shortValue
+Xp`SARB`
+RAZARARAZARAZARAZARA`(AZARASA`)B
+@_OBJC_CLASS_$_NSAutoreleasePool
+@_OBJC_CLASS_$_NSBundle
+@_OBJC_CLASS_$_NSCharacterSet
+@_OBJC_CLASS_$_NSPropertyListSerialization
+@_OBJC_CLASS_$_NSString
+@_objc_msgSend
+@__ZTVN10__cxxabiv117__class_type_infoE
+@__ZTVN10__cxxabiv120__si_class_type_infoE
+@__ZdlPv
+@___cxa_pure_virtual
+@___gxx_personality_v0
+@___stack_chk_guard
+@___stderrp
+@___stdoutp
+@dyld_stub_binder
+@_OBJC_CLASS_$_NSData
+@___CFConstantStringClassReference
+@_kCFAllocatorDefault
+@_kCFBooleanTrue
+@_kCFTypeDictionaryKeyCallBacks
+@_kCFTypeDictionaryValueCallBacks
+@__ZdlPv
+@_BJCMDisposeProfileInfoList
+@_BJCMNewProfileInfoList2
+@_BJCMNewProfileInfoListC
+@_BJPaperFindWithBJPaperSizeAndPaperNameTypeAndModelID
+@_BJPaperFindWithBJPaperSizeAndPaperNameTypeAndModelIDAndMargin
+@_BJPaperGetPaperSize
+@_BJStatusCreate
+@_BJStatusCreateInkMarkerNameSet
+@_BJStatusCreatePrinterStateReasonSetForMessage
+@_BJStatusInitialize
+@_BJStatusLoadLocalizableStrings
+@_BJStatusRelease
+@_BJStatusReleaseLocalizableStrings
+@_BJStatusSetSupportMediaTypes
+@_BJStatusSetSupportPaperSizes
+@_BJUtilsGetCDRSupportInfo
+@_BJUtilsGetModelIDWithDeviceID
+@_BJUtilsStoreCDRSupportInfo
+@_BJUtilsStoreHRInfo
+@_BJUtilsStorePDRInfo
+@_CFAllocatorAllocate
+@_CFAllocatorDeallocate
+@_CFAllocatorGetDefault
+@_CFArrayAppendValue
+@_CFArrayCreateMutable
+@_CFArrayGetCount
+@_CFArrayGetValueAtIndex
+@_CFArrayGetValues
+@_CFBundleGetMainBundle
+@_CFDataCreate
+@_CFDataGetBytes
+@_CFDataGetLength
+@_CFDictionaryAddValue
+@_CFDictionaryCreateMutable
+@_CFDictionaryGetValue
+@_CFEqual
+@_CFRelease
+@_CFRetain
+@_CFStringAppend
+@_CFStringCompare
+@_CFStringCreateCopy
+@_CFStringCreateMutable
+@_CFStringCreateWithBytes
+@_CFStringCreateWithCString
+@_CFStringCreateWithSubstring
+@_CFStringFindWithOptions
+@_CFStringGetBytes
+@_CFStringGetCString
+@_CFStringGetLength
+@_CFURLCopyScheme
+@_CFURLCreateWithBytes
+@_CFURLCreateWithString
+@_CFURLGetString
+@_CIJUtilsCompareVersionWithGestaltVersion
+@_CommandComp2
+@_GetChangeInfo
+@_GetComComTableFormatType
+@_GetDefaultBJNameData
+@_GetGroupInfo
+@_IJPDELSCopyLocalizedString
+@_IJPDELSCreate
+@_IJPDELSInitialize
+@_IJPDELSLoadLocalizableStringsForLocalization
+@_IJPDELSRelease
+@_IJPDELSUnloadLocalizableStrings
+@_IJUtilsCreateDBGroupTblPathWithModelID
+@_IJUtilsCreateICCProfilePathWithProfileGroupID
+@_IJUtilsCreateNameTblPath
+@_IJUtilsCreateNameTblPathWithDBGroupID
+@_IJUtilsCreatePPDPathWithPrinterID
+@_IJUtilsDoesPathExist
+@_IJUtilsGetForcePMDetectionSettingsWithDeviceURI
+@_IJUtilsStoreForcePMDetectionSettingsWithDeviceURI
+@__Unwind_Resume
+@__ZSt9terminatev
+@____chkstk_darwin
+@___bzero
+@___cxa_begin_catch
+@___error
+@___stack_chk_fail
+@_access
+@_calloc
+@_cupsBackChannelRead
+@_cupsBackendDeviceURI
+@_cupsFileClose
+@_cupsFileGetLine
+@_cupsFileOpen
+@_cupsFileRewind
+@_cupsSideChannelDoRequest
+@_fclose
+@_fstat$INODE64
+@_fwrite
+@_localtime
+@_malloc
+@_memcmp
+@_memcpy
+@_memmove
+@_memset_pattern16
+@_objc_alloc_init
+@_perror
+@_ppdClose
+@_ppdFindAttr
+@_ppdFindChoice
+@_ppdFindOption
+@_ppdOpenFile
+@_printf
+@_pthread_cancel
+@_pthread_cond_destroy
+@_pthread_cond_init
+@_pthread_cond_signal
+@_pthread_cond_timedwait_relative_np
+@_pthread_cond_wait
+@_pthread_create
+@_pthread_exit
+@_pthread_join
+@_pthread_mutex_destroy
+@_pthread_mutex_init
+@_pthread_mutex_lock
+@_pthread_mutex_unlock
+@_pthread_testcancel
+@_putchar
+@_realloc
+@_snprintf
+@_socketpair
+@_strchr
+@_strcmp
+@_strlcpy
+@_strlen
+@_strncmp
+@_strncpy
+@_strnstr
+@_strrchr
+@_strstr
+@_sysconf
+@_sysctl
+@_usleep
+@_waitpid
+__mh_execute_header
+__mh_execute_header
+_BJCMDisposeProfileInfoList
+_BJCMNewProfileInfoList2
+_BJCMNewProfileInfoListC
+_BJPaperFindWithBJPaperSizeAndPaperNameTypeAndModelID
+_BJPaperFindWithBJPaperSizeAndPaperNameTypeAndModelIDAndMargin
+_BJPaperGetPaperSize
+_BJStatusCreate
+_BJStatusCreateInkMarkerNameSet
+_BJStatusCreatePrinterStateReasonSetForMessage
+_BJStatusInitialize
+_BJStatusLoadLocalizableStrings
+_BJStatusRelease
+_BJStatusReleaseLocalizableStrings
+_BJStatusSetSupportMediaTypes
+_BJStatusSetSupportPaperSizes
+_BJUtilsGetCDRSupportInfo
+_BJUtilsGetModelIDWithDeviceID
+_BJUtilsStoreCDRSupportInfo
+_BJUtilsStoreHRInfo
+_BJUtilsStorePDRInfo
+_CFAllocatorAllocate
+_CFAllocatorDeallocate
+_CFAllocatorGetDefault
+_CFArrayAppendValue
+_CFArrayCreateMutable
+_CFArrayGetCount
+_CFArrayGetValueAtIndex
+_CFArrayGetValues
+_CFBundleGetMainBundle
+_CFDataCreate
+_CFDataGetBytes
+_CFDataGetLength
+_CFDictionaryAddValue
+_CFDictionaryCreateMutable
+_CFDictionaryGetValue
+_CFEqual
+_CFRelease
+_CFRetain
+_CFStringAppend
+_CFStringCompare
+_CFStringCreateCopy
+_CFStringCreateMutable
+_CFStringCreateWithBytes
+_CFStringCreateWithCString
+_CFStringCreateWithSubstring
+_CFStringFindWithOptions
+_CFStringGetBytes
+_CFStringGetCString
+_CFStringGetLength
+_CFURLCopyScheme
+_CFURLCreateWithBytes
+_CFURLCreateWithString
+_CFURLGetString
+_CIJUtilsCompareVersionWithGestaltVersion
+_CommandComp2
+_GetChangeInfo
+_GetComComTableFormatType
+_GetDefaultBJNameData
+_GetGroupInfo
+_IJPDELSCopyLocalizedString
+_IJPDELSCreate
+_IJPDELSInitialize
+_IJPDELSLoadLocalizableStringsForLocalization
+_IJPDELSRelease
+_IJPDELSUnloadLocalizableStrings
+_IJUtilsCreateDBGroupTblPathWithModelID
+_IJUtilsCreateICCProfilePathWithProfileGroupID
+_IJUtilsCreateNameTblPath
+_IJUtilsCreateNameTblPathWithDBGroupID
+_IJUtilsCreatePPDPathWithPrinterID
+_IJUtilsDoesPathExist
+_IJUtilsGetForcePMDetectionSettingsWithDeviceURI
+_IJUtilsStoreForcePMDetectionSettingsWithDeviceURI
+_OBJC_CLASS_$_NSAutoreleasePool
+_OBJC_CLASS_$_NSBundle
+_OBJC_CLASS_$_NSCharacterSet
+_OBJC_CLASS_$_NSData
+_OBJC_CLASS_$_NSPropertyListSerialization
+_OBJC_CLASS_$_NSString
+__Unwind_Resume
+__ZSt9terminatev
+__ZTVN10__cxxabiv117__class_type_infoE
+__ZTVN10__cxxabiv120__si_class_type_infoE
+___CFConstantStringClassReference
+____chkstk_darwin
+___bzero
+___cxa_begin_catch
+___cxa_pure_virtual
+___error
+___gxx_personality_v0
+___stack_chk_fail
+___stack_chk_guard
+___stderrp
+___stdoutp
+_cupsBackChannelRead
+_cupsBackendDeviceURI
+_cupsFileClose
+_cupsFileGetLine
+_cupsFileOpen
+_cupsFileRewind
+_cupsSideChannelDoRequest
+_fstat$INODE64
+_kCFAllocatorDefault
+_kCFBooleanTrue
+_kCFTypeDictionaryKeyCallBacks
+_kCFTypeDictionaryValueCallBacks
+_localtime
+_memmove
+_memset_pattern16
+_objc_alloc_init
+_objc_msgSend
+_ppdClose
+_ppdFindAttr
+_ppdFindChoice
+_ppdFindOption
+_ppdOpenFile
+_pthread_cancel
+_pthread_cond_destroy
+_pthread_cond_init
+_pthread_cond_signal
+_pthread_cond_timedwait_relative_np
+_pthread_cond_wait
+_pthread_create
+_pthread_exit
+_pthread_join
+_pthread_mutex_destroy
+_pthread_mutex_init
+_pthread_mutex_lock
+_pthread_mutex_unlock
+_pthread_testcancel
+_putchar
+_realloc
+_snprintf
+_socketpair
+_strlcpy
+_strncmp
+_strncpy
+_strnstr
+_strrchr
+_sysconf
+_waitpid
+dyld_stub_binder
+radr://5614542
+jp.co.canon.ij.print.cijautosetuptools
+XE2XNRRXZ5
+&jp.co.canon.ij.print.cijautosetuptools
+subject.OU
+XE2XNRRXZ5
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+210922185510Z
+310917000000Z0^1-0+
+$Developer ID Certification Authority1
+Apple Inc.1
+(http://ocsp.apple.com/ocsp03-applerootca0.
+http://crl.apple.com/root.crl0
+oD/oM=xx
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+$Developer ID Certification Authority1
+Apple Inc.1
+240819043902Z
+290820043901Z0
+XE2XNRRXZ51:08
+1Developer ID Application: Canon Inc. (XE2XNRRXZ5)1
+XE2XNRRXZ51
+Canon Inc.1
+"http://certs.apple.com/devidg2.der02
+&http://ocsp.apple.com/ocsp03-devidg2070
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.06
+*https://www.apple.com/certificateauthority0
+20120416000000Z0
+0r0^1-0+
+$Developer ID Certification Authority1
+Apple Inc.1
+260430095045Z0/
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<key>cdhashes</key>
+	<array>
+		<data>
+		poVLCB/H9SI4H/CPt4onSUPHIBo=
+		</data>
+	</array>
+</plist>
+20260430095045Z0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+260429165028Z
+260610165027Z0B1
+Timestamp Signer NWK21
+Apple Inc.1
+http://www.apple.com/appleca0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+"http://crl.apple.com/timestamp.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120405120244Z
+270405120244Z0|100.
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+260430095045Z0#
+__PAGEZERO
+__stub_helper
+__objc_stubs
+__cstring
+__gcc_except_tab__TEXT
+__objc_methname
+__unwind_info
+__DATA_CONST
+__DATA_CONST
+__mod_init_func
+__DATA_CONST
+__DATA_CONST
+__cfstring
+__DATA_CONST
+__objc_imageinfo__DATA_CONST
+__la_symbol_ptr
+__objc_selrefs
+__objc_classrefs__DATA
+__LINKEDIT
+/usr/lib/dyld
+/Library/Printers/Canon/BJPrinter/Frameworks/BJCommand2.framework/Versions/A/BJCommand2
+/Library/Printers/Canon/BJPrinter/Frameworks/CIJPrinterUtility.framework/Versions/A/CIJPrinterUtility
+/Library/Printers/Canon/BJPrinter/Frameworks/BJPDELocalizedString2.framework/Versions/A/BJPDELocalizedString2
+/Library/Printers/Canon/BJPrinter/Frameworks/BJStatus2.framework/Versions/A/BJStatus2
+/usr/lib/libcups.2.dylib
+/System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices
+/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+/usr/lib/libobjc.A.dylib
+/usr/lib/libc++.1.dylib
+/usr/lib/libSystem.B.dylib
+/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+khj8,hj8
+khj8,hj8
+10.0.0.0
+&&&&&&&	
+12TBJPrinterIO
+13TCIJIOBackend
+15TCIJIOBackendUT
+10TCIJIOBase
+12TCIJIOBuffer
+15TCIJIOGenericIO
+16TCIJIOReadBuffer
+12TCIJIORWBase
+16TCIJIORingBuffer
+18TCIJIOSimpleBuffer
+18TCIJIOStatusBuffer
+17TCIJIOWriteBuffer
+8TLogFile
+FileVersion
+APPrinterIconPath
+CNIJALMVer
+*%%  CUPS PPD file for Canon InkJet Printers.
+*%%  Copyright CANON INC. %s
+2007-2026
+*FileVersion: "%s"
+*cupsLanguages: "
+*ModelName: "Canon %s"
+*NickName: "Canon %s"
+*ShortNickName: "%s"
+*PCFileName: "CNIJ%d.ppd"
+*Product: "(Canon %s)"
+*cupsModelNumber: %d
+*cupsFilter: "application/vnd.cups-raster 0 
+/Library/Printers/Canon/BJPrinter/Filters/Raster2CanonIJ/Raster2CanonIJS.bundle/Contents/MacOS/Raster2CanonIJS"
+*cupsFilter: "application/vnd.cups-command 0 
+/Library/Printers/Canon/BJPrinter/Filters/Command2CanonIJ.bundle/Contents/MacOS/Command2CanonIJ"
+*APDialogExtension: %s
+"/Library/Printers/Canon/BJPrinter/PDEs/CanonIJPDE.bundle"
+*APPrinterIconPath: "%s"
+*APPrinterIconPath: "%sCIJ%s.icns"
+/Library/Printers/Canon/BJPrinter/Resources/CIJIcons/
+*APPrinterIconPath: %s
+"/Library/Printers/Canon/BJPrinter/Resources/CIJIcons/CanonIJPrinter.icns"
+*APPrinterUtilityPath: %s
+"/Library/Printers/Canon/BJPrinter/Utilities/CanonIJPrinterUtility.app"
+"/Library/Printers/Canon/BJPrinter/Utilities/BJPrinterUtility2.app"
+*APAutoSetupTool: %s
+"/Library/Printers/Canon/BJPrinter/Utilities/CIJAutoSetupToolS.app/Contents/MacOS/CIJAutoSetupToolS"
+*%s: %ld
+CNIJExtDDISwitch
+CNIJUTILForcePMDetection
+CNIJUtilPrefType
+CNIJDBProfileSpec
+*%s: "%s"
+CNIJNameTblPath
+CNIJTableID
+*%s: "%s"
+CNIJConvName
+*CNIJDeviceURI: "%s"
+*CNIJPrinterSerialNumber: "%s"
+Translation
+ColorModel
+Color Model
+RGB 16-bit
+CNIJProfileID
+ProfileID
+*CNIJProfileID %d/%s: ""
+cupsICCProfile
+RGB16.1.
+*cupsICCProfile RGB16.%d./%s: "%s"
+.canonicc/Contents/Resources
+*cupsICCProfile RGB16.%d./%s: "%s/%s"
+/Library/Printers/Canon/BJPrinter/Resources/ICCProfiles
+*OpenUI *Resolution/Output Resolution: PickOne
+*OrderDependency: 10 AnySetup *Resolution
+*DefaultResolution: %dx%ddpi
+Resolution
+Output Resolution
+*Resolution %dx%ddpi/%d x %d dpi: "<</HWResolution[%d %d]>>setpagedevice"
+%dx%ddpi
+%d x %d dpi
+*UIConstraints: *%s %d *Duplex
+CNIJMediaType
+*UIConstraints: *Duplex *%s %d
+CNIJiPhotoPreset
+APPrinterPreset
+*APPrinterPreset %s/%s: "
+	*CNIJMediaType %d
+	*CNIJPrintMode2 %d
+	*Resolution %d
+	*PrintQuality %d
+	com.apple.print.preset.graphicsType Photo"
+*APPrinterPreset %s/%s: "
+	*CNIJMediaType %d
+	*CNIJPrintMode2 %d
+	*Resolution %d
+	com.apple.print.preset.graphicsType Photo"
+*APPrinterPreset %s/%s: "
+	*CNIJMediaType %d
+	*CNIJPrintMode2 %d
+	*CNIJPrintQuality %d
+	com.apple.print.preset.graphicsType Photo"
+*APPrinterPreset %s/%s: "
+	*CNIJMediaType %d
+	*CNIJPrintMode2 %d
+	com.apple.print.preset.graphicsType Photo"
+*APPrinterPreset %s/%s: "
+	*CNIJMediaType %d
+	*CNIJPrintMode2 %d
+	*Resolution %d
+	*CNIJPrintQuality %d
+	com.apple.print.preset.graphicsType Photo"
+CNIJGeneralPreset
+*APPrinterPreset %s/%s: "
+	*CNIJMediaType %d
+	*CNIJPrintMode2 %d
+	com.apple.print.preset.graphicsType General"
+CNIJPrintMode
+Japanese
+Photo_on_Plain_Paper
+Photo_on_Photo_Paper_Plus_Glossy_II_N
+Photo_on_Photo_Paper_Plus_Glossy_2
+Photo_on_Matte_Photo_Paper
+Photo_on_Photo_Paper_Plus_Semi-gloss
+Photo_on_Glossy_Photo_Paper
+Photo_on_Photo_Paper_Pro2
+Photo_on_Photo_Paper_Pro_Platinum
+Photo_on_Photo_Paper_Pro_Luster
+Photo_on_Photo_Paper_Pro_Platinum_N
+Photo_on_Glossy_Photo_Paper_N
+Photo_on_Matte_Photo_Paper_N
+Photo_on_Photo_Paper_Plus_Glossy_II_A
+Photo_on_Glossy_Photo_Paper_A
+Photo_on_Photo_Paper_Pro_Crystal
+CIJ_General_0
+CIJ_General_1
+*PPD-Adobe: "4.3"
+*FormatVersion: "4.3"
+*LanguageVersion: English
+*LanguageEncoding: ISOLatin1
+*ColorDevice: True
+*DefaultColorSpace: RGB
+*Throughput: "1"
+*LandscapeOrientation: Minus90
+*PSVersion: "(3010.000) 705"
+*DefaultOutputOrder: Reverse
+*cupsManualCopies: True
+*cupsBackSide: Rotated
+*cupsEvenDuplex: true
+*cupsVersion: 1.3
+*Manufacturer: "Canon"
+*APDuplexRequiresFlippedMargin: true
+*APICADriver: True
+*cupsSNMPSupplies: False
+*cupsCommands: "PrintSelfTestPage ReportLevels"
+*cupsCommands: "PrintSelfTestPage"
+*CNIJDeviceURI: ""
+*OpenUI *ColorModel/Color Model: PickOne
+*OrderDependency: 10 AnySetup *ColorModel
+*DefaultColorModel: RGB16
+*ColorModel RGB16/RGB 16-bit: "<</cupsColorOrder 0/cupsColorSpace 1/cupsCompression 0/cupsBitsPerColor 16>>setpagedevice"
+*CloseUI: *ColorModel
+*APDefaultCustomColorMatchingProfile: sRGB
+*cupsICCQualifier2: CNIJProfileID
+*OpenUI *CNIJProfileID/ProfileID: PickOne
+*DefaultCNIJProfileID: 1
+*CloseUI: *CNIJProfileID
+*CloseUI: *Resolution
+*APPrinterPreset Photo_on_Photo_Paper/Photo on Photo Paper:"
+	*CNIJMediaType 42
+*APPrinterPreset Photo_on_Matte_Paper/Photo on Matte Paper:"
+	*CNIJMediaType 50
+	*CNIJPrintMode 3
+	*CNIJPrintMode 1
+*APPrinterPreset Photo_on_Matte_Paper/Photo on Matte Paper: "
+	*CNIJMediaType 28
+	*CNIJPrintMode2 1
+	com.apple.print.preset.media-front-coating matte"
+*APPrinterPreset Photo_on_Plain_Paper/Photo on Plain Paper: "
+	*CNIJMediaType 0
+	com.apple.print.preset.media-front-coating none"
+*APPrinterPreset Photo_on_Photo_Paper/Photo on Photo Paper: "
+	*CNIJMediaType 26
+	*CNIJPrintMode2 2
+	com.apple.print.preset.graphicsType Photo
+	com.apple.print.preset.quality mid
+	com.apple.print.preset.media-front-coating glossy"
+CNIJExtDDIStapleMarginSupport
+CNIJExtDDISupportAppType
+CNIJMediaSense
+CNIJClearInkMode
+CNIJMonochromeType
+CNIJAutoDuplexCheckBox
+CNIJColorAdjustMode
+ColorAdjustMode
+CNIJBlackAdjustment
+----ERROR-ERROR-ERROR-%s-(GetCmcmDefaultValue)---
+----ERROR-ERROR-ERROR-%s-(GetCmcmAvailableValues)---
+CNIJPrintQuality
+CNIJPDETitle
+*OpenUI *%s/%s: PickOne
+*Default%s: %d
+*%s %d/%s: ""
+CNIJGrayScale
+*%s %d/: ""
+*%s %d/%d: ""
+*CloseUI: *%s
+CNIJDuplex
+Duplex - Long Edge
+Duplex - Short Edge
+*Default%s: %s
+*%s %s/%s: "<</Duplex false>>setpagedevice"
+*%s %s/%s: "<</Duplex true/Tumble false>>setpagedevice"
+DuplexNoTumble
+*%s %s/%s: "<</Duplex true/Tumble true>>setpagedevice"
+DuplexTumble
+APCustomColorMatchingName
+*APCustomColorMatchingName name/%s: ""
+APSupportsCustomColorMatching
+PageSize
+CNIJEmergencyMode
+CNIJLongLifeMode
+CNIJCartridgeSelect
+Usage: %s device_uri, ppd_path
+dnssd://
+_riousbprint._tcp
+riousbprint://
+CNIJTableSwitchInfo
+CNIJDEVHRIInfo
+CNIJDEVCDRInfo
+CNIJDEVPDRInfo
+CNIJPrinterSerialNumber
+cupsLanguages
+_ipp._tcp
+_ipps._tcp
+_printer._tcp
+riousbprint
+bluetooth
+canonijnetwork
+canonijfirewire
+/dev/null
+ERROR:Canon AutoSetup Tool:Inappropriate device-uri for the driver
+CNIJCartridge
+CNIJMediaSupply
+CNIJPrintMode2
+CNIJDitherPattern
+CNIJGamma2
+CNIJBalanceC
+CNIJBalanceM
+CNIJBalanceY
+CNIJBalanceK
+CNIJDensity
+CNIJPZIllustretch
+CNIJPZIllustretchLevel
+CNIJPZMonotone
+CNIJMonotoneColor
+CNIJMSelectColor
+CNIJPZVividPosiProcess
+CNIJDCNoiseReductionLevel
+CNIJPZNoiseReduction
+CNIJAmountOfExtension
+CNIJGrayScaleCheckBox
+CNIJPQualitySlider
+CNIJHalfToneRadio
+CNIJMonotoneCheckBox
+CNIJDuplexPrinting
+CNIJDuplexPrintArea
+CNIJStapleSide
+CNIJStapleMargin
+CNIJIntent2
+CNIJMonochromeTone
+CNIJContrast
+CNIJPreviewSampleType
+CNIJColorPatternCheckBox
+CNIJClearCoatArea
+CNIJClearCustomMode
+CNIJClearPatternType
+CNIJClearPatternSize
+CNIJClearFormInvert
+CNIJClearFormApplyMode
+CNIJMediaSupplyMenuItem
+CNIJDebugLog
+CNIJProfileType
+CNIJPDEEnable
+CNIJRGB2GrayConvert
+CNIJBanner
+CNIJMarginType
+CNIJPaperGapCommand
+CNIJDiscTrayForm
+CNIJSGColorMode
+CNIJISaveMode
+CNIJMediaGroup
+CNIJDuplexSurface
+CNIJDataDirection
+CNIJSpecialMode
+CNIJManualSelectSupply
+CNIJModelID
+CNIJTableFormatType
+CNIJSmoothing
+CNIJUserCustomWidthRange
+CNIJUserCustomLengthRange
+CNIJESSK1BitFunc
+CNIJConnectionType
+CNIJPBMPath
+CNIJPrinterAddress
+CNIJCDRSupportInfoByFSI
+*OpenUI *CNIJColorAdjustMode/ColorAdjustMode: PickOne
+*DefaultCNIJColorAdjustMode: 1
+*CNIJColorAdjustMode 1/1: ""
+*CloseUI: *CNIJColorAdjustMode
+*OpenUI *CNIJColorAdjustMode/ColorAdjustMode: PickOne
+*DefaultCNIJColorAdjustMode: 0
+*CNIJColorAdjustMode 0/0: ""
+*CloseUI: *CNIJColorAdjustMode
+*OpenUI *CNIJDuplex/Duplex: PickOne
+*DefaultCNIJDuplex: 1
+*CNIJDuplex 1/None: "<</Duplex false>>setpagedevice"
+*CNIJDuplex 2/Duplex - Long Edge: "<</Duplex true/Tumble false>>setpagedevice"
+*CNIJDuplex 3/Duplex - Short Edge: "<</Duplex true/Tumble true>>setpagedevice"
+*CloseUI: *CNIJDuplex
+PageRegion
+ImageableArea
+PaperDimension
+*%s %s/%s: "<</PageSize[%.2f %.2f]/ImagingBBox null>>setpagedevice"
+*%s %s/%s: "<</PageSize[%.2f %.2f]/ImagingBBox null/cupsBorderlessScalingFactor %.10f>>setpagedevice"
+*Default%s: %s
+*%s %s/%s: "%.2f %.2f %.2f %.2f"
+*%s %s/%s: "%.2f %.2f"
+*ParamCustomPageSize Width: 1 points %.2f %.2f
+*ParamCustomPageSize Height: 2 points %.2f %.2f
+*MaxMediaWidth: "%.2f"
+*MaxMediaHeight: "%.2f"
+*HWMargins: %.2f %.2f %.2f %.2f
+cupsPageSizeCategory
+*%s %s/%s: "%s"
+*CustomPageSize True: ""
+*ParamCustomPageSize WidthOffset: 3 points 0 0
+*ParamCustomPageSize HeightOffset: 4 points 0 0
+*ParamCustomPageSize Orientation: 5 int 0 0
+*CenterRegistered: False
+Canon BJ Network
+BJNPIOMComputerName
+BJNPIOMUserName
+BJNPIOMDocumentName
+BJNPIOMSetDocumentInfo
+BJNPIOMSetNoQueuing
+Bluetooth
+USBIOMResetOnAbort
+BJNPIOMSetQuitFlag
+USBIOMSoftReset
+Canon BJ FireWire
+BJNPIOMGetStatusCFData
+USBIOMGetDeviceID
+BJNPIOMGetStatus
+BJNPIOMGetDocumentInfo
+USBBackendDrainOutput
+CIJQueuingMode
+com.apple.print.JobInfo.PMJobOwner
+/usr/libexec/cups/backend/
+PrinterDriver
+LogGetData
+LogUSBRead
+0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz-._~
+*% Backend error messages -----------------
+*cupsIPPReason 
+*%s.cupsIPPReason 
+CanonIJStateReason
+CanonIJReasonText
+CanonIJHelpAnchor
+CanonIJHelpBookID
+help:anchor='
+'%20bookID=
+*cupsMarkerName %s/%s: ""
+*%s.cupsMarkerName %%s/%%s: ""
+CanonIJMarkerName
+CanonIJMarkerNameText
+LogUSBWrite
+/Library/Caches/Canon/BJPrinter/MagicWords/
+%04d%02d%02d%02d%02d%02d
+*%s.%s %s/%s: ""
+%s.%s %s/
+*%s%s: ""
+DeviceInfo.tbl
+colorAdjustMode
+monochromeAdjustMode
+amountOfExtension
+mediaSense
+extddiSupport
+extddiStapleSupport
+extddiSupportApp
+supplyHandling
+ancientCDR
+photoPreset
+generalPreset
+duplexUI
+commonICC
+notForcePMDetection
+stringByAddingPercentEncodingWithAllowedCharacters:
+characterSetWithCharactersInString:
+valueForKey:
+pathForResource:ofType:
+propertyListWithData:options:format:error:
+shortValue
+dataWithContentsOfFile:
+mainBundle
+stringWithFormat:
+Xp`SARA`
+RAZARARAZARAZARAZA`*AZARASA`)B
+@_OBJC_CLASS_$_NSAutoreleasePool
+@_OBJC_CLASS_$_NSBundle
+@_OBJC_CLASS_$_NSCharacterSet
+@_OBJC_CLASS_$_NSPropertyListSerialization
+@_OBJC_CLASS_$_NSString
+@_objc_msgSend
+@__ZTVN10__cxxabiv117__class_type_infoE
+@__ZTVN10__cxxabiv120__si_class_type_infoE
+@__ZdlPv
+@___cxa_pure_virtual
+@___gxx_personality_v0
+@___chkstk_darwin
+@___stack_chk_guard
+@___stderrp
+@___stdoutp
+@dyld_stub_binder
+@_OBJC_CLASS_$_NSData
+@___CFConstantStringClassReference
+@_kCFAllocatorDefault
+@_kCFBooleanTrue
+@_kCFTypeDictionaryKeyCallBacks
+@_kCFTypeDictionaryValueCallBacks
+@__ZdlPv
+@_BJCMDisposeProfileInfoList
+@_BJCMNewProfileInfoList2
+@_BJCMNewProfileInfoListC
+@_BJPaperFindWithBJPaperSizeAndPaperNameTypeAndModelID
+@_BJPaperFindWithBJPaperSizeAndPaperNameTypeAndModelIDAndMargin
+@_BJPaperGetPaperSize
+@_BJStatusCreate
+@_BJStatusCreateInkMarkerNameSet
+@_BJStatusCreatePrinterStateReasonSetForMessage
+@_BJStatusInitialize
+@_BJStatusLoadLocalizableStrings
+@_BJStatusRelease
+@_BJStatusReleaseLocalizableStrings
+@_BJStatusSetSupportMediaTypes
+@_BJStatusSetSupportPaperSizes
+@_BJUtilsGetCDRSupportInfo
+@_BJUtilsGetModelIDWithDeviceID
+@_BJUtilsStoreCDRSupportInfo
+@_BJUtilsStoreHRInfo
+@_BJUtilsStorePDRInfo
+@_CFAllocatorAllocate
+@_CFAllocatorDeallocate
+@_CFAllocatorGetDefault
+@_CFArrayAppendValue
+@_CFArrayCreateMutable
+@_CFArrayGetCount
+@_CFArrayGetValueAtIndex
+@_CFArrayGetValues
+@_CFBundleGetMainBundle
+@_CFDataCreate
+@_CFDataGetBytes
+@_CFDataGetLength
+@_CFDictionaryAddValue
+@_CFDictionaryCreateMutable
+@_CFDictionaryGetValue
+@_CFEqual
+@_CFRelease
+@_CFRetain
+@_CFStringAppend
+@_CFStringCompare
+@_CFStringCreateCopy
+@_CFStringCreateMutable
+@_CFStringCreateWithBytes
+@_CFStringCreateWithCString
+@_CFStringCreateWithSubstring
+@_CFStringFindWithOptions
+@_CFStringGetBytes
+@_CFStringGetCString
+@_CFStringGetLength
+@_CFURLCopyScheme
+@_CFURLCreateWithBytes
+@_CFURLCreateWithString
+@_CFURLGetString
+@_CIJUtilsCompareVersionWithGestaltVersion
+@_CommandComp2
+@_GetChangeInfo
+@_GetComComTableFormatType
+@_GetDefaultBJNameData
+@_GetGroupInfo
+@_IJPDELSCopyLocalizedString
+@_IJPDELSCreate
+@_IJPDELSInitialize
+@_IJPDELSLoadLocalizableStringsForLocalization
+@_IJPDELSRelease
+@_IJPDELSUnloadLocalizableStrings
+@_IJUtilsCreateDBGroupTblPathWithModelID
+@_IJUtilsCreateICCProfilePathWithProfileGroupID
+@_IJUtilsCreateNameTblPath
+@_IJUtilsCreateNameTblPathWithDBGroupID
+@_IJUtilsCreatePPDPathWithPrinterID
+@_IJUtilsDoesPathExist
+@_IJUtilsGetForcePMDetectionSettingsWithDeviceURI
+@_IJUtilsStoreForcePMDetectionSettingsWithDeviceURI
+@__Unwind_Resume
+@__ZSt9terminatev
+@___cxa_begin_catch
+@___error
+@___stack_chk_fail
+@_access
+@_calloc
+@_cupsBackChannelRead
+@_cupsBackendDeviceURI
+@_cupsFileClose
+@_cupsFileGetLine
+@_cupsFileOpen
+@_cupsFileRewind
+@_cupsSideChannelDoRequest
+@_fclose
+@_fwrite
+@_localtime
+@_malloc
+@_memcmp
+@_memcpy
+@_memmove
+@_memset_pattern16
+@_objc_alloc_init
+@_perror
+@_ppdClose
+@_ppdFindAttr
+@_ppdFindChoice
+@_ppdFindOption
+@_ppdOpenFile
+@_printf
+@_pthread_cancel
+@_pthread_cond_destroy
+@_pthread_cond_init
+@_pthread_cond_signal
+@_pthread_cond_timedwait_relative_np
+@_pthread_cond_wait
+@_pthread_create
+@_pthread_exit
+@_pthread_join
+@_pthread_mutex_destroy
+@_pthread_mutex_init
+@_pthread_mutex_lock
+@_pthread_mutex_unlock
+@_pthread_testcancel
+@_putchar
+@_realloc
+@_snprintf
+@_socketpair
+@_strchr
+@_strcmp
+@_strlcpy
+@_strlen
+@_strncmp
+@_strncpy
+@_strnstr
+@_strrchr
+@_strstr
+@_sysconf
+@_sysctl
+@_usleep
+@_waitpid
+__mh_execute_header
+__mh_execute_header
+_BJCMDisposeProfileInfoList
+_BJCMNewProfileInfoList2
+_BJCMNewProfileInfoListC
+_BJPaperFindWithBJPaperSizeAndPaperNameTypeAndModelID
+_BJPaperFindWithBJPaperSizeAndPaperNameTypeAndModelIDAndMargin
+_BJPaperGetPaperSize
+_BJStatusCreate
+_BJStatusCreateInkMarkerNameSet
+_BJStatusCreatePrinterStateReasonSetForMessage
+_BJStatusInitialize
+_BJStatusLoadLocalizableStrings
+_BJStatusRelease
+_BJStatusReleaseLocalizableStrings
+_BJStatusSetSupportMediaTypes
+_BJStatusSetSupportPaperSizes
+_BJUtilsGetCDRSupportInfo
+_BJUtilsGetModelIDWithDeviceID
+_BJUtilsStoreCDRSupportInfo
+_BJUtilsStoreHRInfo
+_BJUtilsStorePDRInfo
+_CFAllocatorAllocate
+_CFAllocatorDeallocate
+_CFAllocatorGetDefault
+_CFArrayAppendValue
+_CFArrayCreateMutable
+_CFArrayGetCount
+_CFArrayGetValueAtIndex
+_CFArrayGetValues
+_CFBundleGetMainBundle
+_CFDataCreate
+_CFDataGetBytes
+_CFDataGetLength
+_CFDictionaryAddValue
+_CFDictionaryCreateMutable
+_CFDictionaryGetValue
+_CFEqual
+_CFRelease
+_CFRetain
+_CFStringAppend
+_CFStringCompare
+_CFStringCreateCopy
+_CFStringCreateMutable
+_CFStringCreateWithBytes
+_CFStringCreateWithCString
+_CFStringCreateWithSubstring
+_CFStringFindWithOptions
+_CFStringGetBytes
+_CFStringGetCString
+_CFStringGetLength
+_CFURLCopyScheme
+_CFURLCreateWithBytes
+_CFURLCreateWithString
+_CFURLGetString
+_CIJUtilsCompareVersionWithGestaltVersion
+_CommandComp2
+_GetChangeInfo
+_GetComComTableFormatType
+_GetDefaultBJNameData
+_GetGroupInfo
+_IJPDELSCopyLocalizedString
+_IJPDELSCreate
+_IJPDELSInitialize
+_IJPDELSLoadLocalizableStringsForLocalization
+_IJPDELSRelease
+_IJPDELSUnloadLocalizableStrings
+_IJUtilsCreateDBGroupTblPathWithModelID
+_IJUtilsCreateICCProfilePathWithProfileGroupID
+_IJUtilsCreateNameTblPath
+_IJUtilsCreateNameTblPathWithDBGroupID
+_IJUtilsCreatePPDPathWithPrinterID
+_IJUtilsDoesPathExist
+_IJUtilsGetForcePMDetectionSettingsWithDeviceURI
+_IJUtilsStoreForcePMDetectionSettingsWithDeviceURI
+_OBJC_CLASS_$_NSAutoreleasePool
+_OBJC_CLASS_$_NSBundle
+_OBJC_CLASS_$_NSCharacterSet
+_OBJC_CLASS_$_NSData
+_OBJC_CLASS_$_NSPropertyListSerialization
+_OBJC_CLASS_$_NSString
+__Unwind_Resume
+__ZSt9terminatev
+__ZTVN10__cxxabiv117__class_type_infoE
+__ZTVN10__cxxabiv120__si_class_type_infoE
+___CFConstantStringClassReference
+___chkstk_darwin
+___cxa_begin_catch
+___cxa_pure_virtual
+___error
+___gxx_personality_v0
+___stack_chk_fail
+___stack_chk_guard
+___stderrp
+___stdoutp
+_cupsBackChannelRead
+_cupsBackendDeviceURI
+_cupsFileClose
+_cupsFileGetLine
+_cupsFileOpen
+_cupsFileRewind
+_cupsSideChannelDoRequest
+_kCFAllocatorDefault
+_kCFBooleanTrue
+_kCFTypeDictionaryKeyCallBacks
+_kCFTypeDictionaryValueCallBacks
+_localtime
+_memmove
+_memset_pattern16
+_objc_alloc_init
+_objc_msgSend
+_ppdClose
+_ppdFindAttr
+_ppdFindChoice
+_ppdFindOption
+_ppdOpenFile
+_pthread_cancel
+_pthread_cond_destroy
+_pthread_cond_init
+_pthread_cond_signal
+_pthread_cond_timedwait_relative_np
+_pthread_cond_wait
+_pthread_create
+_pthread_exit
+_pthread_join
+_pthread_mutex_destroy
+_pthread_mutex_init
+_pthread_mutex_lock
+_pthread_mutex_unlock
+_pthread_testcancel
+_putchar
+_realloc
+_snprintf
+_socketpair
+_strlcpy
+_strncmp
+_strncpy
+_strnstr
+_strrchr
+_sysconf
+_waitpid
+dyld_stub_binder
+radr://5614542
+jp.co.canon.ij.print.cijautosetuptools
+XE2XNRRXZ5
+&jp.co.canon.ij.print.cijautosetuptools
+subject.OU
+XE2XNRRXZ5
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+210922185510Z
+310917000000Z0^1-0+
+$Developer ID Certification Authority1
+Apple Inc.1
+(http://ocsp.apple.com/ocsp03-applerootca0.
+http://crl.apple.com/root.crl0
+oD/oM=xx
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+$Developer ID Certification Authority1
+Apple Inc.1
+240819043902Z
+290820043901Z0
+XE2XNRRXZ51:08
+1Developer ID Application: Canon Inc. (XE2XNRRXZ5)1
+XE2XNRRXZ51
+Canon Inc.1
+"http://certs.apple.com/devidg2.der02
+&http://ocsp.apple.com/ocsp03-devidg2070
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.06
+*https://www.apple.com/certificateauthority0
+20120416000000Z0
+0r0^1-0+
+$Developer ID Certification Authority1
+Apple Inc.1
+260430095045Z0/
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<key>cdhashes</key>
+	<array>
+		<data>
+		Tqz++UgMiQ/hjCgMRMYdReY1HTA=
+		</data>
+	</array>
+</plist>
+20260430095045Z0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+260429165028Z
+260610165027Z0B1
+Timestamp Signer NWK21
+Apple Inc.1
+http://www.apple.com/appleca0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+"http://crl.apple.com/timestamp.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120405120244Z
+270405120244Z0|100.
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+260430095045Z0#

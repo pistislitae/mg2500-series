@@ -1,0 +1,656 @@
+## pkgs/pkg1/Library/Printers/Canon/BJPrinter/Frameworks/BJCommand2.framework/Versions/A/BJCommand2
+## Mach-O universal binary with 2 architectures: [x86_64:\012- Mach-O 64-bit x86_64 dynamically linked shared library, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|NO_REEXPORTED_DYLIBS>] [\012- arm64:\012- Mach-O 64-bit arm64 dynamically linked shared library, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|NO_REEXPORTED_DYLIBS>]
+__stub_helper
+__cstring
+__unwind_info
+__DATA_CONST
+__DATA_CONST
+__la_symbol_ptr
+__LINKEDIT
+/Library/Printers/Canon/BJPrinter/Frameworks/BJCommand2.framework/Versions/A/BJCommand2
+/usr/lib/libSystem.B.dylib
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSPM
+[A\A]A^A_]
+AWAVATS1
+[A\A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSPA
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+8[A\A]A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSPA
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSP
+[A\A]A^A_]
+AWAVAUATSH
+X[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVATSL
+\F0fD;$_uuH
+[A\A^A_]
+AWAVAUATSH
+h[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVATSH
+p[A\A^A_]
+AWAVAUATSH
+h[A\A]A^A_]
+AWAVAUATSH
+([A\A]A^A_]
+AWAVAUATSH
+8[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+([A\A]A^A_]
+AWAVAUATSH
+([A\A]A^A_]
+AWAVAUATSH
+8[A\A]A^A_]
+AWAVAUATSH
+8[A\A]A^A_]
+AWAVATSH
+[A\A^A_]
+[A\A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+x[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+h[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+AWAVAUATSH
+X[A\A]A^A_]
+AWAVAUATSH
+X[A\A]A^A_]
+AWAVAUATSPA
+[A\A]A^A_]
+D$8A+D$(
+[A\A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+100BBJColorPrinter1999.icc
+BJColorPrinter1999.icc
+200BBJColorPrinter2000.icc
+BJColorPrinter2000.icc
+WARRIORS_BJSPTSRC_2.60.01.002
+100BBJColorPrinter1999.icc
+BJColorPrinter1999.icc
+200BBJColorPrinter2000.icc
+BJColorPrinter2000.icc
+WARRIORS_COMCOM_8.40.01.001
+WARRIORS_BJVS_1.71.01.001
+WARRIORS_BJPARM_4.65.01.002
+supportc
+unknownc
+cnbadbg0
+cnbachg0
+cnbaname
+@___stack_chk_guard
+@dyld_stub_binder
+@___bzero
+@___error
+@___stack_chk_fail
+@_calloc
+@_fclose
+@_fdopen
+@_fwrite
+@_memcpy
+@_mkstemp
+@_remove
+@_strlen
+@_vfprintf
+CommandComp2
+NewProfileInfoList
+`DisposeProfileInfoList
+uGetProfileInfo
+DefaultBJNameData
+GroupInfo
+alibratedBJNameData
+hangeInfo
+omComTableFormatType
+_BJCMDisposeProfileInfoList
+_BJCMGetProfileInfo
+_BJCMGetProfileInfoBJParm
+_BJCMGetProfileInfoBJParmC
+_BJCMGetProfileInfoC
+_BJCMNewProfileInfoList
+_BJCMNewProfileInfoList2
+_BJCMNewProfileInfoListC
+_CommandComp2
+_CommandComp2Ext
+_CommandComp2Ext_Close
+_CommandComp2Ext_Open
+_GetCalibratedBJNameData
+_GetCalibratedBJNameDataTwo
+_GetChangeInfo
+_GetComComTableFormatType
+_GetDefaultBJNameData
+_GetGroupInfo
+___bzero
+___error
+___stack_chk_fail
+___stack_chk_guard
+_mkstemp
+_vfprintf
+dyld_stub_binder
+_ProfileInfoConvert
+_CM3_ModeSet
+_SetMenuLink2
+_GetBJDataBaseSeparatedStructType
+_GetDBStructType
+_GetBJDataBaseSeparated
+_CopyBJDBProfileInfo
+_CopyBJDBProfileInfo_1
+_CM3_SetCommonParm
+_CM3_SetMargin
+_SetMarginAndEscP_Format1
+_SetMarginAndEscP_Format2
+_GetBJDataBaseFormat
+_GetBJDataBaseStructType
+_GetBJDataBase
+_GetBJDataBaseKEY00_01
+_GetBJDataBaseKEY02_01
+_GetBJDataBaseKEY02_02
+_ChangeByteOrder
+_GetByteOrder
+_GetCM3HeaderInfo
+_GetTagID
+_ExistTagCheck
+_SearchCM3ResourceDataCore
+_SearchCM3ResourceData
+_SearchCM3ResourceDataTwo
+_CopyBjParmTOQuery
+_CopyResultTOBjParm
+_CM3FakeBJParm
+_GetDataBaseVersion
+_GetNewDataBaseName
+_DecryptBlockTree
+_CM3_SetNativeCommand
+_ExpandBlockTree
+_DesubBlockTree
+_BePlainBlockTree
+_RecursiveProcBlockTree
+_BJCMCopyProfileNameByOS
+_BJCMCopyProfileName_1
+_BJCMCopyProfileNameCommon
+_BJCM3ProfGetDataBaseFormat
+_GetAllProfileDB0_2
+_GetAllProfileDB3
+_BJCMCopyBJDBProfileInfo
+_GetComonProfile
+_ProfileNameConvert
+_NewICCProfileInfoTbl
+_DisposeICCProfileInfoTbl
+_CM3_GetFormatType
+_SearchCM3ResourceDataSW
+_GetTableSwitchFlag
+_ReplaceBlockTree
+_SwapBlockTree
+_OpenDecompressA
+_reset_code_bits
+_CloseDecompressA
+_ProduceDecompressA
+_output_character
+_CompleteDecompressA
+_BJVSCompString
+_BJVSGetLenOfString
+_BJVSCopyString
+_BJVSCatString
+_BJVSLoadTable
+_BJVSFreeTable
+_BJVSLockTable
+_BJVSUnlockTable
+_BJVSGetSizeOfTable
+_BJVSCheckEndian
+_BJVSSwapData
+_BJVSCopyData
+_BJVSSetData
+_BJVSCompData
+_BJVSLoadTableHNDL
+_BJVSFreeTableHNDL
+_BJVSLoadTagListOfTable
+_BJVSFreeTagList
+_BJVSLoadTablePTRByIndex
+_BJVSLoadTablePTR
+_BJVSFreeTablePTR
+_BJVSOpenFile
+_BJVSMakeFullPath
+_BJVSCloseFile
+_BJVSReadFile
+_BJVSWriteFile
+_BJVSSeekFile
+_BJVSGetPosOfFile
+_BJVSGetSizeOfFile
+_BJVSGetPathDescSize
+_BJVSDeleteFile
+_BJVSOpenTempFile
+_BJVSWriteFileAsString
+_BJVSGetSystemInfo
+_BJVSNewHNDL
+_BJVSDisposeHNDL
+_BJVSLockHNDL
+_BJVSUnlockHNDL
+_BJVSNewPTR
+_BJVSDisposePTR
+_default1CommonProfile
+_default2CommonProfile
+_printmode_struct_type
+_colorparam_struct_type
+_profile_struct_type
+_separatedDB_searchType
+_profile_max_type
+_IntentListTable
+_BJSPTSRCversion
+_DATABASE_STRUCTTYPE
+_COMCOMversion
+_BJVSversion
+_BJPARMversion
+_BJVSCheckEndian.order_check
+_BJVSSeekFile.posMode
+_pathplus
+_ESS_CAL_SUPPORT
+_ESS_CAL_UNKNOWN
+__dyld_private
+jp.co.canon.bsd.bjcommand2
+XE2XNRRXZ5
+jp.co.canon.bsd.bjcommand2
+subject.OU
+XE2XNRRXZ5
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120201221215Z
+270201221215Z0y1-0+
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+)xEii`k_
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+200803051541Z
+250804051541Z0
+XE2XNRRXZ51:08
+1Developer ID Application: Canon Inc. (XE2XNRRXZ5)1
+XE2XNRRXZ51
+Canon Inc.1
+$http://ocsp.apple.com/ocsp03-devid080
+)http://www.apple.com/certificateauthority0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+20120416000000Z0
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+211221010721Z0/
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<key>cdhashes</key>
+	<array>
+		<data>
+		XZX1fXux3nGslV29td81F1cUZ6M=
+		</data>
+	</array>
+</plist>
+20211221010721Z0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+211202235459Z
+220113235458Z0B1
+Timestamp Signer RNO21
+Apple Inc.1
+http://www.apple.com/appleca0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+"http://crl.apple.com/timestamp.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120405120244Z
+270405120244Z0|100.
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+211221010721Z0#
+__stub_helper
+__cstring
+__unwind_info
+__DATA_CONST
+__DATA_CONST
+__la_symbol_ptr
+__LINKEDIT
+/Library/Printers/Canon/BJPrinter/Frameworks/BJCommand2.framework/Versions/A/BJCommand2
+/usr/lib/libSystem.B.dylib
+,ih8Li(8l
++ih8Ki(8
++ih8Ki(8
+ih8li*8J
+,ih8Li(8
++ih8Ki(8
+z(xh2@9i
+100BBJColorPrinter1999.icc
+BJColorPrinter1999.icc
+200BBJColorPrinter2000.icc
+BJColorPrinter2000.icc
+WARRIORS_BJSPTSRC_2.60.01.002
+????????
+100BBJColorPrinter1999.icc
+BJColorPrinter1999.icc
+200BBJColorPrinter2000.icc
+BJColorPrinter2000.icc
+WARRIORS_COMCOM_8.40.01.001
+WARRIORS_BJVS_1.71.01.001
+WARRIORS_BJPARM_4.65.01.002
+supportc
+unknownc
+cnbadbg0
+cnbachg0
+cnbaname
+@___stack_chk_guard
+@dyld_stub_binder
+@___error
+@___stack_chk_fail
+@_calloc
+@_fclose
+@_fdopen
+@_fwrite
+@_memcpy
+@_mkstemp
+@_remove
+@_strlen
+@_vfprintf
+CommandComp2
+NewProfileInfoList
+`DisposeProfileInfoList
+xGetProfileInfo
+DefaultBJNameData
+GroupInfo
+alibratedBJNameData
+hangeInfo
+omComTableFormatType
+_BJCMDisposeProfileInfoList
+_BJCMGetProfileInfo
+_BJCMGetProfileInfoBJParm
+_BJCMGetProfileInfoBJParmC
+_BJCMGetProfileInfoC
+_BJCMNewProfileInfoList
+_BJCMNewProfileInfoList2
+_BJCMNewProfileInfoListC
+_CommandComp2
+_CommandComp2Ext
+_CommandComp2Ext_Close
+_CommandComp2Ext_Open
+_GetCalibratedBJNameData
+_GetCalibratedBJNameDataTwo
+_GetChangeInfo
+_GetComComTableFormatType
+_GetDefaultBJNameData
+_GetGroupInfo
+___error
+___stack_chk_fail
+___stack_chk_guard
+_mkstemp
+_vfprintf
+dyld_stub_binder
+_ProfileInfoConvert
+_CM3_ModeSet
+_SetMenuLink2
+_GetBJDataBaseSeparatedStructType
+_GetDBStructType
+_GetBJDataBaseSeparated
+_CopyBJDBProfileInfo
+_CopyBJDBProfileInfo_1
+_CM3_SetCommonParm
+_CM3_SetMargin
+_SetMarginAndEscP_Format1
+_SetMarginAndEscP_Format2
+_GetBJDataBaseFormat
+_GetBJDataBaseStructType
+_GetBJDataBase
+_GetBJDataBaseKEY00_01
+_GetBJDataBaseKEY02_01
+_GetBJDataBaseKEY02_02
+_ChangeByteOrder
+_GetByteOrder
+_GetCM3HeaderInfo
+_GetTagID
+_ExistTagCheck
+_SearchCM3ResourceDataCore
+_SearchCM3ResourceData
+_SearchCM3ResourceDataTwo
+_CopyBjParmTOQuery
+_CopyResultTOBjParm
+_CM3FakeBJParm
+_GetDataBaseVersion
+_GetNewDataBaseName
+_DecryptBlockTree
+_CM3_SetNativeCommand
+_ExpandBlockTree
+_DesubBlockTree
+_BePlainBlockTree
+_RecursiveProcBlockTree
+_BJCMCopyProfileNameByOS
+_BJCMCopyProfileName_1
+_BJCMCopyProfileNameCommon
+_BJCM3ProfGetDataBaseFormat
+_GetAllProfileDB0_2
+_GetAllProfileDB3
+_BJCMCopyBJDBProfileInfo
+_GetComonProfile
+_ProfileNameConvert
+_NewICCProfileInfoTbl
+_DisposeICCProfileInfoTbl
+_CM3_GetFormatType
+_SearchCM3ResourceDataSW
+_GetTableSwitchFlag
+_ReplaceBlockTree
+_SwapBlockTree
+_OpenDecompressA
+_reset_code_bits
+_CloseDecompressA
+_ProduceDecompressA
+_output_character
+_CompleteDecompressA
+_BJVSCompString
+_BJVSGetLenOfString
+_BJVSCopyString
+_BJVSCatString
+_BJVSLoadTable
+_BJVSFreeTable
+_BJVSLockTable
+_BJVSUnlockTable
+_BJVSGetSizeOfTable
+_BJVSCheckEndian
+_BJVSSwapData
+_BJVSCopyData
+_BJVSSetData
+_BJVSCompData
+_BJVSLoadTableHNDL
+_BJVSFreeTableHNDL
+_BJVSLoadTagListOfTable
+_BJVSFreeTagList
+_BJVSLoadTablePTRByIndex
+_BJVSLoadTablePTR
+_BJVSFreeTablePTR
+_BJVSOpenFile
+_BJVSMakeFullPath
+_BJVSCloseFile
+_BJVSReadFile
+_BJVSWriteFile
+_BJVSSeekFile
+_BJVSGetPosOfFile
+_BJVSGetSizeOfFile
+_BJVSGetPathDescSize
+_BJVSDeleteFile
+_BJVSOpenTempFile
+_BJVSWriteFileAsString
+_BJVSGetSystemInfo
+_BJVSNewHNDL
+_BJVSDisposeHNDL
+_BJVSLockHNDL
+_BJVSUnlockHNDL
+_BJVSNewPTR
+_BJVSDisposePTR
+_default1CommonProfile
+_default2CommonProfile
+_printmode_struct_type
+_colorparam_struct_type
+_profile_struct_type
+_separatedDB_searchType
+_profile_max_type
+_IntentListTable
+_BJSPTSRCversion
+_DATABASE_STRUCTTYPE
+_COMCOMversion
+_BJVSversion
+_BJPARMversion
+_BJVSCheckEndian.order_check
+_BJVSSeekFile.posMode
+_pathplus
+_ESS_CAL_SUPPORT
+_ESS_CAL_UNKNOWN
+__dyld_private
+jp.co.canon.bsd.bjcommand2
+XE2XNRRXZ5
+jp.co.canon.bsd.bjcommand2
+subject.OU
+XE2XNRRXZ5
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120201221215Z
+270201221215Z0y1-0+
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+)xEii`k_
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+200803051541Z
+250804051541Z0
+XE2XNRRXZ51:08
+1Developer ID Application: Canon Inc. (XE2XNRRXZ5)1
+XE2XNRRXZ51
+Canon Inc.1
+$http://ocsp.apple.com/ocsp03-devid080
+)http://www.apple.com/certificateauthority0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+20120416000000Z0
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+211221010721Z0/
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<key>cdhashes</key>
+	<array>
+		<data>
+		M7tfzxAfIqT3jpUCFzulfpi6hW8=
+		</data>
+	</array>
+</plist>
+20211221010721Z0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+211202235420Z
+220113235419Z0B1
+Timestamp Signer RNO11
+Apple Inc.1
+http://www.apple.com/appleca0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+"http://crl.apple.com/timestamp.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120405120244Z
+270405120244Z0|100.
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+211221010721Z0#
