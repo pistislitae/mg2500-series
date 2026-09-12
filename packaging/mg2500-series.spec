@@ -216,7 +216,7 @@ exit 0
 /usr/local/share/locale
 
 %changelog
-* Sat Sep 12 2026 Arena Agent <arena-agent@arena.ai> - 1.0.1-1
+* Sat Sep 12 2026 pistislitae <56380429+pistislitae@users.noreply.github.com> - 1.0.1-1
 - Perbaikan: patch soname libusb (1.0.0 -> 1.0.1) kini menjangkau cnijlgmon2
   yang di RPM upstream berada di /usr/local/bin; dependency kini resolvable
   di Fedora/Bazzite.
