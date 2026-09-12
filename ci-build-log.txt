@@ -1,7 +1,7 @@
 ==> [1/7] Unduh & verifikasi packagearchive resmi Canon
   % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
                                  Dload  Upload  Total   Spent   Left   Speed
-  0      0   0      0   0      0      0      0                              0100  1.45M 100  1.45M   0      0 14.39M      0                              0100  1.45M 100  1.45M   0      0 14.38M      0                              0100  1.45M 100  1.45M   0      0 14.37M      0                              0
+  0      0   0      0   0      0      0      0                              0100  1.45M 100  1.45M   0      0  4.21M      0                              0100  1.45M 100  1.45M   0      0  4.21M      0                              0100  1.45M 100  1.45M   0      0  4.21M      0                              0
 cnijfilter-mg2500series-4.00-1-rpm.tar.gz: OK
 388710d24632d791a80b626166f40c1e56261b5aa4d5432e7c057a54d7601141  cnijfilter-mg2500series-4.00-1-rpm.tar.gz
 ==> [2/7] Ekstrak RPM x86_64 Canon
@@ -87,14 +87,14 @@ libusb-1.0.so.1
 LOCF=[%{_datadir}/locale/*/LC_MESSAGES/cnijlgmon2.mo]
 ==> [6/7] Tarball sumber + rpmbuild
 setting SOURCE_DATE_EPOCH=1789171200
-Executing(%mkbuilddir): /bin/sh -e /var/tmp/rpm-tmp.90A0kV
-Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.E6q1ef
+Executing(%mkbuilddir): /bin/sh -e /var/tmp/rpm-tmp.cSmSJh
+Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.2HkrDN
 + umask 022
 + cd /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build
 + RPM_EC=0
 ++ jobs -p
 + exit 0
-Executing(%install): /bin/sh -e /var/tmp/rpm-tmp.LKdKus
+Executing(%install): /bin/sh -e /var/tmp/rpm-tmp.j3LyKa
 + umask 022
 + cd /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build
 + '[' /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT '!=' / ']'
@@ -342,7 +342,7 @@ Requires: /usr/bin/bash /usr/bin/python3 libc.so.6()(64bit) libc.so.6(GLIBC_2.2.
 Recommends: python3-pillow simple-scan
 Checking for unpackaged file(s): /usr/lib/rpm/check-files /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT
 Wrote: /tmp/mg2500-build/rpmbuild/RPMS/x86_64/mg2500-series-1.0.1-1.x86_64.rpm
-Executing(rmbuild): /bin/sh -e /var/tmp/rpm-tmp.YrlCDp
+Executing(rmbuild): /bin/sh -e /var/tmp/rpm-tmp.Bw4tKl
 + umask 022
 + cd /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build
 + test -d /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build
@@ -363,7 +363,7 @@ RPM build warnings:
 '/tmp/mg2500-build/rpmbuild/RPMS/x86_64/mg2500-series-1.0.1-1.x86_64.rpm' -> '/__w/mg2500-series/mg2500-series/dist/mg2500-series-1.0.1-1.x86_64.rpm'
 SELESAI:
 total 636
-drwxr-xr-x 2 root root   4096 Sep 12 10:23 .
-drwxr-xr-x 8 1001 1001   4096 Sep 12 10:23 ..
--rw-r--r-- 1 root root    101 Sep 12 10:23 SHA256SUMS
--rw-r--r-- 1 root root 636869 Sep 12 10:23 mg2500-series-1.0.1-1.x86_64.rpm
+drwxr-xr-x 2 root root   4096 Sep 12 10:31 .
+drwxr-xr-x 8 1001 1001   4096 Sep 12 10:31 ..
+-rw-r--r-- 1 root root    101 Sep 12 10:31 SHA256SUMS
+-rw-r--r-- 1 root root 636869 Sep 12 10:31 mg2500-series-1.0.1-1.x86_64.rpm
