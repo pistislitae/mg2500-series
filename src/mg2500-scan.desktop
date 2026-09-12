@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=MG2500 Scan
+GenericName=Aplikasi Pemindai Canon MG2500
+Comment=Pindai dokumen/foto dengan Canon PIXMA MG2570S (SANE pixma)
+Exec=mg2500-scan
+Icon=mg2500-scan
+Terminal=false
+Categories=Graphics;Scanning;GTK;
+Keywords=scan;scanner;canon;mg2500;mg2570;pindai;
+StartupNotify=true

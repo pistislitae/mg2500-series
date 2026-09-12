@@ -1,0 +1,105 @@
+name: build-release
+
+# Build RPM mg2500-series di container Fedora, lalu unggah sebagai
+# GitHub Release agar bisa dipasang langsung via rpm-ostree.
+on:
+  push:
+    branches:
+      - "arena/**"
+      - main
+    paths:
+      - "packaging/**"
+      - "src/**"
+      - ".github/workflows/build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build RPM (Fedora container)
+    runs-on: ubuntu-latest
+    container:
+      image: fedora:latest
+    steps:
+      - name: Install build deps
+        run: |
+          (dnf -y install rpm-build patchelf file curl tar gzip cpio findutils coreutils diffutils 2>/dev/null || dnf5 -y install rpm-build patchelf file curl tar gzip cpio findutils coreutils diffutils)
+        shell: bash
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build RPM
+        run: bash packaging/build.sh
+        shell: bash
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mg2500-series-rpm
+          path: |
+            dist/*.rpm
+            dist/SHA256SUMS
+          if-no-files-found: error
+
+  release:
+    name: Publikasikan GitHub Release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: mg2500-series-rpm
+          path: dist
+
+      - name: Ambil versi dari nama RPM
+        id: ver
+        run: |
+          RPM=$(ls dist/*.rpm | head -1)
+          BASE=$(basename "$RPM")
+          VER=$(echo "$BASE" | sed -E 's/^mg2500-series-([^-]+)-([^-]+)\..*/\1/')
+          TAG="v$VER"
+          echo "rpm=$BASE" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Buat / perbarui Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.ver.outputs.tag }}
+          RPM: ${{ steps.ver.outputs.rpm }}
+        run: |
+          gh auth status || true
+          NOTES=$(cat <<'EOF'
+          # mg2500-series — Canon PIXMA MG2500 series (MG2570S) untuk Fedora / Bazzite
+
+          Paket: driver printer CUPS resmi Canon (IJ Driver 4.00) + UI scan GTK3 + preset cetak pintar tinta (hemat tinta & foto realtone).
+
+          ## Pasang langsung via rpm-ostree (Bazzite / Fedora Atomic)
+          ```bash
+          rpm-ostree install https://github.com/pistislitae/mg2500-series/releases/download/TAGPLACEHOLDER/RPMPLACEHOLDER
+          systemctl reboot
+          # setelah restart:
+          sudo mg2500-setup --scan
+          ```
+
+          ## Non-ostree (Fedora Workstation)
+          ```bash
+          sudo dnf install URLPLACEHOLDER
+          ```
+
+          Detail lengkap: lihat README di repo.
+          EOF
+          )
+          NOTES="${NOTES//TAGPLACEHOLDER/$TAG}"; NOTES="${NOTES//RPMPLACEHOLDER/$RPM}"; NOTES="${NOTES//URLPLACEHOLDER/https://github.com/pistislitae/mg2500-series/releases/download/$TAG/$RPM}"
+          if gh release view "$TAG" --repo pistislitae/mg2500-series >/dev/null 2>&1; then
+            gh release upload "$TAG" dist/*.rpm dist/SHA256SUMS --repo pistislitae/mg2500-series --clobber
+          else
+            gh release create "$TAG" dist/*.rpm dist/SHA256SUMS \
+              --repo pistislitae/mg2500-series \
+              --target "$GITHUB_SHA" \
+              --title "mg2500-series $TAG — driver + scan UI (MG2570S)" \
+              --notes "$NOTES"
+          fi

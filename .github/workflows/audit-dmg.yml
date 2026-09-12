@@ -1,7 +1,7 @@
 name: audit-dmg
 
-# Unduh DMG driver Mac Canon MG2500, ekstrak, dan commit hasil audit (teks)
-# kembali ke branch ini agar bisa direview tanpa perlu unduh ulang.
+# Unduh DMG driver Mac Canon MG2500, ekstrak penuh (DMG -> pkg -> pbzx -> cpio),
+# dan commit hasil audit (teks) ke branch ini agar bisa direview tanpa unduh ulang.
 on:
   push:
     branches:
@@ -9,6 +9,7 @@ on:
       - main
     paths:
       - ".github/workflows/audit-dmg.yml"
+      - "packaging/tools/pbzx.py"
   workflow_dispatch:
 
 permissions:
@@ -27,96 +28,74 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-        with:
-          token: ${{ github.token }}
-          fetch-depth: 0
 
       - name: Install extraction tools
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq p7zip-full 7zip xar cpio file binutils || true
-          7z i | head -40 || true
-          7zz i | head -40 || true
+          sudo apt-get install -y -qq p7zip-full 7zip xar cpio file binutils cpio || true
+          (7zz i 2>/dev/null || 7z i) | head -30 > /tmp/7z-info.txt || true
 
       - name: Download DMG
         run: |
           mkdir -p /tmp/audit && cd /tmp/audit
           curl -fL --retry 3 -o mg2500-mac.dmg "$DMG_URL"
-          ls -la
+          ls -la mg2500-mac.dmg
           sha256sum mg2500-mac.dmg | tee SHA256SUM.dmg
 
-      - name: Extract DMG (UDIF -> FS image contents)
-        continue-on-error: true
+      - name: Extract DMG + pkg + payload (semua lapisan)
         run: |
           cd /tmp/audit
-          (7zz x -y -odmg_root mg2500-mac.dmg 2>&1 || 7z x -y -odmg_root mg2500-mac.dmg 2>&1) | tail -5
-          echo "== extracted root =="; find dmg_root -maxdepth 3 | head -60
-          # Jika 7z menghasilkan image mentah (hfs/apfs), coba ekstrak lagi
-          for img in $(find dmg_root -type f -size +10M 2>/dev/null); do
-            echo "== try nested: $img"
-            7zz x -y -o"nest_$(basename "$img")" "$img" 2>&1 | tail -3 || true
-          done
-          find . -maxdepth 4 | head -100
-
-      - name: Locate and extract .pkg payloads
-        continue-on-error: true
-        run: |
-          cd /tmp/audit
-          mkdir -p pkgs
-          find . -path ./pkgs -prune -o -type f \( -name '*.pkg' -o -name '*.mpkg' \) -print > pkglist.txt
+          {
+          echo "## 7z capability"; cat /tmp/7z-info.txt | head -5 || true
+          echo "## ekstrak DMG"
+          (7zz x -y -odmg_root mg2500-mac.dmg 2>&1 || 7z x -y -odmg_root mg2500-mac.dmg 2>&1) | tail -4
+          find dmg_root -maxdepth 3 | sed 's/^/  /'
+          echo "## cari & ekstrak .pkg (xar)"
+          find . -type f \( -name '*.pkg' -o -name '*.mpkg' \) -not -path './pkgs/*' -print > pkglist.txt
           cat pkglist.txt
           i=0
           while read -r p; do
-            i=$((i+1))
-            d="pkgs/pkg$i"
-            mkdir -p "$d"
+            i=$((i+1)); d="pkgs/pkg$i"; mkdir -p "$d"
             (xar -xf "$p" -C "$d" 2>&1 || 7zz x -y -o"$d" "$p" 2>&1 || 7z x -y -o"$d" "$p" 2>&1) | tail -2
+            (cd "$d" && ls -la)
           done < pkglist.txt
-          # Payload/Scripts: gzip cpio (atau pbzx)
-          find pkgs -type f \( -name Payload -o -name Scripts -o -name '*.cpio.gz' \) | while read -r pl; do
+          echo "## ekstrak Payload (pbzx -> cpio)"
+          # lapis 1
+          find pkgs -type f \( -name 'Payload' -o -name 'Scripts' \) | while read -r pl; do
             dir="$(dirname "$pl")"
-            (cd "$dir" && {
-              if head -c4 "$pl" | grep -q pbzx; then
-                python3 /tmp/audit/pbzx.py "$pl" > Payload.cpio.xz 2>/dev/null && xz -dc Payload.cpio.xz | cpio -idmu --no-absolute-filenames 2>/dev/null
-              else
-                zcat "$pl" 2>/dev/null | cpio -idmu --no-absolute-filenames 2>/dev/null || cat "$pl" | cpio -idmu --no-absolute-filenames 2>/dev/null
-              fi
+            ( cd "$dir" && {
+                file Payload
+                python3 "$GITHUB_WORKSPACE/packaging/tools/pbzx.py" "$pl" 2>pbzx.err | cpio -idmu --no-absolute-filenames 2>>pbzx.err
+                echo "== $dir =="; ls -la
             } ) || true
           done
-          echo "== payload contents =="
-          find pkgs -maxdepth 6 -type d | head -80
+          echo "## cari pkg bersarang (lapis 2)"
+          find pkgs -type f \( -name '*.pkg' -o -name '*.mpkg' \) | while read -r p; do
+            d="${p%.pkg}_x"; mkdir -p "$d"
+            (xar -xf "$p" -C "$d" 2>&1 || 7zz x -y -o"$d" "$p" 2>&1) | tail -1
+            find "$d" -type f \( -name 'Payload' -o -name 'Scripts' \) | while read -r pl; do
+              dir="$(dirname "$pl")"
+              ( cd "$dir" && {
+                  file Payload
+                  python3 "$GITHUB_WORKSPACE/packaging/tools/pbzx.py" "$pl" 2>pbzx.err | cpio -idmu --no-absolute-filenames 2>>pbzx.err
+                  echo "== $dir =="; ls -la
+              } ) || true
+            done
+          done
+          echo "## hasil akhir"
+          find pkgs dmg_root -maxdepth 5 -type d | head -120
+          } > "$GITHUB_WORKSPACE/docs/audit/dmg-extraction-report.txt" 2>&1 || true
+          tail -30 "$GITHUB_WORKSPACE/docs/audit/dmg-extraction-report.txt"
 
-      - name: Embed pbzx fallback extractor
+      - name: Inventory lengkap
         run: |
-          cat > /tmp/audit/pbzx.py <<'EOF'
-          #!/usr/bin/env python3
-          # Minimal pbzx (pkg compressed payload) stream extractor
-          import sys, struct, subprocess
-          data = open(sys.argv[1], 'rb').read()
-          assert data[:4] == b'pbzx', 'not a pbzx file'
-          pos, out = 4, sys.stdout.buffer
-          while pos + 16 <= len(data):
-            magic = data[pos:pos+4]
-            if magic != b'pmzx':
-              # some pbzx have per-chunk xz without magic marker; break on garbage
-              out.write(subprocess.run(['xz','-dc'], input=data[pos:], capture_output=True).stdout)
-              break
-            length = struct.unpack('>Q', data[pos+4:pos+12])[0]
-            chunk = data[pos+12:pos+12+length]
-            out.write(subprocess.run(['xz','-dc'], input=chunk, capture_output=True).stdout)
-            pos += 12 + length
-          EOF
-          echo done
-
-      - name: Inventory (full file list with sizes)
-        run: |
+          OUT="$GITHUB_WORKSPACE/docs/audit"
+          mkdir -p "$OUT/dmg/plists"
           cd /tmp/audit
-          OUT="$GITHUB_WORKSPACE/docs/audit/dmg"
-          mkdir -p "$OUT"
-          find /tmp/audit -type f -not -path '/tmp/audit/mg2500-mac.dmg' -printf '%10s  %p\n' | sort -k2 > "$OUT/filelist.txt"
-          wc -l "$OUT/filelist.txt"
+          find dmg_root pkgs -type f -printf '%10s  %p\n' 2>/dev/null | sort -k2 > "$OUT/dmg/filelist.txt"
+          wc -l "$OUT/dmg/filelist.txt" >> "$OUT/dmg-extraction-report.txt"
 
-      - name: Dump plists (Info.plist / capability tables)
+      - name: Dump plists (capability table / Info.plist)
         continue-on-error: true
         run: |
           cd /tmp/audit
@@ -124,73 +103,83 @@ jobs:
           mkdir -p "$OUT"
           python3 - <<'EOF'
           import os, plistlib, hashlib, re
-          out_root = os.environ.get('PLIST_OUT', 'plists_out')
-          seen = {}
+          out_root = os.environ.get('PLIST_OUT', os.path.join(os.environ['GITHUB_WORKSPACE'], 'docs/audit/dmg/plists'))
+          n = 0
           for root, _, files in os.walk('/tmp/audit'):
             for fn in files:
               p = os.path.join(root, fn)
-              if fn.endswith('.plist') or fn in ('Info.plist','version.plist') or re.search(r'(cap|profile|setting).*\.(plist|xml|dat|dict)$', fn, re.I):
+              low = fn.lower()
+              if low.endswith('.plist') or re.search(r'(cap|profile|setting|deviceinfo|quality|media)', low) and low.endswith(('.plist','.xml','.dat','.dict')):
                 try:
-                  data = open(p,'rb').read()
-                  pl = plistlib.loads(data)
+                  pl = plistlib.loads(open(p,'rb').read())
                   txt = plistlib.dumps(pl, fmt=plistlib.FMT_XML).decode()
                   key = hashlib.sha1(p.encode()).hexdigest()[:10]
-                  dst = os.path.join(out_root, f"{fn.replace('/','_')}.{key}.txt")
-                  with open(dst,'w') as f:
+                  with open(os.path.join(out_root, f"{fn}.{key}.txt"),'w') as f:
                     f.write(f"# source: {p}\n\n{txt}")
-                  seen[p]=len(txt)
-                except Exception as e:
+                  n += 1
+                except Exception:
                   pass
-          print(f"converted {len(seen)} plists")
+          print(f"plists converted: {n}")
           EOF
 
-      - name: Grep capability markers (media types, quality, realtone, raster)
+      - name: Grep marker capability (mediatype/quality/realtone/raster)
         run: |
           cd /tmp/audit
           OUT="$GITHUB_WORKSPACE/docs/audit/dmg"
-          for pat in realtone 'real.?tone' glossygold mediatype cnquality raster cupsfilter halftone dither 'icc' colormatch; do
+          : > "$OUT/grep-hits.txt"
+          for pat in realtone 'real.?tone' glossygold glossypaper envelope mediatype CNQuality quality raster cupsfilter halftone dither ICC colormatch 'Digital Photo Color' vivid; do
             echo "##### PATTERN: $pat" >> "$OUT/grep-hits.txt"
-            grep -rila --binary-files=text "$pat" . --exclude=mg2500-mac.dmg --exclude=pbzx.py 2>/dev/null | head -40 >> "$OUT/grep-hits.txt" || true
-            echo >> "$OUT/grep-hits.txt"
+            grep -rli --binary-files=text -E "$pat" dmg_root pkgs 2>/dev/null | head -50 >> "$OUT/grep-hits.txt" || true
+            echo "" >> "$OUT/grep-hits.txt"
           done
-          # Isi PPD mac bila ada
-          find /tmp/audit -type f \( -name '*.ppd' -o -name '*.ppd.gz' \) -exec sh -c 'echo "##### {}"; (zcat -f "{}" 2>/dev/null | head -400)' \; > "$OUT/ppds.txt" 2>/dev/null || true
 
-      - name: Strings of key binaries (filters/raster engines)
+      - name: PPD mac bila ada
         continue-on-error: true
         run: |
           cd /tmp/audit
           OUT="$GITHUB_WORKSPACE/docs/audit/dmg"
-          find /tmp/audit -type f \( -perm -u+x -o -name '*.so' -o -name '*.dylib' \) -not -path '*/pkgs/*' > binlist.txt || true
-          for b in $(head -60 binlist.txt); do
-            t=$(file -b "$b" | head -c 60)
+          find dmg_root pkgs -type f \( -name '*.ppd' -o -name '*.ppd.gz' \) -exec sh -c 'echo "##### {}"; zcat -f "{}" 2>/dev/null | head -500' \; > "$OUT/ppds.txt" 2>/dev/null || true
+          wc -l "$OUT/ppds.txt" || true
+
+      - name: Strings binary kunci (filter/raster engine/capability)
+        continue-on-error: true
+        run: |
+          cd /tmp/audit
+          OUT="$GITHUB_WORKSPACE/docs/audit/dmg"
+          mkdir -p "$OUT"
+          find dmg_root pkgs -type f -size +100k > binlist.txt || true
+          count=0
+          while read -r b; do
+            t=$(file -b "$b")
             case "$t" in
-              *Mach-O*|*ELF*|*current\ ar*)
-                key=$(echo "$b" | sed 's#/tmp/audit/##; s#[/ ]#_#g' | cut -c1-80)
-                strings -n 8 "$b" | head -3000 > "$OUT/strings__${key}.txt" ;;
+              *Mach-O*)
+                count=$((count+1))
+                [ $count -gt 40 ] && break
+                key=$(echo "$b" | sed 's#.*/##; s#[/ ]#_#g' | cut -c1-60)
+                { echo "## $b"; echo "## $t"; strings -n 8 "$b" | head -4000; } > "$OUT/strings__${key}.txt" ;;
             esac
-          done
+          done < binlist.txt
           du -sh "$OUT"
 
-      - name: Write raw summary
+      - name: Ringkasan
         run: |
           OUT="$GITHUB_WORKSPACE/docs/audit/dmg"
           {
-            echo "# Raw audit output — mcpd-mac-mg2500-16_91_1_0-ea21_3.dmg"
-            echo "- Tanggal audit: $(date -u '+%Y-%m-%d %H:%M UTC')"
-            echo "- SHA256 DMG: $(cat /tmp/audit/SHA256SUM.dmg | cut -d' ' -f1)"
-            echo "- Jumlah file terekstrak: $(wc -l < "$OUT/filelist.txt")"
-            echo
-            echo "File: filelist.txt (daftar file + ukuran), plists/ (capability table & Info.plist), grep-hits.txt (marker), ppds.txt (PPD mac bila ada), strings__*.txt (teks binary)."
+            echo "# Raw audit — mcpd-mac-mg2500-16_91_1_0-ea21_3.dmg"
+            echo "- Audit: $(date -u '+%Y-%m-%d %H:%M UTC')"
+            echo "- SHA256 DMG: $(cut -d' ' -f1 /tmp/audit/SHA256SUM.dmg)"
+            echo "- File terekstrak: $(wc -l < "$OUT/filelist.txt")"
+            echo "- Plists: $(ls "$OUT/plists" 2>/dev/null | wc -l)"
+            echo "- Isi: filelist.txt, dmg-extraction-report.txt, plists/, grep-hits.txt, ppds.txt, strings__*.txt"
           } > "$OUT/SUMMARY.md"
           cat "$OUT/SUMMARY.md"
 
-      - name: Commit audit results
+      - name: Commit hasil audit
         run: |
           cd "$GITHUB_WORKSPACE"
           git config user.name "arena-ai-coding-agent[bot]"
           git config user.email "arena-ai-coding-agent[bot]@users.noreply.github.com"
           git add docs/audit
           if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
-          git commit -m "audit(dmg): hasil ekstraksi & audit mcpd-mac-mg2500-16_91_1_0-ea21_3.dmg [skip ci]"
+          git commit -m "audit(dmg): ekstraksi penuh + audit mcpd-mac-mg2500-16_91_1_0-ea21_3.dmg [skip ci]"
           git push origin HEAD
