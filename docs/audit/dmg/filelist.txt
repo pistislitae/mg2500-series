@@ -1,2 +1,3 @@
   16153715  dmg_root/PrinterDriver_MG2500 series/PrinterDriver_MG2500 series_169101.pkg
   56147456  pkgs/pkg1/Payload~
+       424  pkgs/pkg1/pbzx.err

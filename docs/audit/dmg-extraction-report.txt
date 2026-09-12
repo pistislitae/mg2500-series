@@ -19,10 +19,18 @@ Compressed: 16127583
 Size:       56147456
 Compressed: 16153715
 total 54840
-drwxr-xr-x 2 runner runner     4096 Sep 12 03:50 .
-drwxr-xr-x 3 runner runner     4096 Sep 12 03:50 ..
+drwxr-xr-x 2 runner runner     4096 Sep 12 03:51 .
+drwxr-xr-x 3 runner runner     4096 Sep 12 03:51 ..
 -rw-r--r-- 1 runner runner 56147456 Apr 30 10:12 Payload~
-## ekstrak Payload (pbzx -> cpio)
+## ekstrak Payload (pbzx/cpio/gz -> cpio)
+pkgs/pkg1/Payload~: cannot open `pkgs/pkg1/Payload~' (No such file or directory)
+/home/runner/work/_temp/a89b5cd5-91f9-400f-9fe0-9b56fd1eb20f.sh: line 26: pkgs/pkg1/Payload~: No such file or directory
+== pkgs/pkg1 ==
+total 54844
+drwxr-xr-x 2 runner runner     4096 Sep 12 03:51 .
+drwxr-xr-x 3 runner runner     4096 Sep 12 03:51 ..
+-rw-r--r-- 1 runner runner 56147456 Apr 30 10:12 Payload~
+-rw-r--r-- 1 runner runner      424 Sep 12 03:51 pbzx.err
 ## cari pkg bersarang (lapis 2)
 ## hasil akhir
 pkgs
@@ -31,4 +39,4 @@ dmg_root
 dmg_root/PrinterDriver_MG2500 series
 dmg_root/PrinterDriver_MG2500 series/.HFS+ Private Directory Data
 dmg_root/PrinterDriver_MG2500 series/[HFS+ Private Data]
-2 /home/runner/work/mg2500-series/mg2500-series/docs/audit/dmg/filelist.txt
+3 /home/runner/work/mg2500-series/mg2500-series/docs/audit/dmg/filelist.txt
