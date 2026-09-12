@@ -2,3 +2,5 @@ dist/
 *.rpm
 *.tar.gz
 work/
+__pycache__/
+ci-build-log.txt
