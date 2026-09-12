@@ -35,12 +35,29 @@ jobs:
         run: bash packaging/build.sh
         shell: bash
 
+      - name: Simpan log build ke repo
+        if: always()
+        shell: bash
+        run: |
+          set -x
+          cd "$GITHUB_WORKSPACE"
+          LOG=/tmp/mg2500-build/build-full.log
+          [ -f "$LOG" ] && cp "$LOG" ci-build-log.txt
+          git config user.name "arena-ai-coding-agent[bot]"
+          git config user.email "arena-ai-coding-agent[bot]@users.noreply.github.com"
+          git add ci-build-log.txt || true
+          git commit -m "ci: log build [skip ci]" || true
+          git pull --rebase origin "$GITHUB_REF_NAME" || true
+          git push origin HEAD || git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD || true
+
       - name: Annotasi log kegagalan
         if: failure()
         run: |
           LOG=/tmp/mg2500-build/build-full.log
           if [ -f "$LOG" ]; then
-            tail -c 3000 "$LOG" | sed 's/$/%0A/' | while IFS= read -r line; do echo "::error::$line"; done || true
+            tail -n 45 "$LOG" | while IFS= read -r line; do
+              echo "::error::${line:0:3800}"
+            done
           else
             echo "::error::build-full.log tidak ada — build.sh gagal sangat awal"
           fi

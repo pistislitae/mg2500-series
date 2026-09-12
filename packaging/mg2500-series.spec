@@ -59,7 +59,11 @@ Dirakit ulang dari packagearchive resmi Canon:
 Teks lisensi Canon ikut dipaketkan; hasil audit ada di docs/audit repo.
 
 %prep
-%autosetup -c -n %{name}-%{version}
+# ekstraksi manual (tanpa keajaiban %autosetup)
+rm -rf %{name}-%{version}
+mkdir %{name}-%{version}
+tar -xzf %{SOURCE0} -C %{name}-%{version}
+ls -laR . | head -50
 
 %install
 # ---------- 1. Salin pohon usr/ Canon apa adanya ke buildroot ----------
