@@ -61,17 +61,18 @@ jobs:
           done < pkglist.txt
           echo "## ekstrak Payload (pbzx/cpio/gz -> cpio)"
           extract_payload() {
-            local pl="$1" dir
+            local pl="$1" dir fn
             dir="$(dirname "$pl")"
+            fn="$(basename "$pl")"
             ( cd "$dir" && {
-                file "$pl" || true
-                case "$(file -b "$pl")" in
-                  *pbzx*) python3 "$GITHUB_WORKSPACE/packaging/tools/pbzx.py" "$pl" 2>pbzx.err | cpio -idmu --no-absolute-filenames 2>>pbzx.err ;;
-                  *gzip*) zcat "$pl" | cpio -idmu --no-absolute-filenames 2>>pbzx.err ;;
-                  *cpio*) cpio -idmu --no-absolute-filenames < "$pl" 2>>pbzx.err ;;
-                  *) python3 "$GITHUB_WORKSPACE/packaging/tools/pbzx.py" "$pl" 2>pbzx.err | cpio -idmu --no-absolute-filenames 2>>pbzx.err || cpio -idmu --no-absolute-filenames < "$pl" 2>>pbzx.err ;;
+                file "$fn" || true
+                case "$(file -b "$fn")" in
+                  *pbzx*) python3 "$GITHUB_WORKSPACE/packaging/tools/pbzx.py" "$fn" 2>pbzx.err | cpio -idmu --no-absolute-filenames 2>>pbzx.err ;;
+                  *gzip*) zcat "$fn" | cpio -idmu --no-absolute-filenames 2>>pbzx.err ;;
+                  *cpio*) cpio -idmu --no-absolute-filenames < "$fn" 2>>pbzx.err ;;
+                  *) python3 "$GITHUB_WORKSPACE/packaging/tools/pbzx.py" "$fn" 2>pbzx.err | cpio -idmu --no-absolute-filenames 2>>pbzx.err || cpio -idmu --no-absolute-filenames < "$fn" 2>>pbzx.err ;;
                 esac
-                echo "== $dir =="; ls -la | head -20
+                echo "== $dir =="; ls -la | head -30
             } ) || true
           }
           find pkgs -type f \( -name 'Payload' -o -name 'Payload~' -o -name 'Scripts' -o -name 'Scripts~' \) | while read -r pl; do extract_payload "$pl"; done
