@@ -44,14 +44,18 @@ echo "--- manifest canon-common:"; ( cd "$STAGE/canon-common" && find . -type f 
 echo "--- manifest canon-model:";  ( cd "$STAGE/canon-model"  && find . -type f | sort )
 
 echo "==> [3/7] Patch kompatibilitas Fedora modern"
-LGMON="$STAGE/canon-common/usr/bin/cnijlgmon2"
-if [ -f "$LGMON" ]; then
-  echo "--- DT_NEEDED sebelum patch:"; patchelf --print-needed "$LGMON" 2>/dev/null | grep libusb || true
-  # paksa: soname Debian-era (libusb-1.0.so.0) -> soname Fedora (.so.1)
-  if patchelf --print-needed "$LGMON" 2>/dev/null | grep -q '^libusb-1\.0\.so\.0$'; then
-    patchelf --replace-needed libusb-1.0.so.0 libusb-1.0.so.1 "$LGMON"
-    echo "--- DT_NEEDED setelah patch:"; patchelf --print-needed "$LGMON" 2>/dev/null | grep libusb || true
+# Patch soname Debian-era -> Fedora pada SEMUA binary Canon yang perlukan:
+# libusb-1.0.so.0 (Debian) tidak ada di Fedora; yang ada libusb-1.0.so.1.
+echo "--- scanning DT_NEEDED libusb di semua binary upstream:"
+find "$STAGE" -type f | while read -r b; do
+  if patchelf --print-needed "$b" 2>/dev/null | grep -q '^libusb-1\.0\.so\.0$'; then
+    echo "    patch: $b"
+    patchelf --replace-needed libusb-1.0.so.0 libusb-1.0.so.1 "$b"
   fi
+done
+LGMON="$(find "$STAGE" -type f -name 'cnijlgmon2' | head -1)"
+if [ -n "$LGMON" ]; then
+  echo "--- DT_NEEDED cnijlgmon2 ($LGMON):"; patchelf --print-needed "$LGMON" 2>/dev/null | grep libusb || true
 fi
 for b in "$STAGE"/canon-common/usr/lib/cups/filter/* "$STAGE"/canon-common/usr/lib/cups/backend/* "$STAGE"/canon-model/usr/bin/*; do
   [ -e "$b" ] || continue

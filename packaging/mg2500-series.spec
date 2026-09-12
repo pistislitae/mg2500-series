@@ -14,7 +14,7 @@
 # meng-hardcode path lama).
 
 Name:           mg2500-series
-Version:        1.0.0
+Version:        1.0.1
 Release:        1%{?dist}
 Summary:        Canon PIXMA MG2500 series (MG2570S) CUPS driver + scan UI + ink-smart presets
 
@@ -216,6 +216,10 @@ exit 0
 /usr/local/share/locale
 
 %changelog
-* Sat Sep 12 2026 Arena Agent <arena-agent@arena.ai> - 1.0.0-1
+* Sat Sep 12 2026 Arena Agent <arena-agent@arena.ai> - 1.0.1-1
+- Perbaikan: patch soname libusb (1.0.0 -> 1.0.1) kini menjangkau cnijlgmon2
+  yang di RPM upstream berada di /usr/local/bin; dependency kini resolvable
+  di Fedora/Bazzite.
+- Bersih berkas PPD asli upstream (unpackaged)
 - Repackage resmi Canon IJ driver 4.00 (MG2500 series) untuk Fedora/Bazzite
 - Preset pintar tinta + realtone, UI scan GTK3 (SANE pixma), patch libusb

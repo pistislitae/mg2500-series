@@ -8,11 +8,11 @@ Paket `mg2500-series` dibangun kompatibel dengan alur ini.
 
 ```bash
 # A. Langsung dari URL GitHub Release (tidak perlu unduh manual)
-rpm-ostree install https://github.com/pistislitae/mg2500-series/releases/download/v1.0.0/mg2500-series-1.0.0-1.x86_64.rpm
+rpm-ostree install https://github.com/pistislitae/mg2500-series/releases/download/v1.0.1/mg2500-series-1.0.1-1.x86_64.rpm
 
 # B. Atau unduh dulu lalu pasang file lokal
-curl -LO https://github.com/pistislitae/mg2500-series/releases/download/v1.0.0/mg2500-series-1.0.0-1.x86_64.rpm
-rpm-ostree install ./mg2500-series-1.0.0-1.x86_64.rpm
+curl -LO https://github.com/pistislitae/mg2500-series/releases/download/v1.0.1/mg2500-series-1.0.1-1.x86_64.rpm
+rpm-ostree install ./mg2500-series-1.0.1-1.x86_64.rpm
 
 # Terapkan layer (butuh reboot; pekerjaan lain aman disimpan)
 systemctl reboot
