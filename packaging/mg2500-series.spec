@@ -151,6 +151,8 @@ if [ -n "$PPDSRC" ]; then
     *.gz) cp "$PPDSRC" "$BR%{_datadir}/cups/model/canon/canonmg2500.ppd.gz" ;;
     *)    gzip -9c "$PPDSRC" > "$BR%{_datadir}/cups/model/canon/canonmg2500.ppd.gz" ;;
   esac
+  rm -f "$PPDSRC"
+  rmdir --ignore-fail-on-non-empty "$(dirname "$PPDSRC")" 2>/dev/null || true
 else
   echo "PERINGATAN: PPD canonmg2500 tidak ditemukan di paket upstream" >&2
 fi

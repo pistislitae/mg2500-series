@@ -46,10 +46,11 @@ echo "--- manifest canon-model:";  ( cd "$STAGE/canon-model"  && find . -type f 
 echo "==> [3/7] Patch kompatibilitas Fedora modern"
 LGMON="$STAGE/canon-common/usr/bin/cnijlgmon2"
 if [ -f "$LGMON" ]; then
-  echo "--- ldd sebelum patch:"; ldd "$LGMON" || true
-  if ldd "$LGMON" 2>/dev/null | grep -q 'libusb-1.0.so.0 => not found'; then
+  echo "--- DT_NEEDED sebelum patch:"; patchelf --print-needed "$LGMON" 2>/dev/null | grep libusb || true
+  # paksa: soname Debian-era (libusb-1.0.so.0) -> soname Fedora (.so.1)
+  if patchelf --print-needed "$LGMON" 2>/dev/null | grep -q '^libusb-1\.0\.so\.0$'; then
     patchelf --replace-needed libusb-1.0.so.0 libusb-1.0.so.1 "$LGMON"
-    echo "--- ldd setelah patch:"; ldd "$LGMON" || true
+    echo "--- DT_NEEDED setelah patch:"; patchelf --print-needed "$LGMON" 2>/dev/null | grep libusb || true
   fi
 fi
 for b in "$STAGE"/canon-common/usr/lib/cups/filter/* "$STAGE"/canon-common/usr/lib/cups/backend/* "$STAGE"/canon-model/usr/bin/*; do
