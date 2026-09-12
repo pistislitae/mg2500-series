@@ -56,7 +56,7 @@ jobs:
           i=0
           while read -r p; do
             i=$((i+1)); d="pkgs/pkg$i"; mkdir -p "$d"
-            (xar -xf "$p" -C "$d" 2>&1 || 7zz x -y -o"$d" "$p" 2>&1 || 7z x -y -o"$d" "$p" 2>&1) | tail -2
+            (7zz x -y -o"$d" "$p" 2>&1 || 7z x -y -o"$d" "$p" 2>&1 || xar -xf "$p" -C "$d" 2>&1) | tail -2
             (cd "$d" && ls -la)
           done < pkglist.txt
           echo "## ekstrak Payload (pbzx/cpio/gz -> cpio)"

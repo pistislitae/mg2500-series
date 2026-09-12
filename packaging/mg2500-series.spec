@@ -2,17 +2,15 @@
 #
 # Isi paket:
 #  - Driver printer CUPS resmi Canon "IJ Printer Driver Ver. 4.00 for Linux"
-#    (binary resmi dari packagearchive RPM Canon, lihat Source0)
+#    (binary resmi dari packagearchive RPM Canon — diunduh & diverifikasi md5
+#    oleh packaging/build.sh)
 #  - Preset cetak (kualitas tinggi & hemat tinta, termasuk preset "realtone")
 #  - UI pemindai (scan) GTK3: mg2500-scan (via SANE sane-pixma)
 #  - Helper setup printer: mg2500-setup
 #
-# Binari Canon direpakaging tanpa modifikasi (kecuali patch soname libusb
-# untuk cnijlgmon2 oleh packaging/build.sh). Lisensi: modul GPL Canon +
-# modul EULA Canon; teks lisensi ikut dipaketkan.
-
-%global canondoc     cnijfilter-mg2500series-4.00
-%global queue_name   MG2500S
+# Catatan: %install memindahkan seluruh pohon usr/ Canon ke buildroot lalu
+# merapikan (relokasi shared lib ke %%{_libdir}, symlink soname, PPD ke
+# cups/model). %%LOCALE_FILES%% adalah placeholder yang diisi build.sh.
 
 Name:           mg2500-series
 Version:        1.0.0
@@ -42,98 +40,63 @@ Recommends:     simple-scan
 Paket lengkap Canon PIXMA MG2500 series (termasuk MG2570S) untuk Fedora,
 Bazzite, dan distro berbasis rpm-ostree lainnya:
 
-* Driver printer CUPS resmi Canon (IJ Printer Driver Ver. 4.00 for Linux),
-  filter cmdtocanonij/pstocanonij + backend cnij USB, PPD canonmg2500.ppd.
-* Preset cetak pintar tinta:
+* Driver printer CUPS resmi Canon (IJ Printer Driver Ver. 4.00 for Linux):
+  filter cmdtocanonij/pstocanonij + backend cnij USB, PPD canonmg2500.ppd,
+  monitor level tinta cnijlgmon2, utilitas maintenance (cif, cleaning,
+  nozzle check).
+* Preset cetak pintar tinta (mg2500-presets):
     - text-draft      : draf hemat tinta (plain, quality 4, hitam-putih)
     - text-standard   : dokumen sehari-hari
     - photo-realtone  : foto kualitas maksimal (glossygold, quality 1)
-                        dengan tone warna natural (realtone)
+                        dengan tone warna natural
     - photo-inksave   : foto di kertas biasa, tinta hemat
 * mg2500-scan: aplikasi GUI GTK3 untuk memindai dokumen/foto
-  (PNG/JPEG/PDF), memakai backend SANE pixma bawaan kernel-distro.
-* mg2500-setup: registrasi antrean printer + monitor level tinta
-  (cnijlgmon2, dipatch agar kompatibel libusb Fedora).
+  (PNG/JPEG/PDF), memakai backend SANE pixma.
+* mg2500-setup: registrasi antrean printer otomatis.
 
 Dirakit ulang dari packagearchive resmi Canon:
-  cnijfilter-mg2500series-4.00-1-rpm.tar.gz ( Fedora 18 x86_64, binary )
-Lisensi modul Canon mengikuti EULA Canon (ikut dipaketkan); modul GPL
-mengikuti GPL+. Lihat docs/audit di repo proyek untuk hasil audit.
+  cnijfilter-mg2500series-4.00-1-rpm.tar.gz (binary x86_64)
+Teks lisensi Canon ikut dipaketkan; hasil audit ada di docs/audit repo.
 
 %prep
 %autosetup -c -n %{name}-%{version}
 
 %install
-# ---------- driver CUPS (filter & backend) ----------
-mkdir -p %{buildroot}%{_prefix}/lib/cups/filter
-mkdir -p %{buildroot}%{_prefix}/lib/cups/backend
-install -pm0755 canon-common/usr/lib/cups/filter/cmdtocanonij  %{buildroot}%{_prefix}/lib/cups/filter/
-install -pm0755 canon-common/usr/lib/cups/filter/pstocanonij   %{buildroot}%{_prefix}/lib/cups/filter/
-install -pm0755 canon-common/usr/lib/cups/backend/cnijbe       %{buildroot}%{_prefix}/lib/cups/backend/
-install -pm0755 canon-common/usr/lib/cups/backend/cnijnet      %{buildroot}%{_prefix}/lib/cups/backend/
-install -pm0755 canon-common/usr/lib/cups/backend/cnijusb      %{buildroot}%{_prefix}/lib/cups/backend/
+# ---------- 1. Salin pohon usr/ Canon apa adanya ke buildroot ----------
+mkdir -p %{buildroot}/usr
+cp -a canon-common/usr/. %{buildroot}/usr/
+cp -a canon-model/usr/.  %{buildroot}/usr/
 
-# ---------- binari utilitas ----------
-mkdir -p %{buildroot}%{_bindir}
-install -pm0755 canon-common/usr/bin/cngpij       %{buildroot}%{_bindir}/
-install -pm0755 canon-common/usr/bin/cngpijmnt    %{buildroot}%{_bindir}/
-install -pm0755 canon-common/usr/bin/cnijlgmon2   %{buildroot}%{_bindir}/
-install -pm0755 canon-common/usr/bin/cnijnetprn   %{buildroot}%{_bindir}/
-install -pm0755 canon-common/usr/bin/cnijnpr      %{buildroot}%{_bindir}/
-install -pm0755 canon-model/usr/bin/cifmg2500     %{buildroot}%{_bindir}/
+# aturan udev bila upstream taruh di /etc
+if [ -d canon-common/etc/udev/rules.d ]; then
+  mkdir -p %{buildroot}%{_prefix}/lib/udev/rules.d
+  cp -a canon-common/etc/udev/rules.d/. %{buildroot}%{_prefix}/lib/udev/rules.d/
+fi
 
-# ---------- library privat Canon (nama unik: aman di %{_libdir}) ----------
+# ---------- 2. Relokasi shared library privat ke %%{_libdir} + symlink ----------
 mkdir -p %{buildroot}%{_libdir}
-install -pm0755 canon-common/usr/lib/libcnbpcnclapicom.so.4.0.0 %{buildroot}%{_libdir}/
-install -pm0755 canon-common/usr/lib/libcnnet.so.1.2.2          %{buildroot}%{_libdir}/
-install -pm0755 canon-model/usr/lib/libcnbpcmcm429.so.8.20.1    %{buildroot}%{_libdir}/
-install -pm0755 canon-model/usr/lib/libcnbpcnclapi429.so.4.0.0  %{buildroot}%{_libdir}/
-install -pm0755 canon-model/usr/lib/libcnbpcnclbjcmd429.so.3.3.0 %{buildroot}%{_libdir}/
-install -pm0755 canon-model/usr/lib/libcnbpcnclui429.so.4.0.0   %{buildroot}%{_libdir}/
-install -pm0755 canon-model/usr/lib/libcnbpess429.so.4.3.1      %{buildroot}%{_libdir}/
-install -pm0755 canon-model/usr/lib/libcnbpo429.so.1.0.1        %{buildroot}%{_libdir}/
-# symlink soname yang diminta DT_NEEDED (tanpa ldconfig)
-ln -s libcnbpcnclapicom.so.4.0.0  %{buildroot}%{_libdir}/libcnbpcnclapicom.so
-ln -s libcnnet.so.1.2.2           %{buildroot}%{_libdir}/libcnnet.so
-ln -s libcnbpcmcm429.so.8.20.1    %{buildroot}%{_libdir}/libcnbpcmcm429.so
-ln -s libcnbpcnclapi429.so.4.0.0  %{buildroot}%{_libdir}/libcnbpcnclapi429.so
-ln -s libcnbpcnclbjcmd429.so.3.3.0 %{buildroot}%{_libdir}/libcnbpcnclbjcmd429.so
-ln -s libcnbpcnclui429.so.4.0.0   %{buildroot}%{_libdir}/libcnbpcnclui429.so
-ln -s libcnbpess429.so.4.3.1      %{buildroot}%{_libdir}/libcnbpess429.so
-ln -s libcnbpo429.so.1.0.1        %{buildroot}%{_libdir}/libcnbpo429.so
-
-# ---------- tabel & konfigurasi (path hardcoded binari Canon) ----------
-mkdir -p %{buildroot}%{_prefix}/lib/bjlib
-install -pm0644 canon-common/usr/lib/bjlib/cnnet.ini           %{buildroot}%{_prefix}/lib/bjlib/
-install -pm0644 canon-model/usr/lib/bjlib/cifmg2500.conf       %{buildroot}%{_prefix}/lib/bjlib/
-install -pm0644 canon-model/usr/lib/bjlib/cnb_4290.tbl         %{buildroot}%{_prefix}/lib/bjlib/
-install -pm0644 canon-model/usr/lib/bjlib/cnbpname429.tbl      %{buildroot}%{_prefix}/lib/bjlib/
-
-mkdir -p %{buildroot}%{_datadir}/cmdtocanonij
-install -pm0644 canon-common/usr/share/cmdtocanonij/autoalign.utl   %{buildroot}%{_datadir}/cmdtocanonij/
-install -pm0644 canon-common/usr/share/cmdtocanonij/cleaning.utl    %{buildroot}%{_datadir}/cmdtocanonij/
-install -pm0644 canon-common/usr/share/cmdtocanonij/nozzlecheck.utl %{buildroot}%{_datadir}/cmdtocanonij/
-
-mkdir -p %{buildroot}%{_datadir}/cnijlgmon2
-install -pm0644 canon-common/usr/share/cnijlgmon2/cnb_cnijlgmon2.res %{buildroot}%{_datadir}/cnijlgmon2/
-
-# locale cnijlgmon2
-for l in de fr ja zh; do
-  mkdir -p %{buildroot}%{_datadir}/locale/$l/LC_MESSAGES
-  install -pm0644 canon-common/usr/share/locale/$l/LC_MESSAGES/cnijlgmon2.mo \
-    %{buildroot}%{_datadir}/locale/$l/LC_MESSAGES/
+for f in %{buildroot}%{_prefix}/lib/lib*.so.*; do
+  [ -e "$f" ] || continue
+  base=$(basename "$f")
+  son="${base%%.so.*}"
+  mv "$f" %{buildroot}%{_libdir}/
+  ln -s "$base" "%{buildroot}%{_libdir}/${son}.so"
 done
 
-# ---------- PPD ----------
-mkdir -p %{buildroot}%{_datadir}/cups/model/canon
-install -pm0644 canon-model/usr/share/ppd/canonmg2500.ppd %{buildroot}%{_datadir}/cups/model/canon/
-gzip -9f %{buildroot}%{_datadir}/cups/model/canon/canonmg2500.ppd
+# ---------- 3. PPD ke direktori CUPS model ----------
+PPDSRC="$(find %{buildroot}%{_datadir} -name 'canonmg2500*.ppd*' 2>/dev/null | head -1)"
+if [ -n "$PPDSRC" ]; then
+  mkdir -p %{buildroot}%{_datadir}/cups/model/canon
+  case "$PPDSRC" in
+    *.gz) mv "$PPDSRC" %{buildroot}%{_datadir}/cups/model/canon/canonmg2500.ppd.gz ;;
+    *)    gzip -9c "$PPDSRC" > %{buildroot}%{_datadir}/cups/model/canon/canonmg2500.ppd.gz; rm -f "$PPDSRC" ;;
+  esac
+  rmdir --ignore-fail-on-non-empty -p "$(dirname "$PPDSRC")" 2>/dev/null || true
+else
+  echo "PERINGATAN: PPD canonmg2500 tidak ditemukan di paket upstream" >&2
+fi
 
-# ---------- udev ----------
-mkdir -p %{buildroot}%{_prefix}/lib/udev/rules.d
-install -pm0644 canon-common/etc/udev/rules.d/81-canonij_prn.rules %{buildroot}%{_prefix}/lib/udev/rules.d/
-
-# ---------- glue & UI kami ----------
+# ---------- 4. Glue kami (preset, setup, scan UI) ----------
 install -pm0755 glue/mg2500-presets %{buildroot}%{_bindir}/
 install -pm0755 glue/mg2500-setup   %{buildroot}%{_bindir}/
 install -pm0755 glue/mg2500-scan    %{buildroot}%{_bindir}/
@@ -142,17 +105,13 @@ install -pm0644 glue/mg2500-scan.desktop %{buildroot}%{_datadir}/applications/
 mkdir -p %{buildroot}%{_datadir}/icons/hicolor/scalable/apps
 install -pm0644 glue/mg2500-scan.svg %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/
 
-# ---------- dokumentasi & lisensi ----------
+# ---------- 5. Dokumentasi & lisensi ----------
 mkdir -p %{buildroot}%{_defaultdocdir}/%{name}-%{version}
-for f in canon-common/usr/share/doc/cnijfilter-common/LICENSE-cnijfilter-*.txt \
-         canon-model/usr/share/doc/cnijfilter-mg2500series/LICENSE-cnijfilter-*.txt \
-         canon-model/usr/share/doc/cnijfilter-mg2500series/lproptions-mg2500-4.00EN.txt; do
-  install -pm0644 "$f" %{buildroot}%{_defaultdocdir}/%{name}-%{version}/
-done
+find canon-common canon-model -name 'LICENSE-*.txt' -exec install -pm0644 {} %{buildroot}%{_defaultdocdir}/%{name}-%{version}/ \;
+find canon-model -name 'lproptions-*.txt' -exec install -pm0644 {} %{buildroot}%{_defaultdocdir}/%{name}-%{version}/ \;
 install -pm0644 glue/README-presets.md %{buildroot}%{_defaultdocdir}/%{name}-%{version}/
 
 %post
-# muat ulang CUPS & udev bila berjalan (aman di image-based system)
 if systemctl is-active -q cups 2>/dev/null; then systemctl reload cups 2>/dev/null || true; fi
 udevadm control --reload 2>/dev/null || true
 udevadm trigger 2>/dev/null || true
@@ -160,55 +119,28 @@ exit 0
 
 %files
 %license %{_defaultdocdir}/%{name}-%{version}/LICENSE-cnijfilter-4.00EN.txt
-%doc %{_defaultdocdir}/%{name}-%{version}/README-presets.md
-%doc %{_defaultdocdir}/%{name}-%{version}/lproptions-mg2500-4.00EN.txt
+%doc %{_defaultdocdir}/%{name}-%{version}/*
 
-%{_prefix}/lib/cups/filter/cmdtocanonij
-%{_prefix}/lib/cups/filter/pstocanonij
-%{_prefix}/lib/cups/backend/cnijbe
-%{_prefix}/lib/cups/backend/cnijnet
-%{_prefix}/lib/cups/backend/cnijusb
-%{_bindir}/cngpij
-%{_bindir}/cngpijmnt
+%{_prefix}/lib/cups/filter/*
+%{_prefix}/lib/cups/backend/*
+%{_prefix}/lib/bjlib/*
+%{_prefix}/lib/udev/rules.d/81-canonij_prn.rules
+%{_datadir}/cmdtocanonij/*
+%{_datadir}/cnijlgmon2/*
+%{_datadir}/cups/model/canon/*
+%{_datadir}/applications/mg2500-scan.desktop
+%{_datadir}/icons/hicolor/scalable/apps/mg2500-scan.svg
+%%LOCALE_FILES%%
+%{_libdir}/libcn*
+%{_bindir}/cifmg2500
 %{_bindir}/cnijlgmon2
 %{_bindir}/cnijnetprn
 %{_bindir}/cnijnpr
-%{_bindir}/cifmg2500
-%{_libdir}/libcnbpcnclapicom.so.4.0.0
-%{_libdir}/libcnnet.so.1.2.2
-%{_libdir}/libcnbpcmcm429.so.8.20.1
-%{_libdir}/libcnbpcnclapi429.so.4.0.0
-%{_libdir}/libcnbpcnclbjcmd429.so.3.3.0
-%{_libdir}/libcnbpcnclui429.so.4.0.0
-%{_libdir}/libcnbpess429.so.4.3.1
-%{_libdir}/libcnbpo429.so.1.0.1
-%{_libdir}/libcnbpcnclapicom.so
-%{_libdir}/libcnnet.so
-%{_libdir}/libcnbpcmcm429.so
-%{_libdir}/libcnbpcnclapi429.so
-%{_libdir}/libcnbpcnclbjcmd429.so
-%{_libdir}/libcnbpcnclui429.so
-%{_libdir}/libcnbpess429.so
-%{_libdir}/libcnbpo429.so
-%{_prefix}/lib/bjlib/cnnet.ini
-%{_prefix}/lib/bjlib/cifmg2500.conf
-%{_prefix}/lib/bjlib/cnb_4290.tbl
-%{_prefix}/lib/bjlib/cnbpname429.tbl
-%{_datadir}/cmdtocanonij/autoalign.utl
-%{_datadir}/cmdtocanonij/cleaning.utl
-%{_datadir}/cmdtocanonij/nozzlecheck.utl
-%{_datadir}/cnijlgmon2/cnb_cnijlgmon2.res
-%{_datadir}/locale/de/LC_MESSAGES/cnijlgmon2.mo
-%{_datadir}/locale/fr/LC_MESSAGES/cnijlgmon2.mo
-%{_datadir}/locale/ja/LC_MESSAGES/cnijlgmon2.mo
-%{_datadir}/locale/zh/LC_MESSAGES/cnijlgmon2.mo
-%{_datadir}/cups/model/canon/canonmg2500.ppd.gz
-%{_prefix}/lib/udev/rules.d/81-canonij_prn.rules
+%{_bindir}/cngpij
+%{_bindir}/cngpijmnt
 %{_bindir}/mg2500-presets
 %{_bindir}/mg2500-setup
 %{_bindir}/mg2500-scan
-%{_datadir}/applications/mg2500-scan.desktop
-%{_datadir}/icons/hicolor/scalable/apps/mg2500-scan.svg
 
 %changelog
 * Fri Sep 12 2026 Arena Agent <arena-agent@arena.ai> - 1.0.0-1

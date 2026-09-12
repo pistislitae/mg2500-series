@@ -23,7 +23,7 @@ Paket **siap pakai** untuk **Bazzite / Fedora Atomic (rpm-ostree)** berisi:
 
 ```bash
 # 1) Pasang paket (langsung dari GitHub Release) + reboot
-rpm-ostree install https://github.com/pistislitae/mg2500-series/releases/download/v1.0.0/mg2500-series-1.0.0-1.fc43.x86_64.rpm
+rpm-ostree install https://github.com/pistislitae/mg2500-series/releases/download/v1.0.0/mg2500-series-1.0.0-1.x86_64.rpm
 systemctl reboot
 
 # 2) Setelah restart — nyalakan printer & colok USB, lalu:
@@ -37,8 +37,8 @@ dengan PPD resmi, dan mengecek scanner. Selesai — printer muncul di
 Alternatif (unduh manual dulu):
 
 ```bash
-curl -LO https://github.com/pistislitae/mg2500-series/releases/download/v1.0.0/mg2500-series-1.0.0-1.fc43.x86_64.rpm
-rpm-ostree install ./mg2500-series-1.0.0-1.fc43.x86_64.rpm
+curl -LO https://github.com/pistislitae/mg2500-series/releases/download/v1.0.0/mg2500-series-1.0.0-1.x86_64.rpm
+rpm-ostree install ./mg2500-series-1.0.0-1.x86_64.rpm
 systemctl reboot
 ```
 
@@ -47,7 +47,7 @@ Rollback kapan saja: `rpm-ostree uninstall mg2500-series && systemctl reboot`.
 ## Fedora non-Atomic (Workstation/Server)
 
 ```bash
-sudo dnf install https://github.com/pistislitae/mg2500-series/releases/download/v1.0.0/mg2500-series-1.0.0-1.fc43.x86_64.rpm
+sudo dnf install https://github.com/pistislitae/mg2500-series/releases/download/v1.0.0/mg2500-series-1.0.0-1.x86_64.rpm
 sudo mg2500-setup --scan
 ```
 
