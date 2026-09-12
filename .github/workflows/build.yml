@@ -25,7 +25,7 @@ jobs:
     steps:
       - name: Install build deps
         run: |
-          (dnf -y install rpm-build patchelf file curl tar gzip cpio findutils coreutils diffutils 2>/dev/null || dnf5 -y install rpm-build patchelf file curl tar gzip cpio findutils coreutils diffutils)
+          (dnf -y install rpm-build patchelf file curl tar gzip cpio findutils coreutils diffutils patch git 2>/dev/null || dnf5 -y install rpm-build patchelf file curl tar gzip cpio findutils coreutils diffutils patch git)
         shell: bash
 
       - name: Checkout
@@ -34,6 +34,16 @@ jobs:
       - name: Build RPM
         run: bash packaging/build.sh
         shell: bash
+
+      - name: Annotasi log kegagalan
+        if: failure()
+        run: |
+          LOG=/tmp/mg2500-build/build-full.log
+          if [ -f "$LOG" ]; then
+            tail -c 3000 "$LOG" | sed 's/$/%0A/' | while IFS= read -r line; do echo "::error::$line"; done || true
+          else
+            echo "::error::build-full.log tidak ada — build.sh gagal sangat awal"
+          fi
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
