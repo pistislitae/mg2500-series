@@ -59,13 +59,13 @@ jobs:
       - name: Annotasi log kegagalan
         if: failure()
         run: |
-          LOG=/tmp/mg2500-build/build-full.log
-          if [ -f "$LOG" ]; then
+          LOG="$GITHUB_WORKSPACE/ci-build-log.txt"
+          if [ -s "$LOG" ]; then
             tail -n 45 "$LOG" | while IFS= read -r line; do
               echo "::error::${line:0:3800}"
             done
           else
-            echo "::error::build-full.log tidak ada — build.sh gagal sangat awal"
+            echo "::error::ci-build-log.txt (workspace) kosong/tidak ada — build.sh gagal sebelum tee"
           fi
 
       - name: Upload artifact
