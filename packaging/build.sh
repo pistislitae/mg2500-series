@@ -120,6 +120,9 @@ find "$WORK/rpmbuild/RPMS" -name '*.rpm' -exec cp -v {} "$DIST/" \;
 echo "SELESAI:"; ls -la "$DIST"
 }
 
+# direktori kerja harus ada sebelum tee membuka log
+mkdir -p "$WORK" "$WORK/dl"
+
 run_build 2>&1 | tee "$LOG"
 STATUS="${PIPESTATUS[0]}"
 exit "$STATUS"

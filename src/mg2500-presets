@@ -53,7 +53,7 @@ preset_photo_realtone(){ # FOTO MAKSIMAL + warna natural ("realtone"): Photo Pap
   apply "$@" -o MediaType=glossygold -o CNQuality=1 -o CNGrayscale=False -o CNInkCartridgeSettings=bkcolor \
              -o CNDensity=-3 -o CNContrast=5 -o CNGamma=1.8 -o CNBalanceC=0 -o CNBalanceM=0 -o CNBalanceY=0
 }
-preset_photo_standard(){# foto rutin di kertas glossy
+preset_photo_standard(){ # foto rutin di kertas glossy
   apply "$@" -o MediaType=glossypaper -o CNQuality=2 -o CNGrayscale=False -o CNInkCartridgeSettings=bkcolor \
              -o CNDensity=0 -o CNContrast=0 -o CNGamma=1.8 -o CNBalanceC=0 -o CNBalanceM=0 -o CNBalanceY=0
 }
