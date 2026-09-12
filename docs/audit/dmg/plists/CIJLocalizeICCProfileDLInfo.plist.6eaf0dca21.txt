@@ -1,0 +1,74 @@
+# source: /tmp/audit/pkgs/pkg1/Library/Printers/Canon/BJPrinter/Utilities/CanonIJPrinterUtility.app/Contents/Resources/CIJLocalizeICCProfileDLInfo.plist
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ICCDLSheet</key>
+	<dict>
+		<key>CheckBoxShowOnce</key>
+		<dict>
+			<key>LocalizeKey</key>
+			<dict>
+				<key>DEFAULT</key>
+				<string>InkLevelEIDSheetCheckBox_DEFAULT</string>
+			</dict>
+		</dict>
+		<key>GuideBtnCancel</key>
+		<dict>
+			<key>LocalizeKey</key>
+			<dict>
+				<key>DEFAULT</key>
+				<string>BtnCancel_DEFAULT</string>
+			</dict>
+		</dict>
+		<key>GuideBtnOK</key>
+		<dict>
+			<key>LocalizeKey</key>
+			<dict>
+				<key>DEFAULT</key>
+				<string>ICCProfileDLSheetBtn_DEFAULT</string>
+			</dict>
+		</dict>
+		<key>GuideExtra</key>
+		<dict>
+			<key>LocalizeKey</key>
+			<dict>
+				<key>DEFAULT</key>
+				<string>ICCProfileDLSheetExplanation_DEFAULT</string>
+			</dict>
+		</dict>
+		<key>GuideMsg</key>
+		<dict>
+			<key>LocalizeKey</key>
+			<dict>
+				<key>DEFAULT</key>
+				<string>InkDetailsTitle_DEFAULT</string>
+			</dict>
+		</dict>
+	</dict>
+	<key>ICCProfileDL</key>
+	<dict>
+		<key>Text</key>
+		<dict>
+			<key>LocalizeKey</key>
+			<dict>
+				<key>DEFAULT</key>
+				<string>ICCProfileDLText_DEFAULT</string>
+			</dict>
+			<key>LocalizeType</key>
+			<dict/>
+		</dict>
+		<key>Title</key>
+		<dict>
+			<key>LocalizeKey</key>
+			<dict>
+				<key>DEFAULT</key>
+				<string>ICCProfileDLTitle_DEFAULT</string>
+			</dict>
+			<key>LocalizeType</key>
+			<dict/>
+		</dict>
+	</dict>
+</dict>
+</plist>

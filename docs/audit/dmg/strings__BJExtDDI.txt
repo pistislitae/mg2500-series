@@ -1,0 +1,645 @@
+## pkgs/pkg1/Library/Printers/Canon/BJPrinter/Frameworks/BJExtDDI.framework/Versions/A/BJExtDDI
+## Mach-O universal binary with 2 architectures: [x86_64:\012- Mach-O 64-bit x86_64 dynamically linked shared library, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|NO_REEXPORTED_DYLIBS>] [\012- arm64:\012- Mach-O 64-bit arm64 dynamically linked shared library, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL|NO_REEXPORTED_DYLIBS>]
+__stub_helper
+__objc_methlist
+__objc_methname
+__cstring
+__objc_classname__TEXT
+__objc_methtype
+__unwind_info
+__DATA_CONST
+__DATA_CONST
+__cfstring
+__DATA_CONST
+__objc_classlist__DATA_CONST
+__objc_imageinfo__DATA_CONST
+__la_symbol_ptr
+__objc_const
+__objc_selrefs
+__objc_classrefs__DATA
+__objc_superrefs__DATA
+__objc_ivar
+__objc_data
+__LINKEDIT
+/Library/Printers/Canon/BJPrinter/Frameworks/BJExtDDI.framework/Versions/A/BJExtDDI
+/usr/lib/libcups.2.dylib
+/System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa
+/Library/Printers/Canon/BJPrinter/Frameworks/CIJPrinterUtility.framework/Versions/A/CIJPrinterUtility
+/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+/usr/lib/libobjc.A.dylib
+/usr/lib/libSystem.B.dylib
+/System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices
+/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+AWAVATSH
+[A\A^A_]
+AWAVAUATSH
+X[A\A]A^A_]
+AWAVATSI
+D$8[A\A^A_]
+AWAVATSI
+[A\A^A_]
+[A\A^A_]
+AWAVAUATSH
+([A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+[A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+[A\A]A^A_]
+AWAVAUATSH
+([A\A]A^A_]
+AWAVAUATSH
+[A\A]A^A_]
+AWAVAUATSH
+([A\A]A^A_]
+AWAVAUATSH
+8[A\A]A^A_]
+AWAVAUATSH
+8[A\A]A^A_]
+AWAVAUATSP
+[A\A]A^A_]
+AWAVAUATSPI
+[A\A]A^A_]
+choiceFramework
+loadFrameworkCIJBundle2
+loadFrameworkCIJBundle
+loadFrameworkBJBundle
+initWithString:
+cStringUsingEncoding:
+stringWithString:
+stringByAppendingString:
+bundleWithPath:
+classNamed:
+sharedController
+initWithPrintSession:PageFormat:PrintSettings:
+cijExtDDI
+setCIJExtDDI:
+currentPMSession
+currentPMPageFormat
+currentPMSettings
+currentPrinter
+bjBundle
+cijBundle
+cijBundle2
+framework
+isEqualToCurrentPrinter
+currentPrinterID
+PMPrintSession
+PMPageFormat
+PMPrintSettings
+isEqualToString:
+initWithNSPrintInfo:
+cijUpdateFromNSPrintInfo
+cijDeviceModeIsSupported
+cijDeviceModeIsSupportedEx:
+cijDeviceMode:itemID:pItem:
+cijDeviceModeEnablePDE:flag:
+cijDeviceModeMac:itemID:pItem:
+cijUpdateFromNSPrintInfo2
+cijDeviceModeIsSupported2
+cijDeviceModeIsSupportedEx2:
+cijDeviceMode2:itemID:pItem:
+cijDeviceModeEnablePDE2:
+cijDeviceModeMac2:itemID:pItem:
+className
+cijUpdateFromPMPrintSession
+updateFromPMPrintSession
+cijDeviceModeEnablePDE:
+initWithPMPrintSession:pmPageFormat:pmPrintSettings:
+PMPPDDescriptionType
+CNIJExtDDISwitch
+CIJExtDDI.framework
+CIJExtDDI2.framework
+/Library/Printers/Canon/BJPrinter/
+BJExtDDI2.framework
+/Library/Printers/Canon/BJPrinter/Frameworks
+CIJExtDDIController2
+CIJExtDDIController
+CIJPrintController2
+CIJPrintController
+BJDeviceModeIsSupported
+BJDeviceModeIsSupportedEx
+BJDeviceMode
+BJDeviceModeEnablePDE
+BJDeviceModeMac
+BJDeviceModeTerminate
+CIJController
+CIJControllerForExtDDI2
+@40@0:8^{OpaquePMPrintSession=}16^{OpaquePMPageFormat=}24^{OpaquePMPrintSettings=}32
+v24@0:8@16
+^{OpaquePMPrintSession=}16@0:8
+^{OpaquePMPageFormat=}16@0:8
+^{OpaquePMPrintSettings=}16@0:8
+^{OpaquePMPrinter=}16@0:8
+^{__CFBundle=}16@0:8
+^{OpaquePMPrintSession=}
+^{OpaquePMPageFormat=}
+^{OpaquePMPrintSettings=}
+^{OpaquePMPrinter=}
+@"NSString"
+^{__CFBundle=}
+@24@0:8@16
+c20@0:8s16
+I32@0:8I16I20^v24
+I20@0:8I16
+CRESASASASASASASASASASDRAp(p0SDRAp
+@_OBJC_CLASS_$_NSAutoreleasePool
+@_OBJC_CLASS_$_NSBundle
+@_OBJC_CLASS_$_NSString
+@_OBJC_CLASS_$_NSObject
+@_OBJC_METACLASS_$_NSObject
+@__objc_empty_cache
+@_objc_msgSend
+@_objc_release
+@_objc_retain
+@___stack_chk_guard
+@dyld_stub_binder
+@___CFConstantStringClassReference
+@_kCFAllocatorDefault
+@_kCFAllocatorSystemDefault
+@_CFBundleCreate
+@_CFBundleGetFunctionPointerForName
+@_CFRelease
+@_CFStringCompare
+@_CFStringGetCString
+@_CFURLCreateCopyAppendingPathComponent
+@_CFURLCreateWithFileSystemPath
+@_CIJUtilsCompareVersionWithGestaltVersion
+@_PMPrinterCopyDescriptionURL
+@_PMPrinterGetID
+@_PMRelease
+@_PMRetain
+@_PMSessionGetCurrentPrinter
+@___stack_chk_fail
+@_objc_alloc
+@_objc_alloc_init
+@_objc_msgSendSuper2
+@_ppdClose
+@_ppdFindAttr
+@_ppdOpenFile
+@_strstr
+BJDeviceMode
+IsSupported
+[EnablePDE
+`Terminate
+IVAR_$_CIJController
+CLASS_$_CIJController
+METACLASS_$_CIJController
+ForExtDDI2.extDDI
+framework
+bjBundle
+PageFormat
+ForExtDDI2
+ForExtDDI2
+_BJDeviceMode
+_BJDeviceModeEnablePDE
+_BJDeviceModeIsSupported
+_BJDeviceModeIsSupportedEx
+_BJDeviceModeMac
+_BJDeviceModeTerminate
+_OBJC_CLASS_$_CIJController
+_OBJC_CLASS_$_CIJControllerForExtDDI2
+_OBJC_IVAR_$_CIJController.bjBundle
+_OBJC_IVAR_$_CIJController.cijBundle
+_OBJC_IVAR_$_CIJController.cijBundle2
+_OBJC_IVAR_$_CIJController.cijExtDDI
+_OBJC_IVAR_$_CIJController.currentPMPageFormat
+_OBJC_IVAR_$_CIJController.currentPMSession
+_OBJC_IVAR_$_CIJController.currentPMSettings
+_OBJC_IVAR_$_CIJController.currentPrinter
+_OBJC_IVAR_$_CIJController.currentPrinterID
+_OBJC_IVAR_$_CIJController.framework
+_OBJC_IVAR_$_CIJControllerForExtDDI2.extDDI
+_OBJC_METACLASS_$_CIJController
+_OBJC_METACLASS_$_CIJControllerForExtDDI2
+_CFBundleCreate
+_CFBundleGetFunctionPointerForName
+_CFRelease
+_CFStringCompare
+_CFStringGetCString
+_CFURLCreateCopyAppendingPathComponent
+_CFURLCreateWithFileSystemPath
+_CIJUtilsCompareVersionWithGestaltVersion
+_OBJC_CLASS_$_NSAutoreleasePool
+_OBJC_CLASS_$_NSBundle
+_OBJC_CLASS_$_NSObject
+_OBJC_CLASS_$_NSString
+_OBJC_METACLASS_$_NSObject
+_PMPrinterCopyDescriptionURL
+_PMPrinterGetID
+_PMRelease
+_PMRetain
+_PMSessionGetCurrentPrinter
+___CFConstantStringClassReference
+___stack_chk_fail
+___stack_chk_guard
+__objc_empty_cache
+_kCFAllocatorDefault
+_kCFAllocatorSystemDefault
+_objc_alloc
+_objc_alloc_init
+_objc_msgSend
+_objc_msgSendSuper2
+_objc_release
+_objc_retain
+_ppdClose
+_ppdFindAttr
+_ppdOpenFile
+dyld_stub_binder
+radr://5614542
+jp.co.canon.bj.bjextddi
+XE2XNRRXZ5
+jp.co.canon.bj.bjextddi
+subject.OU
+XE2XNRRXZ5
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120201221215Z
+270201221215Z0y1-0+
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+)xEii`k_
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+200803051541Z
+250804051541Z0
+XE2XNRRXZ51:08
+1Developer ID Application: Canon Inc. (XE2XNRRXZ5)1
+XE2XNRRXZ51
+Canon Inc.1
+$http://ocsp.apple.com/ocsp03-devid080
+)http://www.apple.com/certificateauthority0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+20120416000000Z0
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210827015034Z0/
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<key>cdhashes</key>
+	<array>
+		<data>
+		onrOrl6bN7IxQ8iG6i9QlIBb8YU=
+		</data>
+	</array>
+</plist>
+20210827015034Z0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210818184003Z
+210929184002Z0B1
+Timestamp Signer RNO11
+Apple Inc.1
+http://www.apple.com/appleca0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+"http://crl.apple.com/timestamp.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120405120244Z
+270405120244Z0|100.
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210827015034Z0#
+__stub_helper
+__objc_methlist
+__objc_methname
+__cstring
+__objc_classname__TEXT
+__objc_methtype
+__unwind_info
+__DATA_CONST
+__DATA_CONST
+__cfstring
+__DATA_CONST
+__objc_classlist__DATA_CONST
+__objc_imageinfo__DATA_CONST
+__la_symbol_ptr
+__objc_const
+__objc_selrefs
+__objc_classrefs__DATA
+__objc_superrefs__DATA
+__objc_ivar
+__objc_data
+__LINKEDIT
+/Library/Printers/Canon/BJPrinter/Frameworks/BJExtDDI.framework/Versions/A/BJExtDDI
+/usr/lib/libcups.2.dylib
+/System/Library/Frameworks/Cocoa.framework/Versions/A/Cocoa
+/Library/Printers/Canon/BJPrinter/Frameworks/CIJPrinterUtility.framework/Versions/A/CIJPrinterUtility
+/System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+/usr/lib/libobjc.A.dylib
+/usr/lib/libSystem.B.dylib
+/System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices
+/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+choiceFramework
+loadFrameworkCIJBundle2
+loadFrameworkCIJBundle
+loadFrameworkBJBundle
+initWithString:
+cStringUsingEncoding:
+stringWithString:
+stringByAppendingString:
+bundleWithPath:
+classNamed:
+sharedController
+initWithPrintSession:PageFormat:PrintSettings:
+cijExtDDI
+setCIJExtDDI:
+currentPMSession
+currentPMPageFormat
+currentPMSettings
+currentPrinter
+bjBundle
+cijBundle
+cijBundle2
+framework
+isEqualToCurrentPrinter
+currentPrinterID
+PMPrintSession
+PMPageFormat
+PMPrintSettings
+isEqualToString:
+initWithNSPrintInfo:
+cijUpdateFromNSPrintInfo
+cijDeviceModeIsSupported
+cijDeviceModeIsSupportedEx:
+cijDeviceMode:itemID:pItem:
+cijDeviceModeEnablePDE:flag:
+cijDeviceModeMac:itemID:pItem:
+cijUpdateFromNSPrintInfo2
+cijDeviceModeIsSupported2
+cijDeviceModeIsSupportedEx2:
+cijDeviceMode2:itemID:pItem:
+cijDeviceModeEnablePDE2:
+cijDeviceModeMac2:itemID:pItem:
+className
+cijUpdateFromPMPrintSession
+updateFromPMPrintSession
+cijDeviceModeEnablePDE:
+initWithPMPrintSession:pmPageFormat:pmPrintSettings:
+PMPPDDescriptionType
+CNIJExtDDISwitch
+CIJExtDDI.framework
+CIJExtDDI2.framework
+/Library/Printers/Canon/BJPrinter/
+BJExtDDI2.framework
+/Library/Printers/Canon/BJPrinter/Frameworks
+CIJExtDDIController2
+CIJExtDDIController
+CIJPrintController2
+CIJPrintController
+BJDeviceModeIsSupported
+BJDeviceModeIsSupportedEx
+BJDeviceMode
+BJDeviceModeEnablePDE
+BJDeviceModeMac
+BJDeviceModeTerminate
+CIJController
+CIJControllerForExtDDI2
+@40@0:8^{OpaquePMPrintSession=}16^{OpaquePMPageFormat=}24^{OpaquePMPrintSettings=}32
+v24@0:8@16
+^{OpaquePMPrintSession=}16@0:8
+^{OpaquePMPageFormat=}16@0:8
+^{OpaquePMPrintSettings=}16@0:8
+^{OpaquePMPrinter=}16@0:8
+^{__CFBundle=}16@0:8
+^{OpaquePMPrintSession=}
+^{OpaquePMPageFormat=}
+^{OpaquePMPrintSettings=}
+^{OpaquePMPrinter=}
+@"NSString"
+^{__CFBundle=}
+@24@0:8@16
+B20@0:8s16
+I32@0:8I16I20^v24
+I20@0:8I16
+CRESASASASASASASASASASDRAp(p0SDRAp
+@_OBJC_CLASS_$_NSAutoreleasePool
+@_OBJC_CLASS_$_NSBundle
+@_OBJC_CLASS_$_NSString
+@_OBJC_CLASS_$_NSObject
+@_OBJC_METACLASS_$_NSObject
+@__objc_empty_cache
+@___stack_chk_guard
+@dyld_stub_binder
+@___CFConstantStringClassReference
+@_kCFAllocatorDefault
+@_kCFAllocatorSystemDefault
+@_CFBundleCreate
+@_CFBundleGetFunctionPointerForName
+@_CFRelease
+@_CFStringCompare
+@_CFStringGetCString
+@_CFURLCreateCopyAppendingPathComponent
+@_CFURLCreateWithFileSystemPath
+@_CIJUtilsCompareVersionWithGestaltVersion
+@_PMPrinterCopyDescriptionURL
+@_PMPrinterGetID
+@_PMRelease
+@_PMRetain
+@_PMSessionGetCurrentPrinter
+@___stack_chk_fail
+@_objc_alloc
+@_objc_alloc_init
+@_objc_msgSend
+@_objc_msgSendSuper2
+@_objc_release
+@_objc_retain
+@_ppdClose
+@_ppdFindAttr
+@_ppdOpenFile
+@_strstr
+BJDeviceMode
+IsSupported
+[EnablePDE
+`Terminate
+IVAR_$_CIJController
+CLASS_$_CIJController
+METACLASS_$_CIJController
+ForExtDDI2.extDDI
+framework
+bjBundle
+PageFormat
+ForExtDDI2
+ForExtDDI2
+_BJDeviceMode
+_BJDeviceModeEnablePDE
+_BJDeviceModeIsSupported
+_BJDeviceModeIsSupportedEx
+_BJDeviceModeMac
+_BJDeviceModeTerminate
+_OBJC_CLASS_$_CIJController
+_OBJC_CLASS_$_CIJControllerForExtDDI2
+_OBJC_IVAR_$_CIJController.bjBundle
+_OBJC_IVAR_$_CIJController.cijBundle
+_OBJC_IVAR_$_CIJController.cijBundle2
+_OBJC_IVAR_$_CIJController.cijExtDDI
+_OBJC_IVAR_$_CIJController.currentPMPageFormat
+_OBJC_IVAR_$_CIJController.currentPMSession
+_OBJC_IVAR_$_CIJController.currentPMSettings
+_OBJC_IVAR_$_CIJController.currentPrinter
+_OBJC_IVAR_$_CIJController.currentPrinterID
+_OBJC_IVAR_$_CIJController.framework
+_OBJC_IVAR_$_CIJControllerForExtDDI2.extDDI
+_OBJC_METACLASS_$_CIJController
+_OBJC_METACLASS_$_CIJControllerForExtDDI2
+_CFBundleCreate
+_CFBundleGetFunctionPointerForName
+_CFRelease
+_CFStringCompare
+_CFStringGetCString
+_CFURLCreateCopyAppendingPathComponent
+_CFURLCreateWithFileSystemPath
+_CIJUtilsCompareVersionWithGestaltVersion
+_OBJC_CLASS_$_NSAutoreleasePool
+_OBJC_CLASS_$_NSBundle
+_OBJC_CLASS_$_NSObject
+_OBJC_CLASS_$_NSString
+_OBJC_METACLASS_$_NSObject
+_PMPrinterCopyDescriptionURL
+_PMPrinterGetID
+_PMRelease
+_PMRetain
+_PMSessionGetCurrentPrinter
+___CFConstantStringClassReference
+___stack_chk_fail
+___stack_chk_guard
+__objc_empty_cache
+_kCFAllocatorDefault
+_kCFAllocatorSystemDefault
+_objc_alloc
+_objc_alloc_init
+_objc_msgSend
+_objc_msgSendSuper2
+_objc_release
+_objc_retain
+_ppdClose
+_ppdFindAttr
+_ppdOpenFile
+dyld_stub_binder
+radr://5614542
+jp.co.canon.bj.bjextddi
+XE2XNRRXZ5
+jp.co.canon.bj.bjextddi
+subject.OU
+XE2XNRRXZ5
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120201221215Z
+270201221215Z0y1-0+
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+)xEii`k_
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+200803051541Z
+250804051541Z0
+XE2XNRRXZ51:08
+1Developer ID Application: Canon Inc. (XE2XNRRXZ5)1
+XE2XNRRXZ51
+Canon Inc.1
+$http://ocsp.apple.com/ocsp03-devid080
+)http://www.apple.com/certificateauthority0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+20120416000000Z0
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210827015034Z0/
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<key>cdhashes</key>
+	<array>
+		<data>
+		0dXYFVqcYdimWaxF2BIxO0+2fio=
+		</data>
+	</array>
+</plist>
+20210827015034Z0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210818183501Z
+210929183500Z0B1
+Timestamp Signer RNO21
+Apple Inc.1
+http://www.apple.com/appleca0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+"http://crl.apple.com/timestamp.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120405120244Z
+270405120244Z0|100.
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210827015034Z0#

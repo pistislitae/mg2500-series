@@ -1,0 +1,149 @@
+name: build-release
+
+# Build RPM mg2500-series di container Fedora, lalu unggah sebagai
+# GitHub Release agar bisa dipasang langsung via rpm-ostree.
+on:
+  push:
+    branches:
+      - "**"
+    paths:
+      - "packaging/**"
+      - "src/**"
+      - ".github/workflows/build.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build RPM (Fedora container)
+    runs-on: ubuntu-latest
+    container:
+      image: fedora:latest
+    steps:
+      - name: Install build deps
+        run: |
+          (dnf -y install rpm-build patchelf file curl tar gzip cpio findutils coreutils diffutils patch git 2>/dev/null || dnf5 -y install rpm-build patchelf file curl tar gzip cpio findutils coreutils diffutils patch git)
+        shell: bash
+
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Build RPM
+        run: bash packaging/build.sh
+        shell: bash
+
+      - name: Simpan log build ke repo
+        if: always()
+        shell: bash
+        run: |
+          set +e
+          set +x
+          cd "$GITHUB_WORKSPACE" || true
+          if [ -s ci-build-log.txt ]; then
+            # kirim log ke anotasi (8 chunk x ~3.7KB = ~30KB terakhir)
+            TOTAL=$(wc -l < ci-build-log.txt)
+            echo "::notice::log lines: $TOTAL"
+            START=$(( TOTAL > 250 ? TOTAL - 250 : 1 ))
+            tail -n +"$START" ci-build-log.txt | split -l 30 - /tmp/logchunk_
+            for f in /tmp/logchunk_*; do
+              MSG=$(sed 's/%/%25/g; s/\r/%0D/g' "$f" | sed ':a;N;$!ba;s/\n/%0A/g')
+              echo "::error::${MSG:0:3800}"
+            done
+          else
+            echo "::error::ci-build-log.txt kosong/tidak ada di workspace"
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global --add safe.directory '*' || true
+          git add ci-build-log.txt
+          git commit -m "ci: log build [skip ci]"
+          OUT1=$(git pull --rebase --autostash origin "$GITHUB_REF_NAME" 2>&1); echo "::notice::pull: ${OUT1:0:3000}"
+          OUT2=$(git push origin HEAD 2>&1); echo "::notice::push1: ${OUT2:0:3000}"
+          if [ -n "$OUT2" ] && ! echo "$OUT2" | grep -q -- '->'; then
+            OUT3=$(git push "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD 2>&1); echo "::notice::push2: ${OUT3:0:3000}"
+          fi
+          echo "::notice::save-log selesai"
+          exit 0
+
+      - name: Annotasi log kegagalan
+        if: failure()
+        run: |
+          LOG="$GITHUB_WORKSPACE/ci-build-log.txt"
+          if [ -s "$LOG" ]; then
+            tail -n 45 "$LOG" | while IFS= read -r line; do
+              echo "::error::${line:0:3800}"
+            done
+          else
+            echo "::error::ci-build-log.txt (workspace) kosong/tidak ada — build.sh gagal sebelum tee"
+          fi
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mg2500-series-rpm
+          path: |
+            dist/*.rpm
+            dist/SHA256SUMS
+          if-no-files-found: error
+
+  release:
+    name: Publikasikan GitHub Release
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: mg2500-series-rpm
+          path: dist
+
+      - name: Ambil versi dari nama RPM
+        id: ver
+        run: |
+          RPM=$(ls dist/*.rpm | head -1)
+          BASE=$(basename "$RPM")
+          VER=$(echo "$BASE" | sed -E 's/^mg2500-series-([^-]+)-([^-]+)\..*/\1/')
+          TAG="v$VER"
+          echo "rpm=$BASE" >> "$GITHUB_OUTPUT"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+
+      - name: Buat / perbarui Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ steps.ver.outputs.tag }}
+          RPM: ${{ steps.ver.outputs.rpm }}
+        run: |
+          gh auth status || true
+          NOTES=$(cat <<'EOF'
+          # mg2500-series — Canon PIXMA MG2500 series (MG2570S) untuk Fedora / Bazzite
+
+          Paket: driver printer CUPS resmi Canon (IJ Driver 4.00) + UI scan GTK3 + preset cetak pintar tinta (hemat tinta & foto realtone).
+
+          ## Pasang langsung via rpm-ostree (Bazzite / Fedora Atomic)
+          ```bash
+          rpm-ostree install https://github.com/pistislitae/mg2500-series/releases/download/TAGPLACEHOLDER/RPMPLACEHOLDER
+          systemctl reboot
+          # setelah restart:
+          sudo mg2500-setup --scan
+          ```
+
+          ## Non-ostree (Fedora Workstation)
+          ```bash
+          sudo dnf install URLPLACEHOLDER
+          ```
+
+          Detail lengkap: lihat README di repo.
+          EOF
+          )
+          NOTES="${NOTES//TAGPLACEHOLDER/$TAG}"; NOTES="${NOTES//RPMPLACEHOLDER/$RPM}"; NOTES="${NOTES//URLPLACEHOLDER/https://github.com/pistislitae/mg2500-series/releases/download/$TAG/$RPM}"
+          if gh release view "$TAG" --repo pistislitae/mg2500-series >/dev/null 2>&1; then
+            gh release upload "$TAG" dist/*.rpm dist/SHA256SUMS --repo pistislitae/mg2500-series --clobber
+          else
+            gh release create "$TAG" dist/*.rpm dist/SHA256SUMS \
+              --repo pistislitae/mg2500-series \
+              --target "$GITHUB_SHA" \
+              --title "mg2500-series $TAG — driver + scan UI (MG2570S)" \
+              --notes "$NOTES"
+          fi

@@ -1,0 +1,50 @@
+# source: /tmp/audit/pkgs/pkg1/Library/Printers/Canon/BJPrinter/Utilities/CanonIJPrinterUtility.app/Contents/Resources/CIJICCProfileDLInfo.plist
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Button</key>
+	<array>
+		<dict>
+			<key>Origin</key>
+			<string>18,298</string>
+			<key>Size</key>
+			<string>48,48</string>
+		</dict>
+	</array>
+	<key>Image</key>
+	<dict>
+		<key>ICCProfileDL</key>
+		<string>ICCProfileDLButton</string>
+	</dict>
+	<key>Sheet</key>
+	<dict>
+		<key>CheckBox</key>
+		<dict>
+			<key>Origin</key>
+			<string>18,60</string>
+		</dict>
+		<key>Size</key>
+		<string>560,230</string>
+	</dict>
+	<key>Text</key>
+	<array>
+		<dict>
+			<key>Origin</key>
+			<string>81,295</string>
+			<key>Size</key>
+			<string>351,34</string>
+		</dict>
+	</array>
+	<key>Title</key>
+	<array>
+		<dict>
+			<key>Origin</key>
+			<string>71,329</string>
+			<key>Size</key>
+			<string>320,17</string>
+		</dict>
+	</array>
+</dict>
+</plist>

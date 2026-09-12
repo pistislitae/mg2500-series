@@ -1,0 +1,73 @@
+#!/usr/bin/env bash
+# mg2500-setup — daftarkan Canon MG2500 series (MG2570S) ke CUPS + cek scanner
+#
+#   sudo mg2500-setup            # deteksi USB + buat antrean MG2500S
+#   sudo mg2500-setup --test     # + cetak halaman uji
+#   sudo mg2500-setup --scan     # + cek scanner SANE
+#   mg2500-setup --queue NAMA    # pakai nama antrean lain
+set -euo pipefail
+
+QUEUE="MG2500S"
+DESC="Canon PIXMA MG2570S"
+LOC="Rumah/Kantor"
+PPD_GZ="/usr/share/cups/model/canon/canonmg2500.ppd.gz"
+TESTPAGE=""
+DO_TEST=0; DO_SCAN=0
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --queue) QUEUE="$2"; shift 2 ;;
+    --test) DO_TEST=1; shift ;;
+    --scan) DO_SCAN=1; shift ;;
+    -h|--help) grep '^#' "$0" | sed 's/^# \{0,1\}//'; exit 0 ;;
+    *) echo "Argumen tidak dikenal: $1"; exit 1 ;;
+  esac
+done
+
+[[ $EUID -eq 0 ]] || { echo "Jalankan dengan sudo."; exit 1; }
+PPD="$PPD_GZ"; [[ -f "$PPD" ]] || PPD="${PPD_GZ%.gz}"
+[[ -f "$PPD" ]] || { echo "PPD tidak ditemukan: $PPD_GZ (paket mg2500-series terpasang?)"; exit 1; }
+
+# 1) Pastikan CUPS jalan (Bazzite: cups biasanya sudah ada; enabled bila perlu)
+if command -v systemctl >/dev/null; then
+  systemctl enable --now cups.service 2>/dev/null || true
+  sleep 1
+fi
+
+# 2) Deteksi URI printer
+echo "==> Mencari printer di USB..."
+URI=""
+for i in $(seq 1 10); do
+  URI="$(lpinfo -v 2>/dev/null | grep -E 'usb://Canon/MG2500' | awk '{print $2}' | head -1 || true)"
+  [[ -n "$URI" ]] && break
+  echo "   belum ketemu (percobaan $i/10)... nyalakan printer, tunggu 3 detik"; sleep 3
+done
+if [[ -z "$URI" ]]; then
+  echo "GAGAL: printer tidak terdeteksi. Pastikan kabel USB terpasang & printer menyala."
+  echo "Perangkat USB yang terlihat:"; lsusb | grep -i canon || echo "  (tidak ada perangkat Canon)"
+  exit 2
+fi
+echo "   URI: $URI"
+
+# 3) Buat antrean
+echo "==> Mendaftarkan antrean '$QUEUE'..."
+lpadmin -p "$QUEUE" -E -v "$URI" -P "$PPD" -D "$DESC" -L "$LOC"
+
+# 4) Default masuk akal (dokumen); preset lain via mg2500-presets
+lpoptions -p "$QUEUE" -o MediaType=plain -o CNQuality=3 -o CNInkCartridgeSettings=bkcolor || true
+
+echo "==> Antrean '$QUEUE' siap. Cetak uji:  lp -d $QUEUE /usr/share/cups/data/testprint"
+echo "    Preset:                             mg2500-presets list"
+echo "    Foto realtone (ganti kertas!):      mg2500-presets photo-realtone"
+
+if [[ $DO_TEST -eq 1 ]]; then
+  for tp in /usr/share/cups/data/testprint /usr/share/cups/data/default-testpage.pdf; do
+    [[ -f "$tp" ]] && { lp -d "$QUEUE" "$tp" && echo "Halaman uji dikirim."; break; }
+  done
+fi
+
+if [[ $DO_SCAN -eq 1 ]]; then
+  echo "==> Cek scanner (SANE pixma):"
+  scanimage -L 2>&1 || true
+  echo "Jika terdeteksi: jalankan 'mg2500-scan' dari menu aplikasi."
+fi

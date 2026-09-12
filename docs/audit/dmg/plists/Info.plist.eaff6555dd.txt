@@ -1,0 +1,32 @@
+# source: /tmp/audit/pkgs/pkg1/Library/Printers/Canon/BJPrinter/Resources/Database/CIJMG2500series.db/Contents/Info.plist
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>MG2500series</string>
+	<key>CFBundleGetInfoString</key>
+	<string>MG2500series version 1.0.10, Copyright CANON INC. 2001-2013 All Rights Reserved.</string>
+	<key>CFBundleIdentifier</key>
+	<string>jp.co.canon.ij.print.tbl.cnb_4290</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>MG2500series</string>
+	<key>CFBundlePackageType</key>
+	<string>BNDL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.10</string>
+	<key>CFBundleSignature</key>
+	<string>????</string>
+	<key>CFBundleVersion</key>
+	<string>1.0.10</string>
+	<key>CanonDatabaseDateString</key>
+	<string>20130318000000</string>
+	<key>CanonNameTableDateString</key>
+	<string>20121004000000</string>
+</dict>
+</plist>

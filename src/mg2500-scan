@@ -1,0 +1,344 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+mg2500-scan — UI pemindai (scanner) untuk Canon PIXMA MG2500 series (MG2570S).
+
+Backend: SANE `pixma` (sudah didukung penuh untuk MG2500 series via USB,
+deteksi otomatis, tanpa konfigurasi). Keluaran PNG/JPEG; multi halaman bisa
+digabung menjadi PDF (butuh python3-pillow).
+
+Pemakaian:
+  mg2500-scan                # buka GUI
+  mg2500-scan --cli          # pindai 1 halaman cepat ke ~/Pictures/MG2500-Scan
+  mg2500-scan --cli --res 600 --mode Color --out /tmp/halaman.png
+"""
+import os
+import sys
+import glob
+import datetime
+import subprocess
+import shutil
+
+SCAN_DIR = os.path.expanduser("~/Pictures/MG2500-Scan")
+
+RESOLUTIONS = ["75", "150", "300", "600"]
+MODES = [("Color", "Warna"), ("Gray", "Abu-abu"), ("Lineart", "Teks (Lineart)")]
+
+
+# ---------------------------------------------------------------- helpers
+def have(cmd):
+    return shutil.which(cmd) is not None
+
+
+def ensure_scan_dir():
+    os.makedirs(SCAN_DIR, exist_ok=True)
+    return SCAN_DIR
+
+
+def discover_devices():
+    """Kembalikan daftar (name, deskripsi) dari `scanimage -L`."""
+    if not have("scanimage"):
+        raise RuntimeError("scanimage tidak ada. Pasang: sudo rpm-ostree install sane-backends")
+    try:
+        out = subprocess.run(["scanimage", "-L"], capture_output=True, text=True, timeout=20)
+    except subprocess.TimeoutExpired:
+        return []
+    devs = []
+    for line in (out.stdout or "").splitlines():
+        line = line.strip()
+        if line.startswith("device `") and "' is a" in line:
+            name = line.split("device `", 1)[1].split("'", 1)[0]
+            desc = line.split("' is a ", 1)[1].strip() or name
+            devs.append((name, desc))
+    return devs
+
+
+def pick_device(devs):
+    """Pilih device pixma bila ada, else device pertama."""
+    for name, desc in devs:
+        if name.startswith("pixma:") or "pixma" in desc.lower():
+            return name, desc
+    return devs[0] if devs else (None, None)
+
+
+def run_scan(device, res, mode, outfile):
+    """Pindai satu halaman; fallback PNM bila --format=png tak didukung."""
+    cmd = ["scanimage", "-d", device, "--resolution", res, "--mode", mode,
+           "--format=png"]
+    try:
+        p = subprocess.run(cmd, capture_output=True, timeout=240)
+        if p.returncode != 0 or len(p.stdout) < 100:
+            raise RuntimeError(p.stderr.decode(errors="replace") or "keluaran kosong")
+        with open(outfile, "wb") as f:
+            f.write(p.stdout)
+        return outfile
+    except RuntimeError:
+        # fallback: PNM bawaan
+        cmd2 = ["scanimage", "-d", device, "--resolution", res, "--mode", mode]
+        p2 = subprocess.run(cmd2, capture_output=True, timeout=240)
+        if p2.returncode != 0 or len(p2.stdout) < 100:
+            err = p2.stderr.decode(errors="replace") or "scan gagal"
+            raise RuntimeError(err)
+        pnm = outfile.rsplit(".", 1)[0] + ".pnm"
+        with open(pnm, "wb") as f:
+            f.write(p2.stdout)
+        # coba konversi ke PNG via Pillow
+        try:
+            from PIL import Image
+            Image.open(pnm).save(outfile)
+            os.remove(pnm)
+            return outfile
+        except Exception:
+            return pnm
+
+
+def merge_pdf(paths, outpath):
+    """Gabung PNG/JPEG/PNM menjadi PDF (butuh Pillow)."""
+    try:
+        from PIL import Image
+    except ImportError:
+        raise RuntimeError("Modul Pillow tidak ada. Pasang: sudo rpm-ostree install python3-pillow")
+    pages = []
+    for p in paths:
+        if p.lower().endswith(".pnm"):
+            im = Image.open(p).convert("RGB")
+            pages.append(im)
+        else:
+            pages.append(Image.open(p).convert("RGB"))
+    if not pages:
+        raise RuntimeError("Belum ada halaman untuk digabung.")
+    first, rest = pages[0], pages[1:]
+    first.save(outpath, "PDF", save_all=True, append_images=rest, resolution=100.0)
+    return outpath
+
+
+def open_folder(path):
+    for opener in ("xdg-open", "gio", "nautilus"):
+        if have(opener):
+            try:
+                subprocess.Popen([opener, path], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                return
+            except Exception:
+                pass
+
+
+def human_hint(err):
+    e = err.lower()
+    if "permission" in e or "access" in e:
+        return "Akses USB ditolak. Coba cabut-pasang kabel USB, lalu jalankan ulang."
+    if "device i/o" in e or "i/o" in e:
+        return "Printer tidak merespons. Pastikan menyala, tutup penutup scanlongsong cukup rapat, lalu coba lagi."
+    if "no scanners" in e or "no devices" in e or "0 devices" in e:
+        return "Scanner tidak terdeteksi. Nyalakan printer & cek kabel USB (lsusb harus ada 04a9:...)."
+    if "busy" in e:
+        return "Perangkat sedang dipakai (mis. antrean cetak). Tunggu sebentar."
+    return ""
+
+
+# ---------------------------------------------------------------- GUI
+def run_gui():
+    import gi
+    gi.require_version("Gtk", "3.0")
+    from gi.repository import Gtk, GLib
+
+    class App(Gtk.Window):
+        def __init__(self):
+            super().__init__(title="MG2500 Scan — Canon PIXMA MG2570S")
+            self.set_border_width(12)
+            self.set_default_size(520, 380)
+            self.session_scans = []
+            self.devices = []
+
+            hb = Gtk.HeaderBar()
+            hb.set_show_close_button(True)
+            hb.set_title("MG2500 Scan")
+            hb.set_subtitle("Canon PIXMA MG2570S — SANE pixma")
+            self.set_titlebar(hb)
+
+            grid = Gtk.Grid(column_spacing=10, row_spacing=10)
+            self.add(grid)
+
+            # --- pilihan perangkat
+            grid.attach(Gtk.Label(label="Perangkat", halign=Gtk.Align.END), 0, 0, 1, 1)
+            self.cmb_dev = Gtk.ComboBoxText()
+            self.cmb_dev.set_hexpand(True)
+            grid.attach(self.cmb_dev, 1, 0, 2, 1)
+
+            # --- resolusi
+            grid.attach(Gtk.Label(label="Resolusi (dpi)", halign=Gtk.Align.END), 0, 1, 1, 1)
+            self.cmb_res = Gtk.ComboBoxText()
+            for r in RESOLUTIONS:
+                self.cmb_res.append_text(r + ("  (cepat)" if r == "150" else "  (detail foto)" if r == "600" else ""))
+                if r == "300":
+                    self.cmb_res.set_active(len(RESOLUTIONS) - 1 - RESOLUTIONS[::-1].index("300"))
+            grid.attach(self.cmb_res, 1, 1, 2, 1)
+
+            # --- mode
+            grid.attach(Gtk.Label(label="Mode warna", halign=Gtk.Align.END), 0, 2, 1, 1)
+            self.cmb_mode = Gtk.ComboBoxText()
+            for val, label in MODES:
+                self.cmb_mode.append_text(label)
+            self.cmb_mode.set_active(0)
+            grid.attach(self.cmb_mode, 1, 2, 2, 1)
+
+            # --- status
+            self.status = Gtk.Label(label="Tekan \u201cSegarkan\u201d untuk mendeteksi scanner.", wrap=True)
+            self.status.set_halign(Gtk.Align.START)
+            grid.attach(self.status, 0, 3, 3, 1)
+
+            # --- tombol
+            box = Gtk.Box(spacing=8, halign=Gtk.Align.CENTER)
+            self.btn_refresh = Gtk.Button(label="Segarkan")
+            self.btn_scan = Gtk.Button(label="Pindai")
+            self.btn_pdf = Gtk.Button(label="Gabung jadi PDF")
+            self.btn_open = Gtk.Button(label="Buka Folder")
+            for b in (self.btn_refresh, self.btn_scan, self.btn_pdf, self.btn_open):
+                box.pack_start(b, False, False, 0)
+            grid.attach(box, 0, 4, 3, 1)
+            self.spinner = Gtk.Spinner()
+            grid.attach(self.spinner, 0, 5, 3, 1)
+
+            self.btn_refresh.connect("clicked", self.on_refresh)
+            self.btn_scan.connect("clicked", self.on_scan)
+            self.btn_pdf.connect("clicked", self.on_pdf)
+            self.btn_open.connect("clicked", lambda *_: open_folder(ensure_scan_dir()))
+
+            self.connect("destroy", Gtk.main_quit)
+            self.show_all()
+            self.on_refresh()
+
+        # ---------- util UI
+        def set_busy(self, busy, msg=None):
+            if busy:
+                self.spinner.start()
+            else:
+                self.spinner.stop()
+            self.btn_scan.set_sensitive(not busy)
+            self.btn_pdf.set_sensitive(not busy)
+            if msg:
+                self.status.set_text(msg)
+
+        # ---------- aksi
+        def on_refresh(self, *_):
+            self.set_busy(True, "Mendeteksi scanner...")
+            threading_refresh(self)
+
+        def refresh_done(self, devs):
+            self.devices = devs
+            self.cmb_dev.remove_all()
+            for name, desc in devs:
+                self.cmb_dev.append_text(desc[:70])
+            if devs:
+                # pilih pixma pertama
+                idx = 0
+                for i, (n, d) in enumerate(devs):
+                    if n.startswith("pixma:"):
+                        idx = i
+                        break
+                self.cmb_dev.set_active(idx)
+                self.set_busy(False, f"Scanner siap: {len(devs)} perangkat terdeteksi. Letakkan dokumen lalu tekan Pindai.")
+            else:
+                self.set_busy(False, "Scanner TIDAK terdeteksi.\nPastikan printer menyala & kabel USB terpasang, lalu Segarkan lagi.")
+
+        def on_scan(self, *_):
+            idx = self.cmb_dev.get_active()
+            if idx < 0 or idx >= len(self.devices):
+                self.status.set_text("Pilih perangkat dulu (Segarkan).")
+                return
+            dev = self.devices[idx][0]
+            res = RESOLUTIONS[self.cmb_res.get_active()] if self.cmb_res.get_active() >= 0 else "300"
+            mode = MODES[self.cmb_mode.get_active()][0] if self.cmb_mode.get_active() >= 0 else "Color"
+            ensure_scan_dir()
+            ts = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+            out = os.path.join(SCAN_DIR, f"scan-{ts}.png")
+            self.set_busy(True, f"Memindai {res} dpi, mode {mode} ... jangan angkat tutup printer.")
+            threading_scan(self, dev, res, mode, out)
+
+        def scan_done(self, outfile, err=None):
+            if err:
+                hint = human_hint(err)
+                self.set_busy(False, "Gagal memindai: " + err + (("\n" + hint) if hint else ""))
+                return
+            self.session_scans.append(outfile)
+            self.set_busy(False, f"Selesai: {outfile}\nTotal halaman sesi ini: {len(self.session_scans)} "
+                                 f"(Gabung jadi PDF bila perlu).")
+
+        def on_pdf(self, *_):
+            if not self.session_scans:
+                self.status.set_text("Belum ada hasil scan di sesi ini.")
+                return
+            ts = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+            out = os.path.join(SCAN_DIR, f"scan-{ts}.pdf")
+            try:
+                merge_pdf(self.session_scans, out)
+                self.status.set_text(f"PDF tersimpan: {out}")
+            except Exception as e:
+                self.status.set_text(str(e))
+
+    # ---------- thread glue
+    def threading_refresh(app):
+        import threading
+        def job():
+            try:
+                devs = discover_devices()
+            except Exception as e:
+                devs, err = [], str(e)
+                GLib.idle_add(app.refresh_done, devs)
+                return
+            GLib.idle_add(app.refresh_done, devs)
+        threading.Thread(target=job, daemon=True).start()
+
+    def threading_scan(app, dev, res, mode, out):
+        import threading
+        def job():
+            try:
+                path = run_scan(dev, res, mode, out)
+                GLib.idle_add(app.scan_done, path, None)
+            except Exception as e:
+                GLib.idle_add(app.scan_done, None, str(e))
+        threading.Thread(target=job, daemon=True).start()
+
+    App()
+    Gtk.main()
+
+
+# ---------------------------------------------------------------- CLI
+def run_cli(argv):
+    res, mode, out = "300", "Color", None
+    i = 0
+    while i < len(argv):
+        a = argv[i]
+        if a == "--res":
+            res = argv[i + 1]; i += 2
+        elif a == "--mode":
+            mode = argv[i + 1]; i += 2
+        elif a == "--out":
+            out = argv[i + 1]; i += 2
+        else:
+            i += 1
+    devs = discover_devices()
+    if not devs:
+        print("Scanner tidak terdeteksi (scanimage -L kosong)."); return 2
+    dev, desc = pick_device(devs)
+    ensure_scan_dir()
+    if not out:
+        ts = datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+        out = os.path.join(SCAN_DIR, f"scan-{ts}.png")
+    print(f"Pindai {desc} @ {res} dpi ({mode}) ...")
+    path = run_scan(dev, res, mode, out)
+    print("Tersimpan:", path)
+    return 0
+
+
+def main():
+    argv = sys.argv[1:]
+    if "--cli" in argv:
+        sys.exit(run_cli([a for a in argv if a != "--cli"]))
+    if not os.environ.get("DISPLAY") and not os.environ.get("WAYLAND_DISPLAY"):
+        print("Tidak ada tampilan GUI; pakai mode CLI: mg2500-scan --cli")
+        sys.exit(run_cli(argv))
+    run_gui()
+
+
+if __name__ == "__main__":
+    main()

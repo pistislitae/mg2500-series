@@ -1,0 +1,184 @@
+name: audit-dmg
+
+# Unduh DMG driver Mac Canon MG2500, ekstrak penuh (DMG -> pkg -> pbzx -> cpio),
+# dan commit hasil audit (teks) ke branch ini agar bisa direview tanpa unduh ulang.
+on:
+  push:
+    branches:
+      - "**"
+    paths:
+      - ".github/workflows/audit-dmg.yml"
+      - "packaging/tools/pbzx.py"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: audit-dmg
+  cancel-in-progress: true
+
+env:
+  DMG_URL: "https://gdlp01.c-wss.com/gds/6/0100011526/06/mcpd-mac-mg2500-16_91_1_0-ea21_3.dmg"
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install extraction tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq p7zip-full 7zip xar cpio file binutils cpio || true
+          (7zz i 2>/dev/null || 7z i) | head -30 > /tmp/7z-info.txt || true
+
+      - name: Download DMG
+        run: |
+          mkdir -p /tmp/audit && cd /tmp/audit
+          curl -fL --retry 3 -o mg2500-mac.dmg "$DMG_URL"
+          ls -la mg2500-mac.dmg
+          sha256sum mg2500-mac.dmg | tee SHA256SUM.dmg
+
+      - name: Extract DMG + pkg + payload (semua lapisan)
+        run: |
+          cd /tmp/audit
+          {
+          echo "## 7z capability"; cat /tmp/7z-info.txt | head -5 || true
+          echo "## ekstrak DMG"
+          (7zz x -y -odmg_root mg2500-mac.dmg 2>&1 || 7z x -y -odmg_root mg2500-mac.dmg 2>&1) | tail -4
+          find dmg_root -maxdepth 3 | sed 's/^/  /'
+          echo "## cari & ekstrak .pkg (xar)"
+          find . -type f \( -name '*.pkg' -o -name '*.mpkg' \) -not -path './pkgs/*' -print > pkglist.txt
+          cat pkglist.txt
+          i=0
+          while read -r p; do
+            i=$((i+1)); d="pkgs/pkg$i"; mkdir -p "$d"
+            (7zz x -y -o"$d" "$p" 2>&1 || 7z x -y -o"$d" "$p" 2>&1 || xar -xf "$p" -C "$d" 2>&1) | tail -2
+            (cd "$d" && ls -la)
+          done < pkglist.txt
+          echo "## ekstrak Payload (pbzx/cpio/gz -> cpio)"
+          extract_payload() {
+            local pl="$1" dir fn
+            dir="$(dirname "$pl")"
+            fn="$(basename "$pl")"
+            ( cd "$dir" && {
+                file "$fn" || true
+                case "$(file -b "$fn")" in
+                  *pbzx*) python3 "$GITHUB_WORKSPACE/packaging/tools/pbzx.py" "$fn" 2>pbzx.err | cpio -idmu --no-absolute-filenames 2>>pbzx.err ;;
+                  *gzip*) zcat "$fn" | cpio -idmu --no-absolute-filenames 2>>pbzx.err ;;
+                  *cpio*) cpio -idmu --no-absolute-filenames < "$fn" 2>>pbzx.err ;;
+                  *) python3 "$GITHUB_WORKSPACE/packaging/tools/pbzx.py" "$fn" 2>pbzx.err | cpio -idmu --no-absolute-filenames 2>>pbzx.err || cpio -idmu --no-absolute-filenames < "$fn" 2>>pbzx.err ;;
+                esac
+                echo "== $dir =="; ls -la | head -30
+            } ) || true
+          }
+          find pkgs -type f \( -name 'Payload' -o -name 'Payload~' -o -name 'Scripts' -o -name 'Scripts~' \) | while read -r pl; do extract_payload "$pl"; done
+          echo "## cari pkg bersarang (lapis 2)"
+          find pkgs -type f \( -name '*.pkg' -o -name '*.mpkg' \) | while read -r p; do
+            d="${p%.pkg}_x"; mkdir -p "$d"
+            (7zz x -y -o"$d" "$p" 2>&1 || xar -xf "$p" -C "$d" 2>&1) | tail -1
+            find "$d" -type f \( -name 'Payload*' -o -name 'Scripts*' \) | while read -r pl; do extract_payload "$pl"; done
+          done
+          echo "## hasil akhir"
+          find pkgs dmg_root -maxdepth 5 -type d | head -120
+          } > "$GITHUB_WORKSPACE/docs/audit/dmg-extraction-report.txt" 2>&1 || true
+          tail -30 "$GITHUB_WORKSPACE/docs/audit/dmg-extraction-report.txt"
+
+      - name: Inventory lengkap
+        run: |
+          OUT="$GITHUB_WORKSPACE/docs/audit"
+          mkdir -p "$OUT/dmg/plists"
+          cd /tmp/audit
+          find dmg_root pkgs -type f -printf '%10s  %p\n' 2>/dev/null | sort -k2 > "$OUT/dmg/filelist.txt"
+          wc -l "$OUT/dmg/filelist.txt" >> "$OUT/dmg-extraction-report.txt"
+
+      - name: Dump plists (capability table / Info.plist)
+        continue-on-error: true
+        run: |
+          cd /tmp/audit
+          OUT="$GITHUB_WORKSPACE/docs/audit/dmg/plists"
+          mkdir -p "$OUT"
+          python3 - <<'EOF'
+          import os, plistlib, hashlib, re
+          out_root = os.environ.get('PLIST_OUT', os.path.join(os.environ['GITHUB_WORKSPACE'], 'docs/audit/dmg/plists'))
+          n = 0
+          for root, _, files in os.walk('/tmp/audit'):
+            for fn in files:
+              p = os.path.join(root, fn)
+              low = fn.lower()
+              if low.endswith('.plist') or re.search(r'(cap|profile|setting|deviceinfo|quality|media)', low) and low.endswith(('.plist','.xml','.dat','.dict')):
+                try:
+                  pl = plistlib.loads(open(p,'rb').read())
+                  txt = plistlib.dumps(pl, fmt=plistlib.FMT_XML).decode()
+                  key = hashlib.sha1(p.encode()).hexdigest()[:10]
+                  with open(os.path.join(out_root, f"{fn}.{key}.txt"),'w') as f:
+                    f.write(f"# source: {p}\n\n{txt}")
+                  n += 1
+                except Exception:
+                  pass
+          print(f"plists converted: {n}")
+          EOF
+
+      - name: Grep marker capability (mediatype/quality/realtone/raster)
+        run: |
+          cd /tmp/audit
+          OUT="$GITHUB_WORKSPACE/docs/audit/dmg"
+          : > "$OUT/grep-hits.txt"
+          for pat in realtone 'real.?tone' glossygold glossypaper envelope mediatype CNQuality quality raster cupsfilter halftone dither ICC colormatch 'Digital Photo Color' vivid; do
+            echo "##### PATTERN: $pat" >> "$OUT/grep-hits.txt"
+            grep -rli --binary-files=text -E "$pat" dmg_root pkgs 2>/dev/null | head -50 >> "$OUT/grep-hits.txt" || true
+            echo "" >> "$OUT/grep-hits.txt"
+          done
+
+      - name: PPD mac bila ada
+        continue-on-error: true
+        run: |
+          cd /tmp/audit
+          OUT="$GITHUB_WORKSPACE/docs/audit/dmg"
+          find dmg_root pkgs -type f \( -name '*.ppd' -o -name '*.ppd.gz' \) -exec sh -c 'echo "##### {}"; zcat -f "{}" 2>/dev/null | head -500' \; > "$OUT/ppds.txt" 2>/dev/null || true
+          wc -l "$OUT/ppds.txt" || true
+
+      - name: Strings binary kunci (filter/raster engine/capability)
+        continue-on-error: true
+        run: |
+          cd /tmp/audit
+          OUT="$GITHUB_WORKSPACE/docs/audit/dmg"
+          mkdir -p "$OUT"
+          find dmg_root pkgs -type f -size +100k > binlist.txt || true
+          count=0
+          while read -r b; do
+            t=$(file -b "$b")
+            case "$t" in
+              *Mach-O*)
+                count=$((count+1))
+                [ $count -gt 40 ] && break
+                key=$(echo "$b" | sed 's#.*/##; s#[/ ]#_#g' | cut -c1-60)
+                { echo "## $b"; echo "## $t"; strings -n 8 "$b" | head -4000; } > "$OUT/strings__${key}.txt" ;;
+            esac
+          done < binlist.txt
+          du -sh "$OUT"
+
+      - name: Ringkasan
+        run: |
+          OUT="$GITHUB_WORKSPACE/docs/audit/dmg"
+          {
+            echo "# Raw audit — mcpd-mac-mg2500-16_91_1_0-ea21_3.dmg"
+            echo "- Audit: $(date -u '+%Y-%m-%d %H:%M UTC')"
+            echo "- SHA256 DMG: $(cut -d' ' -f1 /tmp/audit/SHA256SUM.dmg)"
+            echo "- File terekstrak: $(wc -l < "$OUT/filelist.txt")"
+            echo "- Plists: $(ls "$OUT/plists" 2>/dev/null | wc -l)"
+            echo "- Isi: filelist.txt, dmg-extraction-report.txt, plists/, grep-hits.txt, ppds.txt, strings__*.txt"
+          } > "$OUT/SUMMARY.md"
+          cat "$OUT/SUMMARY.md"
+
+      - name: Commit hasil audit
+        run: |
+          cd "$GITHUB_WORKSPACE"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/audit
+          if git diff --cached --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "audit(dmg): ekstraksi penuh + audit mcpd-mac-mg2500-16_91_1_0-ea21_3.dmg [skip ci]"
+          git push origin HEAD

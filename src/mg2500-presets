@@ -1,0 +1,117 @@
+#!/usr/bin/env bash
+# mg2500-presets — preset cetak pintar tinta untuk Canon MG2500 series (MG2570S)
+#
+# Semua kombinasi di bawah sudah divalidasi terhadap matriks resmi Canon
+# (lproptions-mg2500-4.00EN.txt): kombinasi MediaType x CNQuality yang sah:
+#   plain       : 2, 3, 4
+#   envelope    : 2, 3
+#   glossypaper : 2, 3
+#   glossygold  : 1, 2, 3   <- satu-satunya jalur quality 1 (High)
+#
+# Pemakaian:  mg2500-presets <nama-preset> [antrean]
+#             mg2500-presets list
+#             mg2500-presets show [antrean]
+set -euo pipefail
+
+find_queue() {
+  local q
+  # 1) eksplisit: argumen / env
+  if [[ -n "${2:-}" ]]; then echo "$2"; return; fi
+  if [[ -n "${MG2500_QUEUE:-}" ]]; then echo "$MG2500_QUEUE"; return; fi
+  # 2) antrean yang PPD-nya canonmg2500
+  for q in $(lpstat -p 2>/dev/null | awk '{print $2}'); do
+    if lpoptions -p "$q" 2>/dev/null | grep -qi 'cnquality'; then echo "$q"; return; fi
+  done
+  # 3) antrean default
+  q="$(lpstat -d 2>/dev/null | awk -F': ' '/system default/{print $2}')"
+  [[ -n "$q" && "$q" != "no system default destination" ]] && { echo "$q"; return; }
+  echo ""
+}
+
+apply() {
+  local queue="$1"; shift
+  if [[ $EUID -eq 0 ]]; then
+    lpoptions -p "$queue" "$@"
+  else
+    lpoptions -p "$queue" "$@"
+  fi
+}
+
+preset_text_draft()    { # paling hemat: draf hitam-putih (hanya catridge hitam)
+  apply "$@" -o MediaType=plain -o CNQuality=4 -o CNGrayscale=True -o CNInkCartridgeSettings=bk \
+             -o CNDensity=0 -o CNContrast=0 -o CNGamma=1.8 -o CNBalanceC=0 -o CNBalanceM=0 -o CNBalanceY=0
+}
+preset_text_standard() { # dokumen sehari-hari: rapi, normal
+  apply "$@" -o MediaType=plain -o CNQuality=3 -o CNGrayscale=False -o CNInkCartridgeSettings=bkcolor \
+             -o CNDensity=0 -o CNContrast=0 -o CNGamma=1.8 -o CNBalanceC=0 -o CNBalanceM=0 -o CNBalanceY=0
+}
+preset_text_bw()       { # dokumen final hitam-putih (hemat tinta warna, kualitas normal)
+  apply "$@" -o MediaType=plain -o CNQuality=3 -o CNGrayscale=True -o CNInkCartridgeSettings=bk \
+             -o CNDensity=0 -o CNContrast=0 -o CNGamma=1.8 -o CNBalanceC=0 -o CNBalanceM=0 -o CNBalanceY=0
+}
+preset_photo_realtone(){ # FOTO MAKSIMAL + warna natural ("realtone"): Photo Paper Plus Glossy II + High
+  apply "$@" -o MediaType=glossygold -o CNQuality=1 -o CNGrayscale=False -o CNInkCartridgeSettings=bkcolor \
+             -o CNDensity=-3 -o CNContrast=5 -o CNGamma=1.8 -o CNBalanceC=0 -o CNBalanceM=0 -o CNBalanceY=0
+}
+preset_photo_standard(){ # foto rutin di kertas glossy
+  apply "$@" -o MediaType=glossypaper -o CNQuality=2 -o CNGrayscale=False -o CNInkCartridgeSettings=bkcolor \
+             -o CNDensity=0 -o CNContrast=0 -o CNGamma=1.8 -o CNBalanceC=0 -o CNBalanceM=0 -o CNBalanceY=0
+}
+preset_photo_inksave() { # foto di kertas biasa, tinta hemat
+  apply "$@" -o MediaType=plain -o CNQuality=2 -o CNGrayscale=False -o CNInkCartridgeSettings=bkcolor \
+             -o CNDensity=-10 -o CNContrast=3 -o CNGamma=1.8 -o CNBalanceC=0 -o CNBalanceM=0 -o CNBalanceY=0
+}
+preset_reset() { # kembali ke default PPD Canon
+  apply "$@" -o MediaType=plain -o CNQuality=3 -o CNGrayscale=False -o CNInkCartridgeSettings=bkcolor \
+             -o CNDensity=0 -o CNContrast=0 -o CNGamma=1.8 -o CNBalanceC=0 -o CNBalanceM=0 -o CNBalanceY=0
+}
+
+usage() {
+  cat <<'EOF'
+mg2500-presets — preset cetak Canon MG2500 series (MG2570S)
+
+Pemakaian:
+  mg2500-presets <preset> [antrean]
+  mg2500-presets list
+  mg2500-presets show [antrean]
+
+Preset:
+  text-draft      Hemat maksimal — draf B/W di kertas biasa (quality 4, hitam saja)
+  text-standard   Dokumen harian kertas biasa (quality 3, warna otomatis)
+  text-bw         Dokumen final hitam-putih, hemat tinta warna (quality 3)
+  photo-realtone  FOTO kualitas maksimal + tone natural (glossygold/PP-301, quality 1)
+  photo-standard  Foto rutin di Glossy Photo Paper (quality 2)
+  photo-inksave   Foto di kertas biasa, tinta lebih irit (quality 2, density -10)
+  reset           Kembalikan ke default PPD Canon
+
+Catatan:
+- Dijalankan sebagai user  -> default untuk user (lpoptions user)
+- Dijalankan sebagai root  -> default sistem (/etc/cups/lpoptions)
+- Kombinasi media x quality mengikuti matriks resmi Canon; preset ini
+  sudah memastikan kombinasi yang sah (quality 1 hanya untuk glossygold).
+EOF
+}
+
+main() {
+  local cmd="${1:-}"; shift || true
+  case "$cmd" in
+    list) usage; exit 0 ;;
+    show)
+      local q; q="$(find_queue "$@")"
+      [[ -z "$q" ]] && { echo "Antrean MG2500 tidak ditemukan. Pasang dulu: sudo mg2500-setup"; exit 1; }
+      echo "Antrean: $q"; lpoptions -p "$q" | tr ' ' '\n' | grep -E '^(MediaType|CNQuality|CNGrayscale|CNInkCartridgeSettings|CNDensity|CNContrast|CNGamma|CNBalance[CMY])=' | sort
+      ;;
+    text-draft|text-standard|text-bw|photo-realtone|photo-standard|photo-inksave|reset)
+      local q; q="$(find_queue "$@")"
+      [[ -z "$q" ]] && { echo "Antrean MG2500 tidak ditemukan. Pasang dulu: sudo mg2500-setup"; exit 1; }
+      "preset_${cmd//-/_}" "$q"
+      scope="user"; [[ $EUID -eq 0 ]] && scope="sistem"
+      echo "Preset '$cmd' diterapkan ke antrean '$q' (scope: $scope)."
+      echo "Aktif sekarang:"; mg2500-presets show "$q"
+      ;;
+    -h|--help|"" ) usage ;;
+    *) echo "Preset tidak dikenal: $cmd"; usage; exit 1 ;;
+  esac
+}
+
+main "$@"

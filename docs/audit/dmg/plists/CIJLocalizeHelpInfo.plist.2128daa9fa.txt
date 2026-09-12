@@ -1,0 +1,23 @@
+# source: /tmp/audit/pkgs/pkg1/Library/Printers/Canon/BJPrinter/Utilities/CanonIJPrinterUtility.app/Contents/Resources/CIJLocalizeHelpInfo.plist
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Help</key>
+	<dict>
+		<key>BtnOK</key>
+		<dict>
+			<key>LocalizeKey</key>
+			<dict>
+				<key>DEFAULT</key>
+				<string>OKButton_DEFAULT</string>
+			</dict>
+		</dict>
+		<key>HelpInformation</key>
+		<string>HelpInformation_DEFAULT</string>
+		<key>HelpMessage</key>
+		<string>HelpMessage_DEFAULT</string>
+	</dict>
+</dict>
+</plist>

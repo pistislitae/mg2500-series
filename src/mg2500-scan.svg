@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <rect x="4" y="4" width="56" height="56" rx="12" fill="#1a73e8"/>
+  <!-- dokumen masuk -->
+  <rect x="18" y="10" width="28" height="20" rx="2" fill="#ffffff"/>
+  <rect x="22" y="14" width="20" height="2.5" rx="1.2" fill="#9aa0a6"/>
+  <rect x="22" y="19" width="20" height="2.5" rx="1.2" fill="#9aa0a6"/>
+  <rect x="22" y="24" width="12" height="2.5" rx="1.2" fill="#9aa0a6"/>
+  <!-- badan scanner -->
+  <rect x="12" y="32" width="40" height="18" rx="4" fill="#ffffff" opacity="0.95"/>
+  <!-- garis lampu pindai -->
+  <rect x="16" y="38" width="32" height="3" rx="1.5" fill="#34a853"/>
+  <circle cx="46" cy="45" r="2.5" fill="#1a73e8"/>
+  <!-- kaki -->
+  <rect x="16" y="50" width="6" height="4" rx="2" fill="#0b47a1"/>
+  <rect x="42" y="50" width="6" height="4" rx="2" fill="#0b47a1"/>
+</svg>

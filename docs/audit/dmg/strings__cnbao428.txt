@@ -1,0 +1,311 @@
+## pkgs/pkg1/Library/Printers/Canon/BJPrinter/Plugins/BJOutputModule/cnbao428.plugin/Contents/MacOS/cnbao428
+## Mach-O universal binary with 2 architectures: [x86_64:\012- Mach-O 64-bit x86_64 bundle, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL>] [\012- arm64:\012- Mach-O 64-bit arm64 bundle, flags:<NOUNDEFS|DYLDLINK|TWOLEVEL>]
+__stub_helper
+__cstring
+__unwind_info
+__DATA_CONST
+__DATA_CONST
+__DATA_CONST
+__cfstring
+__DATA_CONST
+__la_symbol_ptr
+__LINKEDIT
+/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+/usr/lib/libSystem.B.dylib
+AWAVAUATSH
+[A\A]A^A_]
+jFAUAUAUAUAUAUh
+AWAVAUATSPfA
+[A\A]A^A_]
+AWAVAUATSI
+[A\A]A^A_]
+AWAVAUATSPL
+[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVAUATSH
+fE9$^u5Hk
+[A\A]A^A_]
+AWAVAUATSH
+([A\A]A^A_]
+AWAVATSH
+[A\A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVAUATSH
+X[A\A]A^A_]
+AWAVAUATSH
+H[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVAUATSPH
+[A\A]A^A_]
+AWAVAUATSPL
+[A\A]A^A_]
+AWAVAUATSH
+8[A\A]A^A_]
+AWAVSPfA
+0B306CEC-A967-11D4-8CE3-003065449C3A
+2BC67428-AA48-11D4-B64E-003065449C3A
+10499BFE-A967-11D4-A55B-003065449C3A
+2E65E31C-16E5-11D7-8D46-00039369043A
+4CAF140B-F15E-11DA-8FDA-000D9378BF04
+WARRIORS_BJOUTPUT_1.00.01.002
+WARRIORS_BJVS_1.71.01.001
+WARRIORS_BJPARM_4.35.01.001
+@___CFConstantStringClassReference
+@_kCFAllocatorSystemDefault
+@___stack_chk_guard
+@dyld_stub_binder
+@_CFEqual
+@_CFPlugInAddInstanceForFactory
+@_CFPlugInRemoveInstanceForFactory
+@_CFRelease
+@_CFRetain
+@_CFUUIDCreateFromString
+@_CFUUIDCreateFromUUIDBytes
+@_CFUUIDGetConstantUUIDWithBytes
+@___stack_chk_fail
+@_calloc
+@_malloc
+_BJOutputPlugInFactory
+_BJOutputPlugInFactory
+_CFEqual
+_CFPlugInAddInstanceForFactory
+_CFPlugInRemoveInstanceForFactory
+_CFRelease
+_CFRetain
+_CFUUIDCreateFromString
+_CFUUIDCreateFromUUIDBytes
+_CFUUIDGetConstantUUIDWithBytes
+___CFConstantStringClassReference
+___stack_chk_fail
+___stack_chk_guard
+_kCFAllocatorSystemDefault
+dyld_stub_binder
+radr://5614542
+jp.co.canon.bsd.bjoutput428
+XE2XNRRXZ5
+jp.co.canon.bsd.bjoutput428
+subject.OU
+XE2XNRRXZ5
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120201221215Z
+270201221215Z0y1-0+
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+)xEii`k_
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+200803051541Z
+250804051541Z0
+XE2XNRRXZ51:08
+1Developer ID Application: Canon Inc. (XE2XNRRXZ5)1
+XE2XNRRXZ51
+Canon Inc.1
+$http://ocsp.apple.com/ocsp03-devid080
+)http://www.apple.com/certificateauthority0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+20120416000000Z0
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210819062246Z0/
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<key>cdhashes</key>
+	<array>
+		<data>
+		axgsL5weFpfgSqRprcd1pmZXrlQ=
+		</data>
+	</array>
+</plist>
+	}Rqdr0d
+20210819062247Z0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210818183501Z
+210929183500Z0B1
+Timestamp Signer RNO21
+Apple Inc.1
+http://www.apple.com/appleca0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+"http://crl.apple.com/timestamp.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120405120244Z
+270405120244Z0|100.
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210819062247Z0#
+__stub_helper
+__cstring
+__unwind_info
+__DATA_CONST
+__DATA_CONST
+__DATA_CONST
+__cfstring
+__DATA_CONST
+__la_symbol_ptr
+__LINKEDIT
+/System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+/usr/lib/libSystem.B.dylib
+){|x?!:k
+0B306CEC-A967-11D4-8CE3-003065449C3A
+2BC67428-AA48-11D4-B64E-003065449C3A
+10499BFE-A967-11D4-A55B-003065449C3A
+2E65E31C-16E5-11D7-8D46-00039369043A
+4CAF140B-F15E-11DA-8FDA-000D9378BF04
+WARRIORS_BJOUTPUT_1.00.01.002
+WARRIORS_BJVS_1.71.01.001
+WARRIORS_BJPARM_4.35.01.001
+@___CFConstantStringClassReference
+@_kCFAllocatorSystemDefault
+@___stack_chk_guard
+@dyld_stub_binder
+@_CFEqual
+@_CFPlugInAddInstanceForFactory
+@_CFPlugInRemoveInstanceForFactory
+@_CFRelease
+@_CFRetain
+@_CFUUIDCreateFromString
+@_CFUUIDCreateFromUUIDBytes
+@_CFUUIDGetConstantUUIDWithBytes
+@___stack_chk_fail
+@_calloc
+@_malloc
+_BJOutputPlugInFactory
+_BJOutputPlugInFactory
+_CFEqual
+_CFPlugInAddInstanceForFactory
+_CFPlugInRemoveInstanceForFactory
+_CFRelease
+_CFRetain
+_CFUUIDCreateFromString
+_CFUUIDCreateFromUUIDBytes
+_CFUUIDGetConstantUUIDWithBytes
+___CFConstantStringClassReference
+___stack_chk_fail
+___stack_chk_guard
+_kCFAllocatorSystemDefault
+dyld_stub_binder
+radr://5614542
+jp.co.canon.bsd.bjoutput428
+XE2XNRRXZ5
+jp.co.canon.bsd.bjoutput428
+subject.OU
+XE2XNRRXZ5
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120201221215Z
+270201221215Z0y1-0+
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+)xEii`k_
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+200803051541Z
+250804051541Z0
+XE2XNRRXZ51:08
+1Developer ID Application: Canon Inc. (XE2XNRRXZ5)1
+XE2XNRRXZ51
+Canon Inc.1
+$http://ocsp.apple.com/ocsp03-devid080
+)http://www.apple.com/certificateauthority0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+20120416000000Z0
+$Developer ID Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210819062247Z0/
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<key>cdhashes</key>
+	<array>
+		<data>
+		x9K/Vp8fQyD1Q2PV1w2Dz/DcczA=
+		</data>
+	</array>
+</plist>
+20210819062247Z0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210818184003Z
+210929184002Z0B1
+Timestamp Signer RNO11
+Apple Inc.1
+http://www.apple.com/appleca0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+"http://crl.apple.com/timestamp.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+120405120244Z
+270405120244Z0|100.
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+http://crl.apple.com/root.crl0
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+060425214036Z
+350209214036Z0b1
+Apple Inc.1&0$
+Apple Certification Authority1
+Apple Root CA0
+https://www.apple.com/appleca/0
+Reliance on this certificate by any party assumes acceptance of the then applicable standard terms and conditions of use, certificate policy and certification practice statements.0
+'Apple Timestamp Certification Authority1&0$
+Apple Certification Authority1
+Apple Inc.1
+210819062247Z0#
