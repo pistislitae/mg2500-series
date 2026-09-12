@@ -1,0 +1,369 @@
+==> [1/7] Unduh & verifikasi packagearchive resmi Canon
+  % Total    % Received % Xferd  Average Speed  Time    Time    Time   Current
+                                 Dload  Upload  Total   Spent   Left   Speed
+  0      0   0      0   0      0      0      0                              0100  1.45M 100  1.45M   0      0 14.39M      0                              0100  1.45M 100  1.45M   0      0 14.38M      0                              0100  1.45M 100  1.45M   0      0 14.37M      0                              0
+cnijfilter-mg2500series-4.00-1-rpm.tar.gz: OK
+388710d24632d791a80b626166f40c1e56261b5aa4d5432e7c057a54d7601141  cnijfilter-mg2500series-4.00-1-rpm.tar.gz
+==> [2/7] Ekstrak RPM x86_64 Canon
+packages dir: /tmp/mg2500-build/canon-arch/cnijfilter-mg2500series-4.00-1-rpm/packages
+total 1512
+drwxrwxr-x 2 500 500   4096 Jul 17  2013 .
+drwxrwxr-x 4 500 500   4096 Jul 17  2013 ..
+-rw-rw-r-- 1 500 500 188984 Jul 17  2013 cnijfilter-common-4.00-1.i386.rpm
+-rw-rw-r-- 1 500 500 215235 Jul 17  2013 cnijfilter-common-4.00-1.x86_64.rpm
+-rw-rw-r-- 1 500 500 544516 Jul 17  2013 cnijfilter-mg2500series-4.00-1.i386.rpm
+-rw-rw-r-- 1 500 500 584598 Jul 17  2013 cnijfilter-mg2500series-4.00-1.x86_64.rpm
+1409 blocks
+2537 blocks
+--- manifest canon-common:
+./etc/udev/rules.d/81-canonij_prn.rules
+./usr/lib/cups/backend/cnijbe
+./usr/lib/cups/backend/cnijnet
+./usr/lib/cups/backend/cnijusb
+./usr/lib/cups/filter/cmdtocanonij
+./usr/lib/cups/filter/pstocanonij
+./usr/lib64/bjlib/cnnet.ini
+./usr/lib64/cups/backend/cnijbe
+./usr/lib64/cups/backend/cnijnet
+./usr/lib64/cups/backend/cnijusb
+./usr/lib64/cups/filter/cmdtocanonij
+./usr/lib64/cups/filter/pstocanonij
+./usr/lib64/libcnbpcnclapicom.so.4.0.0
+./usr/lib64/libcnnet.so.1.2.2
+./usr/local/bin/cngpij
+./usr/local/bin/cngpijmnt
+./usr/local/bin/cnijlgmon2
+./usr/local/bin/cnijnetprn
+./usr/local/bin/cnijnpr
+./usr/local/share/cmdtocanonij/autoalign.utl
+./usr/local/share/cmdtocanonij/cleaning.utl
+./usr/local/share/cmdtocanonij/nozzlecheck.utl
+./usr/local/share/cnijlgmon2/cnb_cnijlgmon2.res
+./usr/local/share/locale/de/LC_MESSAGES/cnijlgmon2.mo
+./usr/local/share/locale/fr/LC_MESSAGES/cnijlgmon2.mo
+./usr/local/share/locale/ja/LC_MESSAGES/cnijlgmon2.mo
+./usr/local/share/locale/zh/LC_MESSAGES/cnijlgmon2.mo
+./usr/share/doc/cnijfilter-common-4.00/LICENSE-cnijfilter-4.00EN.txt
+./usr/share/doc/cnijfilter-common-4.00/LICENSE-cnijfilter-4.00FR.txt
+./usr/share/doc/cnijfilter-common-4.00/LICENSE-cnijfilter-4.00JP.txt
+./usr/share/doc/cnijfilter-common-4.00/LICENSE-cnijfilter-4.00SC.txt
+--- manifest canon-model:
+./usr/lib64/bjlib/cifmg2500.conf
+./usr/lib64/bjlib/cnb_4290.tbl
+./usr/lib64/bjlib/cnbpname429.tbl
+./usr/lib64/libcnbpcmcm429.so.8.20.1
+./usr/lib64/libcnbpcnclapi429.so.4.0.0
+./usr/lib64/libcnbpcnclbjcmd429.so.3.3.0
+./usr/lib64/libcnbpcnclui429.so.4.0.0
+./usr/lib64/libcnbpess429.so.4.3.1
+./usr/lib64/libcnbpo429.so.1.0.1
+./usr/local/bin/cifmg2500
+./usr/share/cups/model/canonmg2500.ppd
+./usr/share/doc/cnijfilter-mg2500series-4.00/LICENSE-cnijfilter-4.00EN.txt
+./usr/share/doc/cnijfilter-mg2500series-4.00/LICENSE-cnijfilter-4.00FR.txt
+./usr/share/doc/cnijfilter-mg2500series-4.00/LICENSE-cnijfilter-4.00JP.txt
+./usr/share/doc/cnijfilter-mg2500series-4.00/LICENSE-cnijfilter-4.00SC.txt
+./usr/share/doc/cnijfilter-mg2500series-4.00/lproptions-mg2500-4.00EN.txt
+./usr/share/doc/cnijfilter-mg2500series-4.00/lproptions-mg2500-4.00FR.txt
+./usr/share/doc/cnijfilter-mg2500series-4.00/lproptions-mg2500-4.00JP.txt
+./usr/share/doc/cnijfilter-mg2500series-4.00/lproptions-mg2500-4.00SC.txt
+==> [3/7] Patch kompatibilitas Fedora modern
+--- scanning DT_NEEDED libusb di semua binary upstream:
+    patch: /tmp/mg2500-build/stage/canon-common/usr/local/bin/cnijlgmon2
+--- DT_NEEDED cnijlgmon2 (/tmp/mg2500-build/stage/canon-common/usr/local/bin/cnijlgmon2):
+libusb-1.0.so.1
+--- cek: /tmp/mg2500-build/stage/canon-common/usr/lib/cups/filter/cmdtocanonij
+	libcups.so.2 => not found
+--- cek: /tmp/mg2500-build/stage/canon-common/usr/lib/cups/filter/pstocanonij
+	libcups.so.2 => not found
+--- cek: /tmp/mg2500-build/stage/canon-common/usr/lib/cups/backend/cnijbe
+	libcups.so.2 => not found
+--- cek: /tmp/mg2500-build/stage/canon-common/usr/lib/cups/backend/cnijnet
+	libcups.so.2 => not found
+--- cek: /tmp/mg2500-build/stage/canon-common/usr/lib/cups/backend/cnijusb
+	libcups.so.2 => not found
+==> [4/7] Salin glue (preset, setup, scan UI)
+==> [5/7] Template spec (LOCALE_FILES) & jaminan lisensi
+LOCF=[%{_datadir}/locale/*/LC_MESSAGES/cnijlgmon2.mo]
+==> [6/7] Tarball sumber + rpmbuild
+setting SOURCE_DATE_EPOCH=1789171200
+Executing(%mkbuilddir): /bin/sh -e /var/tmp/rpm-tmp.90A0kV
+Executing(%prep): /bin/sh -e /var/tmp/rpm-tmp.E6q1ef
++ umask 022
++ cd /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build
++ RPM_EC=0
+++ jobs -p
++ exit 0
+Executing(%install): /bin/sh -e /var/tmp/rpm-tmp.LKdKus
++ umask 022
++ cd /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build
++ '[' /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT '!=' / ']'
++ rm -rf /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT
+++ dirname /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT
++ mkdir -p /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build
++ mkdir /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT
++ CFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  '
++ export CFLAGS
++ CXXFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Werror=format-security -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer  '
++ export CXXFLAGS
++ FFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -I/usr/lib64/gfortran/modules  '
++ export FFLAGS
++ FCFLAGS='-O2 -flto=auto -ffat-lto-objects -fexceptions -g -grecord-gcc-switches -pipe -Wall -Wp,-U_FORTIFY_SOURCE,-D_FORTIFY_SOURCE=3 -Wp,-D_GLIBCXX_ASSERTIONS -specs=/usr/lib/rpm/redhat/redhat-hardened-cc1 -fstack-protector-strong -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -m64 -march=x86-64 -mtune=generic -fasynchronous-unwind-tables -fstack-clash-protection -fcf-protection -mtls-dialect=gnu2 -fno-omit-frame-pointer -mno-omit-leaf-frame-pointer -I/usr/lib64/gfortran/modules  '
++ export FCFLAGS
++ VALAFLAGS=-g
++ export VALAFLAGS
++ RUSTFLAGS='-Copt-level=3 -Cdebuginfo=2 -Ccodegen-units=1 -Cstrip=none -Cforce-frame-pointers=yes -Clink-arg=-specs=/usr/lib/rpm/redhat/redhat-package-notes --cap-lints=warn'
++ export RUSTFLAGS
++ LDFLAGS='-Wl,-z,relro -Wl,--as-needed  -Wl,-z,pack-relative-relocs -Wl,-z,now -specs=/usr/lib/rpm/redhat/redhat-hardened-ld -specs=/usr/lib/rpm/redhat/redhat-hardened-ld-errors -specs=/usr/lib/rpm/redhat/redhat-annobin-cc1  -Wl,--build-id=sha1 -specs=/usr/lib/rpm/redhat/redhat-package-notes  '
++ export LDFLAGS
++ LT_SYS_LIBRARY_PATH=/usr/lib64:
++ export LT_SYS_LIBRARY_PATH
++ CC=gcc
++ export CC
++ CXX=g++
++ export CXX
++ '[' -d canon-common ']'
++ '[' -d mg2500-series-1.0.1/canon-common ']'
++ mkdir -p mg2500-series-1.0.1
++ tar -xzf /tmp/mg2500-build/rpmbuild/SOURCES/mg2500-series-1.0.1.tar.gz -C mg2500-series-1.0.1
++ cd mg2500-series-1.0.1
++ BR=/tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT
++ mkdir -p /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr
++ cp -a canon-common/usr/. /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/
++ cp -a canon-model/usr/. /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/
++ '[' -d canon-common/etc/udev/rules.d ']'
++ mkdir -p /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib/udev/rules.d
++ cp -a canon-common/etc/udev/rules.d/. /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib/udev/rules.d/
++ mkdir -p /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/bin
++ '[' -d /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin ']'
++ for f in "$BR"/usr/local/bin/*
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cifmg2500 ']'
+++ basename /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cifmg2500
++ b=cifmg2500
++ mv /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cifmg2500 /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/bin/cifmg2500
++ for f in "$BR"/usr/local/bin/*
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cngpij ']'
+++ basename /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cngpij
++ b=cngpij
++ mv /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cngpij /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/bin/cngpij
++ for f in "$BR"/usr/local/bin/*
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cngpijmnt ']'
+++ basename /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cngpijmnt
++ b=cngpijmnt
++ mv /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cngpijmnt /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/bin/cngpijmnt
++ for f in "$BR"/usr/local/bin/*
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cnijlgmon2 ']'
+++ basename /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cnijlgmon2
++ b=cnijlgmon2
++ mv /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cnijlgmon2 /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/bin/cnijlgmon2
++ for f in "$BR"/usr/local/bin/*
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cnijnetprn ']'
+++ basename /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cnijnetprn
++ b=cnijnetprn
++ mv /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cnijnetprn /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/bin/cnijnetprn
++ for f in "$BR"/usr/local/bin/*
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cnijnpr ']'
+++ basename /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cnijnpr
++ b=cnijnpr
++ mv /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cnijnpr /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/bin/cnijnpr
++ rm -rf /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin
++ mkdir -p /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share
++ for d in cmdtocanonij cnijlgmon2 locale
++ '[' -d /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/share/cmdtocanonij ']'
++ '[' '!' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/cmdtocanonij ']'
++ mv /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/share/cmdtocanonij /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/cmdtocanonij
++ rm -rf /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/share/cmdtocanonij
++ for d in cmdtocanonij cnijlgmon2 locale
++ '[' -d /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/share/cnijlgmon2 ']'
++ '[' '!' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/cnijlgmon2 ']'
++ mv /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/share/cnijlgmon2 /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/cnijlgmon2
++ rm -rf /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/share/cnijlgmon2
++ for d in cmdtocanonij cnijlgmon2 locale
++ '[' -d /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/share/locale ']'
++ '[' '!' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/locale ']'
++ mv /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/share/locale /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/locale
++ rm -rf /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/share/locale
++ mkdir -p /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64
++ for f in "$BR/usr/lib"/lib*.so.*
++ '[' -e '/tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib/lib*.so.*' ']'
++ continue
++ for f in "$BR/usr/lib64"/lib*.so.*
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcmcm429.so.8.20.1 ']'
+++ basename /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcmcm429.so.8.20.1
++ base=libcnbpcmcm429.so.8.20.1
++ son=libcnbpcmcm429
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcmcm429.so ']'
++ ln -s libcnbpcmcm429.so.8.20.1 /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcmcm429.so
++ for f in "$BR/usr/lib64"/lib*.so.*
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcnclapi429.so.4.0.0 ']'
+++ basename /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcnclapi429.so.4.0.0
++ base=libcnbpcnclapi429.so.4.0.0
++ son=libcnbpcnclapi429
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcnclapi429.so ']'
++ ln -s libcnbpcnclapi429.so.4.0.0 /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcnclapi429.so
++ for f in "$BR/usr/lib64"/lib*.so.*
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcnclapicom.so.4.0.0 ']'
+++ basename /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcnclapicom.so.4.0.0
++ base=libcnbpcnclapicom.so.4.0.0
++ son=libcnbpcnclapicom
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcnclapicom.so ']'
++ ln -s libcnbpcnclapicom.so.4.0.0 /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcnclapicom.so
++ for f in "$BR/usr/lib64"/lib*.so.*
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcnclbjcmd429.so.3.3.0 ']'
+++ basename /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcnclbjcmd429.so.3.3.0
++ base=libcnbpcnclbjcmd429.so.3.3.0
++ son=libcnbpcnclbjcmd429
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcnclbjcmd429.so ']'
++ ln -s libcnbpcnclbjcmd429.so.3.3.0 /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcnclbjcmd429.so
++ for f in "$BR/usr/lib64"/lib*.so.*
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcnclui429.so.4.0.0 ']'
+++ basename /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcnclui429.so.4.0.0
++ base=libcnbpcnclui429.so.4.0.0
++ son=libcnbpcnclui429
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcnclui429.so ']'
++ ln -s libcnbpcnclui429.so.4.0.0 /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpcnclui429.so
++ for f in "$BR/usr/lib64"/lib*.so.*
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpess429.so.4.3.1 ']'
+++ basename /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpess429.so.4.3.1
++ base=libcnbpess429.so.4.3.1
++ son=libcnbpess429
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpess429.so ']'
++ ln -s libcnbpess429.so.4.3.1 /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpess429.so
++ for f in "$BR/usr/lib64"/lib*.so.*
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpo429.so.1.0.1 ']'
+++ basename /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpo429.so.1.0.1
++ base=libcnbpo429.so.1.0.1
++ son=libcnbpo429
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpo429.so ']'
++ ln -s libcnbpo429.so.1.0.1 /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnbpo429.so
++ for f in "$BR/usr/lib64"/lib*.so.*
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnnet.so.1.2.2 ']'
+++ basename /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnnet.so.1.2.2
++ base=libcnnet.so.1.2.2
++ son=libcnnet
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnnet.so ']'
++ ln -s libcnnet.so.1.2.2 /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/libcnnet.so
++ '[' -d /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/bjlib ']'
++ '[' '!' -d /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib/bjlib ']'
++ mkdir -p /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib
++ cp -a /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/bjlib /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib/bjlib
++ '[' -d /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib/bjlib ']'
++ '[' '!' -d /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/bjlib ']'
++ mkdir -p /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/share
++ for b in cngpij cngpijmnt cnijlgmon2 cnijnetprn cnijnpr cifmg2500
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/bin/cngpij ']'
++ ln -sf /usr/bin/cngpij /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cngpij
++ for b in cngpij cngpijmnt cnijlgmon2 cnijnetprn cnijnpr cifmg2500
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/bin/cngpijmnt ']'
++ ln -sf /usr/bin/cngpijmnt /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cngpijmnt
++ for b in cngpij cngpijmnt cnijlgmon2 cnijnetprn cnijnpr cifmg2500
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/bin/cnijlgmon2 ']'
++ ln -sf /usr/bin/cnijlgmon2 /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cnijlgmon2
++ for b in cngpij cngpijmnt cnijlgmon2 cnijnetprn cnijnpr cifmg2500
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/bin/cnijnetprn ']'
++ ln -sf /usr/bin/cnijnetprn /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cnijnetprn
++ for b in cngpij cngpijmnt cnijlgmon2 cnijnetprn cnijnpr cifmg2500
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/bin/cnijnpr ']'
++ ln -sf /usr/bin/cnijnpr /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cnijnpr
++ for b in cngpij cngpijmnt cnijlgmon2 cnijnetprn cnijnpr cifmg2500
++ '[' -e /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/bin/cifmg2500 ']'
++ ln -sf /usr/bin/cifmg2500 /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/bin/cifmg2500
++ for d in cmdtocanonij cnijlgmon2 locale
++ '[' -d /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/cmdtocanonij ']'
++ ln -sfn '../../%{_datadir#/usr/}/cmdtocanonij' /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/share/cmdtocanonij
++ for d in cmdtocanonij cnijlgmon2 locale
++ '[' -d /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/cnijlgmon2 ']'
++ ln -sfn '../../%{_datadir#/usr/}/cnijlgmon2' /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/share/cnijlgmon2
++ for d in cmdtocanonij cnijlgmon2 locale
++ '[' -d /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/locale ']'
++ ln -sfn '../../%{_datadir#/usr/}/locale' /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/share/locale
++ rm -rf /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/lib64/cups
++ rm -rf /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/doc/cnijfilter-common-4.00 /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/doc/cnijfilter-mg2500series-4.00
++ rm -rf /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/share/ppd
+++ find /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/local/share -name 'canonmg2500*.ppd*'
+++ head -1
++ PPDSRC=/tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/cups/model/canonmg2500.ppd
++ '[' -n /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/cups/model/canonmg2500.ppd ']'
++ mkdir -p /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/cups/model/canon
++ case "$PPDSRC" in
++ gzip -9c /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/cups/model/canonmg2500.ppd
++ rm -f /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/cups/model/canonmg2500.ppd
+++ dirname /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/cups/model/canonmg2500.ppd
++ rmdir --ignore-fail-on-non-empty /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/cups/model
++ install -pm0755 glue/mg2500-presets /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/bin/
++ install -pm0755 glue/mg2500-setup /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/bin/
++ install -pm0755 glue/mg2500-scan /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/bin/
++ mkdir -p /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/applications
++ install -pm0644 glue/mg2500-scan.desktop /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/applications/
++ mkdir -p /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/icons/hicolor/scalable/apps
++ install -pm0644 glue/mg2500-scan.svg /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/icons/hicolor/scalable/apps/
++ mkdir -p /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/doc/mg2500-series-1.0.1
++ find canon-common canon-model -name 'LICENSE-*.txt' -exec install -pm0644 '{}' /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/doc/mg2500-series-1.0.1/ ';'
++ find canon-model -name 'lproptions-*.txt' -exec install -pm0644 '{}' /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/doc/mg2500-series-1.0.1/ ';'
++ install -pm0644 glue/README-presets.md /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr/share/doc/mg2500-series-1.0.1/
++ /usr/lib/rpm/check-buildroot
++ /usr/lib/rpm/redhat/brp-ldconfig
++ COMPRESS='gzip -9 -n'
++ COMPRESS_EXT=.gz
++ /usr/lib/rpm/brp-compress
++ /usr/lib/rpm/brp-strip /usr/bin/strip
++ /usr/lib/rpm/brp-strip-comment-note /usr/bin/strip /usr/bin/objdump
++ /usr/lib/rpm/redhat/brp-strip-lto /usr/bin/strip
++ /usr/lib/rpm/check-rpaths
++ /usr/lib/rpm/redhat/brp-mangle-shebangs
+mangling shebang in /usr/bin/mg2500-scan from /usr/bin/env python3 to #!/usr/bin/python3
+mangling shebang in /usr/bin/mg2500-presets from /usr/bin/env bash to #!/usr/bin/bash
+mangling shebang in /usr/bin/mg2500-setup from /usr/bin/env bash to #!/usr/bin/bash
++ /usr/lib/rpm/brp-remove-la-files
++ /usr/lib/rpm/redhat/brp-python-rpm-in-distinfo
++ env /usr/lib/rpm/redhat/brp-python-bytecompile '' 1 0 -j4
++ /usr/lib/rpm/redhat/brp-python-hardlink
++ /usr/bin/add-det --brp -j4 /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT
+Scanned 37 directories and 68 files,
+    processed 1 inodes,
+    0 modified (0 replaced + 0 rewritten),
+    0 unsupported format, 0 errors
++ /usr/bin/linkdupes --brp /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT/usr
+Scanned 36 directories and 68 files,
+    considered 51 files, read 8 files, linked 4 files, 0 errors
+    sum of sizes of linked files: 260353 bytes
+Processing files: mg2500-series-1.0.1-1.x86_64
+warning: absolute symlink: /usr/local/bin/cifmg2500 -> /usr/bin/cifmg2500
+warning: absolute symlink: /usr/local/bin/cngpij -> /usr/bin/cngpij
+warning: absolute symlink: /usr/local/bin/cngpijmnt -> /usr/bin/cngpijmnt
+warning: absolute symlink: /usr/local/bin/cnijlgmon2 -> /usr/bin/cnijlgmon2
+warning: absolute symlink: /usr/local/bin/cnijnetprn -> /usr/bin/cnijnetprn
+warning: absolute symlink: /usr/local/bin/cnijnpr -> /usr/bin/cnijnpr
+Provides: application() application(mg2500-scan.desktop) libcnbpcmcm429.so()(64bit) libcnbpcnclapi429.so()(64bit) libcnbpcnclapicom.so()(64bit) libcnbpcnclbjcmd429.so()(64bit) libcnbpcnclui429.so()(64bit) libcnbpess429.so()(64bit) libcnbpo429.so()(64bit) libcnnet.so()(64bit) libcnnet.so(VERS_1.0)(64bit) mg2500-series = 1.0.1-1 mg2500-series(x86-64) = 1.0.1-1
+Requires(interp): /bin/sh
+Requires(rpmlib): rpmlib(CompressedFileNames) <= 3.0.4-1 rpmlib(FileDigests) <= 4.6.0-1 rpmlib(PartialHardlinkSets) <= 4.0.4-1 rpmlib(PayloadFilesHavePrefix) <= 4.0-1
+Requires(post): /bin/sh
+Requires: /usr/bin/bash /usr/bin/python3 libc.so.6()(64bit) libc.so.6(GLIBC_2.2.5)(64bit) libc.so.6(GLIBC_2.3)(64bit) libc.so.6(GLIBC_2.3.2)(64bit) libcnbpcmcm429.so()(64bit) libcnbpcnclapi429.so()(64bit) libcnbpcnclapicom.so()(64bit) libcnbpcnclbjcmd429.so()(64bit) libcnbpcnclui429.so()(64bit) libcnbpess429.so()(64bit) libcnbpo429.so()(64bit) libcnnet.so()(64bit) libcnnet.so(VERS_1.0)(64bit) libcups.so.2()(64bit) libdl.so.2()(64bit) libdl.so.2(GLIBC_2.2.5)(64bit) libm.so.6()(64bit) libpopt.so.0()(64bit) libpthread.so.0()(64bit) libpthread.so.0(GLIBC_2.2.5)(64bit) libusb-1.0.so.1()(64bit) libxml2.so.2()(64bit)
+Recommends: python3-pillow simple-scan
+Checking for unpackaged file(s): /usr/lib/rpm/check-files /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build/BUILDROOT
+Wrote: /tmp/mg2500-build/rpmbuild/RPMS/x86_64/mg2500-series-1.0.1-1.x86_64.rpm
+Executing(rmbuild): /bin/sh -e /var/tmp/rpm-tmp.YrlCDp
++ umask 022
++ cd /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build
++ test -d /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build
++ /usr/bin/chmod -Rf a+rX,u+w,g-w,o-w /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build
++ rm -rf /tmp/mg2500-build/rpmbuild/BUILD/mg2500-series-1.0.1-build
++ RPM_EC=0
+++ jobs -p
++ exit 0
+
+RPM build warnings:
+    absolute symlink: /usr/local/bin/cifmg2500 -> /usr/bin/cifmg2500
+    absolute symlink: /usr/local/bin/cngpij -> /usr/bin/cngpij
+    absolute symlink: /usr/local/bin/cngpijmnt -> /usr/bin/cngpijmnt
+    absolute symlink: /usr/local/bin/cnijlgmon2 -> /usr/bin/cnijlgmon2
+    absolute symlink: /usr/local/bin/cnijnetprn -> /usr/bin/cnijnetprn
+    absolute symlink: /usr/local/bin/cnijnpr -> /usr/bin/cnijnpr
+==> [7/7] Salin hasil
+'/tmp/mg2500-build/rpmbuild/RPMS/x86_64/mg2500-series-1.0.1-1.x86_64.rpm' -> '/__w/mg2500-series/mg2500-series/dist/mg2500-series-1.0.1-1.x86_64.rpm'
+SELESAI:
+total 636
+drwxr-xr-x 2 root root   4096 Sep 12 10:23 .
+drwxr-xr-x 8 1001 1001   4096 Sep 12 10:23 ..
+-rw-r--r-- 1 root root    101 Sep 12 10:23 SHA256SUMS
+-rw-r--r-- 1 root root 636869 Sep 12 10:23 mg2500-series-1.0.1-1.x86_64.rpm
