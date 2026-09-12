@@ -19,24 +19,31 @@ Compressed: 16127583
 Size:       56147456
 Compressed: 16153715
 total 54840
-drwxr-xr-x 2 runner runner     4096 Sep 12 03:51 .
-drwxr-xr-x 3 runner runner     4096 Sep 12 03:51 ..
+drwxr-xr-x 2 runner runner     4096 Sep 12 03:54 .
+drwxr-xr-x 3 runner runner     4096 Sep 12 03:54 ..
 -rw-r--r-- 1 runner runner 56147456 Apr 30 10:12 Payload~
 ## ekstrak Payload (pbzx/cpio/gz -> cpio)
-pkgs/pkg1/Payload~: cannot open `pkgs/pkg1/Payload~' (No such file or directory)
-/home/runner/work/_temp/a89b5cd5-91f9-400f-9fe0-9b56fd1eb20f.sh: line 26: pkgs/pkg1/Payload~: No such file or directory
+Payload~: ASCII cpio archive (pre-SVR4 or odc)
 == pkgs/pkg1 ==
-total 54844
-drwxr-xr-x 2 runner runner     4096 Sep 12 03:51 .
-drwxr-xr-x 3 runner runner     4096 Sep 12 03:51 ..
+total 54848
+drwxr-xr-x 3 runner runner     4096 Sep 12 03:54 .
+drwxr-xr-x 3 runner runner     4096 Sep 12 03:54 ..
+drwxr-xr-x 4 runner runner     4096 Sep 12 03:54 Library
 -rw-r--r-- 1 runner runner 56147456 Apr 30 10:12 Payload~
--rw-r--r-- 1 runner runner      424 Sep 12 03:51 pbzx.err
+-rw-r--r-- 1 runner runner       14 Sep 12 03:54 pbzx.err
 ## cari pkg bersarang (lapis 2)
 ## hasil akhir
 pkgs
 pkgs/pkg1
+pkgs/pkg1/Library
+pkgs/pkg1/Library/Printers
+pkgs/pkg1/Library/Printers/Canon
+pkgs/pkg1/Library/Printers/Canon/BJPrinter
+pkgs/pkg1/Library/Extensions
+pkgs/pkg1/Library/Extensions/BJUSBLoad.kext
+pkgs/pkg1/Library/Extensions/BJUSBLoad.kext/Contents
 dmg_root
 dmg_root/PrinterDriver_MG2500 series
 dmg_root/PrinterDriver_MG2500 series/.HFS+ Private Directory Data
 dmg_root/PrinterDriver_MG2500 series/[HFS+ Private Data]
-3 /home/runner/work/mg2500-series/mg2500-series/docs/audit/dmg/filelist.txt
+1455 /home/runner/work/mg2500-series/mg2500-series/docs/audit/dmg/filelist.txt
