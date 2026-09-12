@@ -60,13 +60,18 @@ Dirakit ulang dari packagearchive resmi Canon:
 Teks lisensi Canon ikut dipaketkan; hasil audit ada di docs/audit repo.
 
 %prep
-# ekstraksi manual (tanpa %autosetup; HINDARI pipe ke head: SIGPIPE + set -e)
-rm -rf %{name}-%{version}
-mkdir %{name}-%{version}
-tar -xzf %{SOURCE0} -C %{name}-%{version}
+# rpm >= 4.20 (Fedora 41+) otomatis mengekstrak Source0 ke builddir — kosongkan.
+# Untuk rpm lama, %install di bawah yang menangani ekstraksi.
 
 %install
-cd %{name}-%{version}
+# posisikan dir kerja ke sumber (kompatibel rpm 4.20 baru & rpm lama)
+if [ -d canon-common ]; then :;
+elif [ -d %{name}-%{version}/canon-common ]; then cd %{name}-%{version};
+else
+  mkdir -p %{name}-%{version}
+  tar -xzf %{SOURCE0} -C %{name}-%{version}
+  cd %{name}-%{version}
+fi
 BR=%{buildroot}
 
 # ---------- 1. Salin pohon usr/ Canon apa adanya ----------
