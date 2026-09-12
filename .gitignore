@@ -1,0 +1,4 @@
+dist/
+*.rpm
+*.tar.gz
+work/

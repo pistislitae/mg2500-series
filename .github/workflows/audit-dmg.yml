@@ -59,28 +59,27 @@ jobs:
             (xar -xf "$p" -C "$d" 2>&1 || 7zz x -y -o"$d" "$p" 2>&1 || 7z x -y -o"$d" "$p" 2>&1) | tail -2
             (cd "$d" && ls -la)
           done < pkglist.txt
-          echo "## ekstrak Payload (pbzx -> cpio)"
-          # lapis 1
-          find pkgs -type f \( -name 'Payload' -o -name 'Scripts' \) | while read -r pl; do
+          echo "## ekstrak Payload (pbzx/cpio/gz -> cpio)"
+          extract_payload() {
+            local pl="$1" dir
             dir="$(dirname "$pl")"
             ( cd "$dir" && {
-                file Payload
-                python3 "$GITHUB_WORKSPACE/packaging/tools/pbzx.py" "$pl" 2>pbzx.err | cpio -idmu --no-absolute-filenames 2>>pbzx.err
-                echo "== $dir =="; ls -la
+                file "$pl" || true
+                case "$(file -b "$pl")" in
+                  *pbzx*) python3 "$GITHUB_WORKSPACE/packaging/tools/pbzx.py" "$pl" 2>pbzx.err | cpio -idmu --no-absolute-filenames 2>>pbzx.err ;;
+                  *gzip*) zcat "$pl" | cpio -idmu --no-absolute-filenames 2>>pbzx.err ;;
+                  *cpio*) cpio -idmu --no-absolute-filenames < "$pl" 2>>pbzx.err ;;
+                  *) python3 "$GITHUB_WORKSPACE/packaging/tools/pbzx.py" "$pl" 2>pbzx.err | cpio -idmu --no-absolute-filenames 2>>pbzx.err || cpio -idmu --no-absolute-filenames < "$pl" 2>>pbzx.err ;;
+                esac
+                echo "== $dir =="; ls -la | head -20
             } ) || true
-          done
+          }
+          find pkgs -type f \( -name 'Payload' -o -name 'Payload~' -o -name 'Scripts' -o -name 'Scripts~' \) | while read -r pl; do extract_payload "$pl"; done
           echo "## cari pkg bersarang (lapis 2)"
           find pkgs -type f \( -name '*.pkg' -o -name '*.mpkg' \) | while read -r p; do
             d="${p%.pkg}_x"; mkdir -p "$d"
-            (xar -xf "$p" -C "$d" 2>&1 || 7zz x -y -o"$d" "$p" 2>&1) | tail -1
-            find "$d" -type f \( -name 'Payload' -o -name 'Scripts' \) | while read -r pl; do
-              dir="$(dirname "$pl")"
-              ( cd "$dir" && {
-                  file Payload
-                  python3 "$GITHUB_WORKSPACE/packaging/tools/pbzx.py" "$pl" 2>pbzx.err | cpio -idmu --no-absolute-filenames 2>>pbzx.err
-                  echo "== $dir =="; ls -la
-              } ) || true
-            done
+            (7zz x -y -o"$d" "$p" 2>&1 || xar -xf "$p" -C "$d" 2>&1) | tail -1
+            find "$d" -type f \( -name 'Payload*' -o -name 'Scripts*' \) | while read -r pl; do extract_payload "$pl"; done
           done
           echo "## hasil akhir"
           find pkgs dmg_root -maxdepth 5 -type d | head -120
