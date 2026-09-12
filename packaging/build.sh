@@ -6,31 +6,10 @@ set -uo pipefail
 REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 WORK="${TMPDIR:-/tmp}/mg2500-build"
 STAGE="$WORK/stage"
-LOG="$WORK/build-full.log"
+LOG="$REPO_ROOT/ci-build-log.txt"
 VERSION="$(sed -n 's/^Version:[[:space:]]*//p' "$REPO_ROOT/packaging/mg2500-series.spec" | head -1 | tr -d '[:space:]')"
 
-# Pada kegagalan: kumpulkan log lalu commit ke repo agar bisa dianalisis
-cleanup_fail() {
-  local code=$?
-  if [ $code -ne 0 ]; then
-    {
-      echo "build.sh gagal (exit $code) pada $(date -u '+%F %T')"
-      echo "=== ekor log ==="
-      tail -60 "$LOG" 2>/dev/null
-      echo "=== isi staging ==="
-      find "$STAGE" -type f 2>/dev/null | head -200
-    } > "$REPO_ROOT/ci-build-log.txt"
-    cd "$REPO_ROOT" || return
-    git config user.name "arena-ai-coding-agent[bot]"
-    git config user.email "arena-ai-coding-agent[bot]@users.noreply.github.com"
-    git add ci-build-log.txt || return
-    git commit -m "ci: log kegagalan build [skip ci]" || return
-    git pull --rebase origin "${GITHUB_REF_NAME:-arena/01a093b1-mg2500-series}" 2>/dev/null || true
-    git push origin HEAD 2>/dev/null || \
-      git push "https://x-access-token:${GITHUB_TOKEN:-}@github.com/${GITHUB_REPOSITORY:-pistislitae/mg2500-series}.git" HEAD || true
-  fi
-}
-trap cleanup_fail EXIT
+# Log gagal/sukses ditulis langsung ke workspace; CI step khusus yang commit.
 
 run_build() {
 set -e
